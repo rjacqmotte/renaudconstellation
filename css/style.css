@@ -69,8 +69,17 @@ a:hover {
   Convention: prefix `.l-` (l = layout)
   No BEM here — these are structural containers
 ============================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  background-color: var(--color-bg-canvas);
+  border-bottom: var(--border-width-1) solid var(--color-border-default);
+  min-height: 48px;
+}
+
 .l-main-container {
-  margin: var(--space-1);
+  padding: var(--space-4) var(--space-4) var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
@@ -86,25 +95,54 @@ a:hover {
 
 /* --- Hero --- */
 .hero {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
 .hero_image-container {
   width: 100%;
   overflow: hidden;
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-4);
+  max-height: 320px;
 }
 
 .hero_image {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
   display: block;
 }
 
+.hero_text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.hero_main-title {
+  font-size: var(--font-size-2xl);
+  line-height: var(--lh-snug);
+}
+
 .hero_sub-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--color-text-muted);
+}
+
+.hero_quote {
+  margin-top: var(--space-2);
+  padding-left: var(--space-4);
+  border-left: var(--border-width-3) solid var(--color-primary-400);
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-base);
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: var(--lh-relaxed);
 }
 
 
