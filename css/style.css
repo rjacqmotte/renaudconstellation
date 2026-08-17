@@ -52,9 +52,9 @@ label {
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
-  border-bottom: solid 2px transparent;
+  font-family: var(--font-family-text);
+  color: var(--color-link);
+  border-bottom: solid 2px var(--color-link);
   transition: border-color 0.3s ease-out;
 }
 
@@ -108,8 +108,23 @@ a:hover {
 }
 
 
+/* --- Services ---*/
+.services_gallery {
+  display:flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
 
+.services_item {
+  padding: var(--space-2);
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+}
 
+.services_item_nav {
+  line-height: var(--lh-loose);
+}
 
 /* ============================================================
   4. STATES (visual states)
