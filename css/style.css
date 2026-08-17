@@ -267,7 +267,7 @@ a:hover {
 .keys-info_icon {
   color: var(--color-link);
   width: var(--size-8);
-  heigth: var(--size-8);
+  height: var(--size-8);
   padding: var(--space-2) 0;
 }
 
