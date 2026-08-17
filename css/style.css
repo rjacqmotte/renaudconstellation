@@ -1,83 +1,4 @@
 /* ============================================================
-  0. VARIABLES
-  ------------------------------------------------------------
-  Colors, sizes, spacing, fonts, etc.
-  Using :root to make them accessible everywhere.
-============================================================ */
-
-:root {
-  /* COLOR ----------- */
-  
-  --color-grey15: hsl(0deg 0% 15%);
-  --color-grey25: hsl(0deg 0% 25%);
-  --color-grey33: hsl(0deg 0% 33%);
-  --color-grey50: hsl(0deg 0% 50%);
-  --color-grey66: hsl(0deg 0% 66%);
-  --color-grey75: hsl(0deg 0% 75%);
-  --color-grey85: hsl(0deg 0% 85%);
-  --color-grey95: hsl(0deg 0% 95%);
-
-  
-
-  /* base */
-  --color-primary: hsl(40deg 20% 94%);
-  --color-secondary: var(--color-grey75);
-  --color-text: var(--color-grey15);
-  --color-text-secondary: var(--color-grey75);
-  --color-bg: hsl(40deg 20% 94%);
-  --color-bg-secondary: var(--color-grey15);
-
-  --color-interactive-light: hsl(275, 34%, 78%);
-  --color-interactive: hsl(275, 29%, 57%);
-  --color-interactive-active:  hsl(278, 31%, 43%);
-  
-  /* button */
-  --color-border-button: var(--color-grey33);
-  --color-border-button-hover: var(--color-grey50);
-  --color-background-button: var(--color-grey95);
-  --color-background-button-hover: var(--color-interactive);
-
-  /* button modern */
-  --color-button--modern: var(--color-grey33);
-  --color-button--modern-hover: var(--color-primary);
-  --color-background-button--modern: transparent;
-  --color-background-button--modern-hover: var(--color-text);
-  --color-border-button-modern: var(--color-grey66);
-  --color-border-button-modern-hover: var(--color-text);
-
-  /* button outlined */
-  --color-background-button--outlined: transparent;
-  --color-background-button--outlined-hover: var(--color-grey85);
-  --color-border-button--outlined: var(--color-grey33);
-
-  /* button text */
-  --color-button--text: var(--color-grey33);
-  --color-background-button--text: transparent;
-
-  /* TYPO ----------- */
-  /* base */
-  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
-    sans-serif;
-  --font-size-base: 1rem;
-  --font-size-h1: 1.75rem;
-  --font-size-h2: 1.3rem;
-  --font-size-h3: 1.25rem;
-  --font-size-p: 1rem;
-  --font-size-i: 1.5rem;
-
-  /* Espacements */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 4rem;
-
-  /* Border-radius */
-  --radius: 8px;
-  --radius-rond:9999px;
-}
-
-/* ============================================================
   1. BASE
   ------------------------------------------------------------
   These are "reset" styles, fonts, global colors,
@@ -94,33 +15,37 @@ html {
 }
 
 body {
-  font-family: var(--font-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-family: var(--font-family-text);
+  color: var(--color-text-default);
+  background-color: var(--color-bg-canvas);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-header);
 }
 
 h1 {
-  font-size: var(--font-size-h1);
-  line-height: 1.2;
-  font-weight: 400;
+  font-size: var(--font-size-3xl);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-regular);
 }
 
 h2 {
-  font-size: var(--font-size-h2);
-  line-height: 1.3;
-  font-weight: 400;
+  font-size: var(--font-size-2xl);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-regular);
 }
 
 h3 {
-  font-size: var(--font-size-h3);
-  line-height: 1.4;
-  font-weight: 700;
+  font-size: var(--font-size-xl);
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-bold);
 }
 
 p,
 label {
-  font-size: var(--font-size-p);
-  line-height: 1.5;
+  font-size: var(--font-size-base);
+  line-height: var(--lh-normal);
 }
 
 a {
@@ -131,107 +56,7 @@ a {
 }
 
 a:hover {
-  border-bottom: solid 2px var(--color-interactive);
-}
-
-.social-media__list a:hover {
-  border-bottom: solid 2px transparent;
-}
-
-form * {
-  font-family: var(--font-base);
-  line-height: 1.5;
-}
-
-input,
-textarea {
-  border: 1px solid var(--color-secondary);
-  border-radius: var(--radius);
-  font-family: inherit;
-  color: var(--color-secondary);
-}
-
-i {
-  font-size: var(--font-size-i);
-  color: var(--color-secondary);
-  transition: 
-    color 0.3s ease-out,
-    transform 0.3s ease-out;
-}
-
-i.fa-brands:hover,
-.gallery__info i.fa-solid:hover {
-  color: var(--color-interactive);
-  transform: translateY(-1px);
-}
-
-.leave-message i.fa-up-right-from-square {
-  display: inline;
-  color: var(--color-text);
-  font-size: 0.5rem;
-  margin: 0.3rem;
-  vertical-align: text-top;
-}
-
-.button--text:hover i.fa-up-right-from-square {
-  color: var(--color-interactive-active);
-}
-
-/* Small devices (≥321px) */
-@media (min-width: 321px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  h3 {
-    font-size: 1.375rem;
-  }
-}
-
-/* Tablets (≥768px) */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
-  p,
-  label {
-    font-size: 1.125rem;
-  }
-}
-
-/* Desktop (≥1024px) */
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2.25rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Large desktop (≥1440px) */
-@media (min-width: 1440px) {
-  h1 {
-    font-size: 3.5rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.875rem;
-  }
+  border-bottom: solid var(--border-width-2) var(--color-link-hover);
 }
 
 /* ============================================================

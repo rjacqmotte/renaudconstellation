@@ -202,6 +202,12 @@
   /************************************************************************/
   /* Semantic aliases */
   /********************/
+
+  /* font */
+  --font-family-header: 'Georgia', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  --font-family-text: 'Optima', 'Candara', 'Segoe UI', Calibri, sans-serif;
+
+  /* color */
   --color-bg-canvas: var(--color-primary-200);
   --color-bg-surface: var(--color-gray-100);
   --color-bg-elevated: var(--color-gray-50);
