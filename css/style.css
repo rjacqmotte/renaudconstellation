@@ -110,20 +110,71 @@ a:hover {
 
 /* --- Services ---*/
 .services_gallery {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  list-style: none;
 }
 
 .services_item {
-  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
   background-color: var(--color-bg-elevated);
-  border-radius: var(--radius-3);
-  box-shadow: var(--shadow-1);
+  border-radius: var(--radius-4);
+  border-left: var(--border-width-3) solid var(--color-primary-500);
+  box-shadow: var(--shadow-2);
+}
+
+.services_item_icon-wrapper {
+  color: var(--color-primary-600);
+}
+
+.services_item_icon-wrapper svg {
+  width: var(--size-6);
+  height: var(--size-6);
+}
+
+.services_item_content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.services_item_type {
+  font-size: var(--font-size-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-600);
+}
+
+.services_item_header {
+  font-size: var(--font-size-xl);
+  line-height: var(--lh-snug);
+  color: var(--color-text-default);
+}
+
+.services_item_description {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--lh-relaxed);
 }
 
 .services_item_nav {
-  line-height: var(--lh-loose);
+  align-self: flex-end;
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary-600);
+  border-bottom-color: transparent;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-bottom-color var(--duration-fast) var(--ease-out);
+}
+
+.services_item_nav:hover {
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-700);
 }
 
 /* --- About-me --- */
