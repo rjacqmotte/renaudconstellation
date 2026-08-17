@@ -733,7 +733,7 @@
   align-items: flex-start;
   padding-top: var(--space-2);
   border-top: var(--border-width-1) solid var(--color-border-default);
-  scroll-margin-top: 64px;
+  scroll-margin-top: 68px; /* header mobile (52px) + marge (16px) */
 }
 
 .how-section_label {

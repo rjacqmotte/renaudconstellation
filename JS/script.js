@@ -13,28 +13,31 @@
     }
   });
 
+  // --- Desktop : rien à faire pour le toggle ---
+  function isDesktop() {
+    return window.innerWidth >= 768;
+  }
+
   // --- Ouvre / ferme ---
   function openMenu() {
+    if (isDesktop()) return;
     toggle.classList.add('is-open');
     menu.classList.add('is-open');
-    overlay.classList.add('is-open');
+    if (overlay) overlay.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
-    overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-
-    // Focus sur le premier lien
     const firstLink = menu.querySelector('.mobile-menu_link');
     if (firstLink) firstLink.focus();
   }
 
   function closeMenu() {
+    if (isDesktop()) return;
     toggle.classList.remove('is-open');
     menu.classList.remove('is-open');
-    overlay.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
-    overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     toggle.focus();
   }
@@ -43,34 +46,41 @@
     return toggle.classList.contains('is-open');
   }
 
+  // --- Réinitialise à chaque redimensionnement ---
+  window.addEventListener('resize', () => {
+    if (isDesktop() && isOpen()) {
+      toggle.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      if (overlay) overlay.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'false'); // visible sur desktop
+      document.body.style.overflow = '';
+    }
+  });
+
   // --- Événements ---
   toggle.addEventListener('click', () => {
     isOpen() ? closeMenu() : openMenu();
   });
 
-  // Fermer en cliquant sur l'overlay
-  overlay.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
 
-  // Fermer en cliquant sur un lien du menu
   menu.querySelectorAll('.mobile-menu_link, .mobile-menu_btn').forEach(link => {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', () => {
+      if (!isDesktop()) closeMenu();
+    });
   });
 
-  // Fermer avec Échap
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && isOpen()) closeMenu();
+    if (e.key === 'Escape' && isOpen() && !isDesktop()) closeMenu();
   });
 
-  // Piège le focus dans le menu quand il est ouvert
+  // Trap focus (mobile uniquement)
   menu.addEventListener('keydown', e => {
-    if (e.key !== 'Tab' || !isOpen()) return;
-
-    const focusable = [...menu.querySelectorAll(
-      'a[href], button:not([disabled])'
-    )];
+    if (e.key !== 'Tab' || !isOpen() || isDesktop()) return;
+    const focusable = [...menu.querySelectorAll('a[href], button:not([disabled])')];
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
-
     if (e.shiftKey && document.activeElement === first) {
       e.preventDefault();
       last.focus();

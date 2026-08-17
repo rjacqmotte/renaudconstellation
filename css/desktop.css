@@ -1,0 +1,371 @@
+/* ============================================================
+  DESKTOP.CSS
+  Tous les styles responsive — breakpoint principal : 768px
+  Le site est mobile-first : ces règles s'appliquent en plus
+  sur tablette et desktop.
+============================================================ */
+
+@media (min-width: 768px) {
+
+  /* ==========================================================
+    LAYOUT GLOBAL
+  ========================================================== */
+
+  /* Container principal centré avec max-width */
+  .l-main-container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  /* La contact-banner mobile disparaît sur desktop */
+  .contact-banner {
+    display: none !important;
+  }
+
+  /* ==========================================================
+    HEADER & NAVIGATION DESKTOP
+  ========================================================== */
+
+  .site-header_inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    height: 60px;
+  }
+
+  /* Cacher le bouton hamburger */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Le menu mobile devient une nav horizontale */
+  .mobile-menu {
+    /* Annuler tous les styles du tiroir mobile */
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    background: none;
+    border: none;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .mobile-menu.is-open,
+  .mobile-menu {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .mobile-menu_list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0;
+  }
+
+  /* Cacher les séparateurs de catégorie */
+  .mobile-menu_separator {
+    display: none;
+  }
+
+  .mobile-menu_link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--fw-medium);
+    border-radius: var(--radius-3);
+    white-space: nowrap;
+  }
+
+  .mobile-menu_link:hover {
+    background-color: var(--color-bg-surface);
+  }
+
+  .mobile-menu_cta {
+    padding: 0;
+    margin-left: var(--space-2);
+  }
+
+  .mobile-menu_btn {
+    width: auto;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-xs);
+  }
+
+  /* Overlay inutile sur desktop */
+  .nav-overlay {
+    display: none !important;
+  }
+
+  /* ==========================================================
+    ACCUEIL — HERO
+  ========================================================== */
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .hero_image-container {
+    grid-row: 1 / 3;
+    max-height: 480px;
+    border-radius: var(--radius-5);
+  }
+
+  .hero_text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hero_main-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* ==========================================================
+    ACCUEIL — SERVICES
+  ========================================================== */
+
+  .services_gallery {
+    flex-direction: row;
+    gap: var(--space-5);
+  }
+
+  .services_item {
+    flex: 1;
+  }
+
+  /* ==========================================================
+    ACCUEIL — KEYS-INFO
+  ========================================================== */
+
+  .keys-info_gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  /* ==========================================================
+    ACCUEIL — ABOUT-ME
+  ========================================================== */
+
+  .about-me_portrait-wrapper {
+    width: 128px;
+    height: 128px;
+  }
+
+  .about-me_header {
+    gap: var(--space-6);
+  }
+
+  /* ==========================================================
+    PAGES INTÉRIEURES — PAGE HERO
+  ========================================================== */
+
+  .page-hero {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .page-hero_text {
+    flex: 1;
+  }
+
+  .page-hero_image-placeholder {
+    flex: 1;
+    height: 280px;
+  }
+
+  .page-hero_title {
+    font-size: var(--font-size-4xl);
+  }
+
+  /* ==========================================================
+    CONSTELLATIONS FAMILIALES
+  ========================================================== */
+
+  /* Situations : grille 2 colonnes */
+  .cf-situations_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  /* CTA : boutons côte à côte */
+  .cf-cta_actions {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+  }
+
+  .cf-cta_btn {
+    min-width: 200px;
+  }
+
+  /* Formules : plus d'air */
+  .cf-formats_grid {
+    gap: var(--space-6);
+  }
+
+  /* ==========================================================
+    INDIVIDUEL — DÉROULEMENT
+  ========================================================== */
+
+  .indiv-how_step {
+    gap: var(--space-5);
+  }
+
+  .indiv-how_step-num {
+    width: 44px;
+    height: 44px;
+    font-size: var(--font-size-lg);
+  }
+
+  /* ==========================================================
+    GROUPES — RÔLES
+  ========================================================== */
+
+  .group-roles_grid {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+
+  .group-roles_card {
+    flex: 1;
+  }
+
+  /* ==========================================================
+    COMMENT ÇA SE PASSE — LAYOUT SIDEBAR
+  ========================================================== */
+
+  /* Le nav ancres devient une sidebar sticky à gauche */
+  .l-main-container:has(.how-nav) {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto;
+    column-gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Scroll-margin pour les ancres — header desktop = 60px */
+  .how-section {
+    scroll-margin-top: 84px; /* header desktop (60px) + marge (24px) */
+  }
+
+  /* Le hero prend toute la largeur */
+  .page-hero {
+    grid-column: 1 / -1;
+  }
+
+  /* La nav ancres : sidebar sticky */
+  .how-nav {
+    grid-column: 1;
+    position: sticky;
+    top: 80px;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .how-nav_list {
+    gap: var(--space-1);
+  }
+
+  .how-nav_link {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-3);
+    display: block;
+  }
+
+  .how-nav_link:hover {
+    background-color: var(--color-bg-surface);
+  }
+
+  /* Les sections comment-ca-se-passe restent dans la colonne droite */
+  .how-section,
+  .cf-cta {
+    grid-column: 2;
+  }
+
+  /* ==========================================================
+    À PROPOS
+  ========================================================== */
+
+  .about-page_portrait-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-page_header {
+    gap: var(--space-7);
+    align-items: flex-end;
+  }
+
+  .about-page_title {
+    font-size: var(--font-size-4xl);
+  }
+
+  /* Remerciements : 2 colonnes */
+  .aboutp-thanks_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: var(--radius-4);
+  }
+
+  .aboutp-thanks_item {
+    border-bottom: var(--border-width-1) solid var(--color-border-default);
+    border-right: var(--border-width-1) solid var(--color-border-default);
+  }
+
+  /* Retirer la bordure droite de la 2e colonne */
+  .aboutp-thanks_item:nth-child(even) {
+    border-right: none;
+  }
+
+  /* Retirer la bordure basse de la dernière rangée */
+  .aboutp-thanks_item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+} /* fin @media 768px */
+
+
+/* ==========================================================
+  GRAND DESKTOP — 1024px et plus
+========================================================== */
+
+@media (min-width: 1024px) {
+
+  .l-main-container {
+    padding-left: var(--space-9);
+    padding-right: var(--space-9);
+  }
+
+  .site-header_inner {
+    padding: 0 var(--space-9);
+  }
+
+  /* Hero : image encore plus haute */
+  .hero_image-container {
+    max-height: 560px;
+  }
+
+  /* Services : plus d'espace intérieur */
+  .services_item {
+    padding: var(--space-6);
+  }
+
+  /* How sidebar plus large */
+  .l-main-container:has(.how-nav) {
+    grid-template-columns: 220px 1fr;
+  }
+
+}

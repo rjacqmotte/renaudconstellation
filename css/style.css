@@ -604,18 +604,6 @@ header,
   padding-bottom: var(--space-8);
 }
 
-.about-page_back {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  border-bottom-color: transparent;
-  align-self: flex-start;
-}
-
-.about-page_back:hover {
-  color: var(--color-link);
-  border-bottom-color: var(--color-link);
-}
-
 .about-page_header {
   display: flex;
   align-items: center;
@@ -657,7 +645,7 @@ header,
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: var(--z-index-sticky);
+    z-index: 900; /* Sous l'overlay (999) et le mobile-menu (1000) */
     background-color: var(--color-gray-900);
     border-top: var(--border-width-1) solid var(--color-gray-700);
     box-shadow: 0 -4px 16px hsl(27 24% 5% / 0.4);
@@ -715,6 +703,11 @@ header,
   }
 
   /* Couleur d'accent par canal */
+  .contact_mail:hover,
+  .contact_mail:focus-visible {
+    color: var(--color-primary-400);
+  }
+
   .contact_phone:hover,
   .contact_phone:focus-visible {
     color: var(--color-primary-400);
@@ -729,6 +722,12 @@ header,
   .contact_whatsapp:focus-visible {
     color: var(--color-secondary-300);
   }
+
+  /* Padding-bottom : espace pour que le contenu ne soit pas masqué
+     par le contact-banner fixe (~60px) + safe-area iOS */
+  .l-main-container {
+    padding-bottom: calc(var(--space-8) + 68px);
+  }
 }
 
 /* ============================================================
@@ -741,7 +740,64 @@ header,
 
 
 /* ============================================================
-  5. UTILITIES (quick utility classes)
+  5. FOOTER
+============================================================ */
+
+.site-footer {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-400);
+  padding: var(--space-6) var(--space-4);
+  /* Espace pour ne pas être masqué par la contact-banner sur mobile */
+  padding-bottom: calc(var(--space-6) + 68px);
+}
+
+.site-footer_inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.site-footer_copy {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-600);
+  line-height: var(--lh-normal);
+}
+
+.site-footer_nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.site-footer_nav a {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  border-bottom-color: transparent;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.site-footer_nav a:hover {
+  color: var(--color-gray-300);
+  border-bottom-color: transparent;
+}
+
+/* Sur desktop, le footer n'a pas besoin de padding pour la contact-banner */
+@media (min-width: 768px) {
+  .site-footer {
+    padding-bottom: var(--space-6);
+  }
+  .site-footer_inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-8);
+  }
+}
+
+/* ============================================================
+  6. UTILITIES (quick utility classes)
   ------------------------------------------------------------
   Margins, paddings, text-align, etc. for occasional use
   Convention: `.u-*` (not BEM)
