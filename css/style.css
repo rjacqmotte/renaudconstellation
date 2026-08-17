@@ -73,7 +73,7 @@ a:hover {
   margin: var(--space-1);
   display: flex;
   flex-direction: column;
-  gap: var(--space-7);
+  gap: var(--space-8);
 }
 
 
@@ -112,18 +112,66 @@ a:hover {
 .services_gallery {
   display:flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-5);
 }
 
 .services_item {
   padding: var(--space-2);
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-bg-elevated);
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-1);
 }
 
 .services_item_nav {
   line-height: var(--lh-loose);
+}
+
+/* --- keys-info ---*/
+.keys-info_gallery {
+  display: flex;
+  justify-content: space-around;
+  gap:var(--space-5);
+  flex-wrap: wrap;
+}
+
+.keys-info_card {
+  background-color: var(--color-bg-surface);
+  width: 170px;
+  height: 275px;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  border-radius: var(--radius-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+
+.keys-info_item_icon-container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.keys-info_icon {
+  color: var(--color-link);
+  width: var(--size-8);
+  heigth: var(--size-8);
+  padding: var(--space-2) 0;
+}
+
+h2.keys-info_item_info {
+  margin-bottom: var(--space-2);
+}
+
+.keys-info_item_info {
+  text-align: center;
+  font-weight: var(--fw-medium);
+}
+
+.keys-info_link {
+  margin-top: auto;
+  margin-bottom: var(--space-4);
 }
 
 /* ============================================================

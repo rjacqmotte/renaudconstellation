@@ -56,8 +56,8 @@
   --color-green-800: hsl(154 40% 24%);
   --color-green-900: hsl(154 34% 18%);
 
-  --color-yellow-50: hsl(38 96% 96%);
-  --color-yellow-100: hsl(38 92% 90%);
+  --color-yellow-50: hsl(38 92% 90%);
+  --color-yellow-100: hsl(38 89% 84%);
   --color-yellow-200: hsl(38 88% 82%);
   --color-yellow-300: hsl(38 84% 72%);
   --color-yellow-400: hsl(38 90% 61%);
@@ -209,7 +209,7 @@
 
   /* color */
   --color-bg-canvas: var(--color-primary-200);
-  --color-bg-surface: var(--color-gray-100);
+  --color-bg-surface: var(--color-gray-200);
   --color-bg-elevated: var(--color-gray-50);
 
   --color-border-default: var(--color-primary-300);
