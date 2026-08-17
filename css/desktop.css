@@ -130,6 +130,10 @@
     font-size: var(--font-size-3xl);
   }
 
+  .hero_service-label {
+    font-size: var(--font-size-sm);
+  }
+
   /* ==========================================================
     ACCUEIL — SERVICES
   ========================================================== */

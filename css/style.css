@@ -309,24 +309,24 @@ header,
 .hero_text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
-.hero_main-title {
-  font-size: var(--font-size-2xl);
-  line-height: var(--lh-snug);
-}
-
-.hero_sub-title {
-  font-size: var(--font-size-sm);
+.hero_service-label {
+  font-size: var(--font-size-xs);
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
 }
 
+.hero_main-title {
+  font-size: var(--font-size-2xl);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-regular);
+}
+
 .hero_quote {
-  margin-top: var(--space-2);
   padding-left: var(--space-4);
   border-left: var(--border-width-3) solid var(--color-primary-400);
   font-family: var(--font-family-header);
@@ -334,6 +334,22 @@ header,
   font-style: italic;
   color: var(--color-text-muted);
   line-height: var(--lh-relaxed);
+}
+
+.hero_cta {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary-600);
+  border-bottom-color: transparent;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-bottom-color var(--duration-fast) var(--ease-out);
+}
+
+.hero_cta:hover {
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-700);
 }
 
 
