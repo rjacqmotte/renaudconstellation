@@ -174,6 +174,92 @@ h2.keys-info_item_info {
   margin-bottom: var(--space-4);
 }
 
+/* --- Contact banner (barre fixe mobile) --- */
+.contact-banner {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .contact-banner {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-sticky);
+    background-color: var(--color-gray-900);
+    border-top: var(--border-width-1) solid var(--color-gray-700);
+    box-shadow: 0 -4px 16px hsl(27 24% 5% / 0.4);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .contact-banner_gallery {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+
+  .contact-banner_item {
+    flex: 1;
+  }
+
+  .contact-banner_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-1);
+    color: var(--color-gray-300);
+    border-bottom: none;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out),
+                background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .contact-banner_link:hover,
+  .contact-banner_link:focus-visible {
+    color: var(--color-primary-400);
+    background-color: hsl(27 20% 14% / 0.6);
+    border-bottom: none;
+    outline: none;
+  }
+
+  .contact-banner_link:focus-visible {
+    outline: var(--border-width-focus) solid var(--color-primary-400);
+    outline-offset: -3px;
+  }
+
+  .contact-banner_link svg {
+    width: var(--icon-lg);
+    height: var(--icon-lg);
+    flex-shrink: 0;
+  }
+
+  .contact-banner_label {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-text);
+    letter-spacing: 0.02em;
+  }
+
+  /* Couleur d'accent par canal */
+  .contact_phone:hover,
+  .contact_phone:focus-visible {
+    color: var(--color-primary-400);
+  }
+
+  .contact_signal:hover,
+  .contact_signal:focus-visible {
+    color: var(--color-primary-300);
+  }
+
+  .contact_whatsapp:hover,
+  .contact_whatsapp:focus-visible {
+    color: var(--color-secondary-300);
+  }
+}
+
 /* ============================================================
   4. STATES (visual states)
   ------------------------------------------------------------
