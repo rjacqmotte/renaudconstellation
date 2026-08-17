@@ -1,0 +1,937 @@
+/* ============================================================
+  0. VARIABLES
+  ------------------------------------------------------------
+  Colors, sizes, spacing, fonts, etc.
+  Using :root to make them accessible everywhere.
+============================================================ */
+
+:root {
+  /* COLOR ----------- */
+  
+  --color-grey15: hsl(0deg 0% 15%);
+  --color-grey25: hsl(0deg 0% 25%);
+  --color-grey33: hsl(0deg 0% 33%);
+  --color-grey50: hsl(0deg 0% 50%);
+  --color-grey66: hsl(0deg 0% 66%);
+  --color-grey75: hsl(0deg 0% 75%);
+  --color-grey85: hsl(0deg 0% 85%);
+  --color-grey95: hsl(0deg 0% 95%);
+
+  
+
+  /* base */
+  --color-primary: hsl(40deg 20% 94%);
+  --color-secondary: var(--color-grey75);
+  --color-text: var(--color-grey15);
+  --color-text-secondary: var(--color-grey75);
+  --color-bg: hsl(40deg 20% 94%);
+  --color-bg-secondary: var(--color-grey15);
+
+  --color-interactive-light: hsl(275, 34%, 78%);
+  --color-interactive: hsl(275, 29%, 57%);
+  --color-interactive-active:  hsl(278, 31%, 43%);
+  
+  /* button */
+  --color-border-button: var(--color-grey33);
+  --color-border-button-hover: var(--color-grey50);
+  --color-background-button: var(--color-grey95);
+  --color-background-button-hover: var(--color-interactive);
+
+  /* button modern */
+  --color-button--modern: var(--color-grey33);
+  --color-button--modern-hover: var(--color-primary);
+  --color-background-button--modern: transparent;
+  --color-background-button--modern-hover: var(--color-text);
+  --color-border-button-modern: var(--color-grey66);
+  --color-border-button-modern-hover: var(--color-text);
+
+  /* button outlined */
+  --color-background-button--outlined: transparent;
+  --color-background-button--outlined-hover: var(--color-grey85);
+  --color-border-button--outlined: var(--color-grey33);
+
+  /* button text */
+  --color-button--text: var(--color-grey33);
+  --color-background-button--text: transparent;
+
+  /* TYPO ----------- */
+  /* base */
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+    sans-serif;
+  --font-size-base: 1rem;
+  --font-size-h1: 1.75rem;
+  --font-size-h2: 1.3rem;
+  --font-size-h3: 1.25rem;
+  --font-size-p: 1rem;
+  --font-size-i: 1.5rem;
+
+  /* Espacements */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Border-radius */
+  --radius: 8px;
+  --radius-rond:9999px;
+}
+
+/* ============================================================
+  1. BASE
+  ------------------------------------------------------------
+  These are "reset" styles, fonts, global colors,
+  links, etc. (no BEM here)
+============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+p,
+label {
+  font-size: var(--font-size-p);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: solid 2px transparent;
+  transition: border-color 0.3s ease-out;
+}
+
+a:hover {
+  border-bottom: solid 2px var(--color-interactive);
+}
+
+.social-media__list a:hover {
+  border-bottom: solid 2px transparent;
+}
+
+form * {
+  font-family: var(--font-base);
+  line-height: 1.5;
+}
+
+input,
+textarea {
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius);
+  font-family: inherit;
+  color: var(--color-secondary);
+}
+
+i {
+  font-size: var(--font-size-i);
+  color: var(--color-secondary);
+  transition: 
+    color 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+i.fa-brands:hover,
+.gallery__info i.fa-solid:hover {
+  color: var(--color-interactive);
+  transform: translateY(-1px);
+}
+
+.leave-message i.fa-up-right-from-square {
+  display: inline;
+  color: var(--color-text);
+  font-size: 0.5rem;
+  margin: 0.3rem;
+  vertical-align: text-top;
+}
+
+.button--text:hover i.fa-up-right-from-square {
+  color: var(--color-interactive-active);
+}
+
+/* Small devices (≥321px) */
+@media (min-width: 321px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.375rem;
+  }
+}
+
+/* Tablets (≥768px) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  p,
+  label {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Large desktop (≥1440px) */
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.875rem;
+  }
+}
+
+/* ============================================================
+  2. LAYOUT
+  ------------------------------------------------------------
+  Page structure: header, footer, main, sidebar...
+  Convention: prefix `.l-` (l = layout)
+  No BEM here — these are structural containers
+============================================================ */
+
+.l-main-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "banner"
+    "about"
+    "projects"
+    "contact"
+    "footer";
+  position: relative;
+  column-gap: 1rem;
+  row-gap: 8rem;
+}
+
+.l-footer-background,
+.l-vertical-nav,
+.l-social-media-banner {
+  display: none;
+}
+
+/* MAIN HEADER --------- */
+.l-header {
+  grid-area: header;
+}
+
+/* SECTION FLOW -------- */
+.l-main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin: 0 1rem;
+}
+
+.l-banner {
+  grid-area: banner;
+}
+
+/* about-me */
+.l-about-me {
+  grid-area: about;
+}
+
+.l-projects {
+  grid-area: projects;
+}
+
+.l-contact {
+  grid-area: contact;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .l-main-section {
+    margin: 0 2rem;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .l-main-container {
+    display: grid;
+    grid-template-areas:
+      ".        header    header    v-nav"
+      "social-m banner    banner    v-nav"
+      ".        about     about     v-nav"
+      ".        projects  projects  v-nav"
+      ".        contact   contact   v-nav"
+      "footer   footer    footer    footer";
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    position: relative;
+    column-gap: 1.618vw;
+    row-gap: 5rem;
+  }
+
+  /* FOOTER --------------- */
+  .l-footer-background {
+    display: block;
+    grid-area: footer;
+    z-index: 0;
+    background-color: var(--color-bg-secondary);
+  }
+
+  /* VERTICALS MENUS ----- */
+  .l-social-media-banner {
+    grid-area: social-m;
+    display: flex;
+    align-items: start;
+  }
+
+  .l-vertical-nav {
+    grid-area: v-nav;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    position: relative;
+  }
+}
+
+/* ============================================================
+  3. MODULES (reusable components)
+  ------------------------------------------------------------
+  Buttons, cards, forms, menus, etc.
+  BEM class naming: `.block`, `.block__element`, `.block--modifier`
+============================================================ */
+
+/* 3.00 buttons ------------------ */
+/* ------------------------------- */
+
+button,
+.button {
+  font-family: var(--font-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  min-height: 44px;
+  margin: 2rem 0;
+  border: solid 1px var(--color-border-button);
+  text-transform: none;
+  background-color: var(--color-background-button);
+  color: var(--color-text);
+  width: min-content;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--color-background-button-hover);
+  border-color: var(--color-border-button-hover);
+  transform: translateY(-1px);
+}
+
+button:focus,
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-interactive);
+  border-color: var(--color-interactive);
+}
+
+button:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--color-interactive);
+  outline-offset: 2px;
+}
+
+button:active,
+.button:active {
+  transform: translateY(1px);
+  background-color: var(--color-interactive-active);
+  border-color: var(--color-interactive-active);
+}
+
+button:disabled,
+.button:disabled {
+  background-color: var(--color-grey85);
+  border-color: var(--color-grey66);
+  color: var(--color-grey50);
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover,
+.button:disabled:hover {
+  background-color: var(--color-grey85);
+  border-color: var(--color-grey66);
+  transform: none;
+}
+
+.button--modern {
+  background-color: var(--color-background-button--modern);
+  border: 1px solid var(--color-border-button-modern);
+  color: var(--color-button--modern);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.button--modern:hover {
+  background-color: var(--color-background-button--modern-hover);
+  color: var(--color-border-button-hover);
+  border-color: var(--color-border-button-modern-hover);
+}
+
+.button--outlined {
+  background-color: var(--color-background-button--outlined);
+  border: 1px solid var(--color-border-button--outlined);
+}
+
+.button--outlined:hover {
+  background-color: var(--color-background-button--outlined-hover);
+}
+
+.button--text {
+  background-color: var(--color-background-button--text);
+  border: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  color: var(--color-button--text);
+}
+
+.button--text:hover {
+  background-color: var(--color-background-button--text);
+  font-weight: 700;
+  color: var(--color-interactive-active);
+}
+
+.button--no-margin {
+  margin: 0;
+}
+
+/* Small devices (≥321px) */
+@media (min-width: 321px) {
+  button,
+  .button {
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* Tablets (≥768px) */
+@media (min-width: 768px) {
+  button,
+  .button {
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  button,
+  .button {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+  }
+}
+
+/* 3.01 vertical navigation banner */
+/* ------------------------------- */
+
+.vertical-nav__container {
+  border: solid 1px var(--color-primary);
+  width: 30px;
+  height: 50vh;
+  transform: translateY(-50%);
+  border-radius: var(--radius) 0 0 var(--radius);
+  position: sticky;
+  top: 50vh;
+}
+
+.vertical-nav {
+  height: 100%;
+}
+
+.vertical-nav__list-items {
+  display: flex;
+  height: inherit;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.vertical-nav__item {
+  list-style: none;
+}
+
+.vertical-nav__point {
+  background-color: lightgrey;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+/* 3.02 two-cols --------------- */
+/* ----------------------------- */
+.two-cols {
+  flex-direction: column;
+  display: flex;
+  gap: 2rem;
+}
+
+.two-cols__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .two-cols {
+    flex-direction: row;
+  }
+
+  .two-cols__col1,
+  .two-cols__col2 {
+    flex: 1;
+    max-width: 450px;
+  }
+}
+
+/* 3.03 Section-title ----------------- */
+/* ------------------------------------ */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title__divider {
+  height: 0.3rem;
+  width: 5rem;
+  border-radius: var(--radius);
+  background-color: var(--color-interactive);
+}
+
+.section-title__sub-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* 3.10 Header --------------------*/
+/* ------------------------------- */
+.header {
+  display: flex;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+/* 3.10.1 logo-and-title */
+.logo-and-title {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-and-title__img-container {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.logo-and-title__img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-header {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* 3.10.2 main-nav */
+.main-nav {
+  display: none;
+}
+
+.main-nav__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+}
+
+/* 3.15 banner-title ------------- */
+/* ------------------------------- */
+.banner-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.banner-title__title {
+  text-align: center;
+}
+
+.banner-title__divider {
+  height: 0.3rem;
+  width: 5rem;
+  border-radius: var(--radius);
+  background-color: var(--color-secondary);
+}
+
+.banner-title__sub-title {
+  font-size: 1.75rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* 3.20 Social media vertical banner */
+/* --------------------------------- */
+
+.vertical-banner {
+  border: solid 2px var(--color-secondary);
+  border-radius: 0px var(--radius) var(--radius) 0px;
+  width: 50px;
+  position: relative;
+  padding: 1rem 0;
+  align-self: center;
+}
+
+.social-media__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.social-media--vertical {
+  flex-direction: column;
+}
+
+/* 3.32 Skills-list -------------- */
+/* ------------------------------- */
+.skills-list {
+  display: flex;
+  list-style: none;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.skill-list__item {
+  padding: var(--space-xs) var(--space-sm);
+  margin: 0.5rem;
+  border-radius: var(--radius-rond);
+  background-color: white;
+  border: 1px solid var(--color-interactive);
+}
+
+/* 3.40 Gallery ------------------ */
+/* ------------------------------- */
+.gallery__list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+}
+
+.gallery__item {
+  max-height: 500px;
+  border: solid 1px var(--color-secondary);
+  border-radius: var(--radius);
+  padding: 0 1rem;
+  display: grid;
+  gap: var(--space-md);
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.gallery__item:hover {
+  border: solid 2px var(--color-secondary);
+}
+
+.gallery__img-container {
+  justify-content: center;
+  align-self: center;
+}
+
+.gallery__img-container img {
+  max-height: auto;
+  width: 100%;
+  display: block;
+  transform: rotate(-3deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery__item .gallery__info h3 {
+border-bottom: 2px solid transparent;
+width: fit-content;
+}
+
+.gallery__item:hover .gallery__info h3 {
+border-bottom: 2px solid var(--color-interactive);
+transform: scale(1.01);
+}
+
+.gallery__item:hover .gallery__img-container img {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.gallery__info {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--space-md) 0;
+}
+
+.gallery__title {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.gallery__info a {
+  display: inline;
+}
+
+.gallery__info button {
+  width: min-content;
+  margin: 0;
+  align-self: center;
+}
+
+@media (min-width: 425px) {
+  .gallery__item {
+    max-height: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery__item {
+    grid-template-columns: 2fr 1fr;
+    height: 400px;
+  }
+
+  .gallery__img-container img {
+    height: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery__item {
+    height: 350px;
+  }
+}
+
+/* contact form */
+.contact-form {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.contact-form__title h3 {
+  padding-bottom: 1rem;
+}
+
+.contact-form__email input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.contact-form__message textarea {
+  width: 100%;
+  height: 150px;
+  /* or desired height */
+  min-height: 100px;
+  /* minimum height */
+  max-height: 300px;
+  /* maximum height */
+  resize: none;
+  /* allows vertical resizing only */
+  padding: 0.5rem;
+}
+
+.contact_form__submit {
+  align-self: center;
+}
+
+/* Footer
+   ------  */
+.footer-content {
+  grid-area: footer;
+  z-index: 10;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+  padding: 0 1rem;
+}
+
+.footer__upper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px var(--color-text) solid;
+}
+
+.footer__slogan {
+  flex: 1;
+}
+
+.footer__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+.footer__slogan__descritpion {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.footer__social-media {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__social-media h2 {
+  display: none;
+}
+
+.footer__lower {
+  padding: 2rem 0;
+}
+
+.footer__copyrigth > p {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .footer-content {
+    padding: 0 2rem;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .footer-content {
+    grid-area: 6 / 2 / 6 / 4;
+  }
+
+  .footer__upper {
+    flex-direction: row;
+  }
+
+  .footer__social-media {
+    justify-content: right;
+  }
+
+  .footer__social-media h2 {
+    display: block;
+  }
+}
+
+/* ============================================================
+  4. STATES (visual states)
+  ------------------------------------------------------------
+  Visible/invisible, active/inactive, etc.
+  Convention: `.is-*` or `.has-*` (not BEM)
+============================================================ */
+
+.is-hidden {
+  display: none !important;
+}
+
+.is-active {
+  border: 2px solid blue;
+}
+
+.has-error {
+  color: red;
+}
+
+/* ============================================================
+  5. UTILITIES (quick utility classes)
+  ------------------------------------------------------------
+  Margins, paddings, text-align, etc. for occasional use
+  Convention: `.u-*` (not BEM)
+============================================================ */
+
+.u-mt-2 {
+  margin-top: 2rem;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-align-self-center {
+  align-self: center;
+}

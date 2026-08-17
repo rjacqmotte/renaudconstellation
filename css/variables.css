@@ -1,0 +1,361 @@
+:root {
+  /* Primitive colors: 50=lightest, 900=darkest */
+  --color-primary-50: hsl(27 10% 98%);
+  --color-primary-100: hsl(27 20% 92%);
+  --color-primary-200: hsl(27 35% 85%);
+  --color-primary-300: hsl(27 65% 75%);
+  --color-primary-400: hsl(27 80% 66%);
+  --color-primary-500: hsl(27 90% 50%);
+  --color-primary-600: hsl(27 80% 40%);
+  --color-primary-700: hsl(27 65% 25%);
+  --color-primary-800: hsl(27 35% 15%);
+  --color-primary-900: hsl(27 20% 10%);
+
+  --color-secondary-50: hsl(99 5% 80%);
+  --color-secondary-100: hsl(99, 8%, 70%);
+  --color-secondary-200: hsl(99 25% 65%);
+  --color-secondary-300: hsl(99, 35%, 41%);
+  --color-secondary-400: hsl(99 55% 32%);
+  --color-secondary-500: hsl(99, 98%, 17%);
+  --color-secondary-600: hsl(99 55% 16%);
+  --color-secondary-700: hsl(99, 35%, 15%);
+  --color-secondary-800: hsl(99 25% 13%);
+  --color-secondary-900: hsl(99 15% 10%);
+
+  /* Neutral colors: slight tint from primary hue */
+  --color-gray-50: hsl(27 28% 98%);
+  --color-gray-100: hsl(27 24% 95%);
+  --color-gray-200: hsl(27 20% 91%);
+  --color-gray-300: hsl(27 18% 84%);
+  --color-gray-400: hsl(27 16% 74%);
+  --color-gray-500: hsl(27 14% 61%);
+  --color-gray-600: hsl(27 15% 47%);
+  --color-gray-700: hsl(27 17% 35%);
+  --color-gray-800: hsl(27 20% 24%);
+  --color-gray-900: hsl(27 24% 14%);
+
+  --color-red-50: hsl(8 82% 97%);
+  --color-red-100: hsl(8 78% 93%);
+  --color-red-200: hsl(8 74% 86%);
+  --color-red-300: hsl(8 70% 77%);
+  --color-red-400: hsl(8 76% 66%);
+  --color-red-500: hsl(8 80% 55%);
+  --color-red-600: hsl(8 70% 45%);
+  --color-red-700: hsl(8 60% 36%);
+  --color-red-800: hsl(8 52% 28%);
+  --color-red-900: hsl(8 44% 20%);
+
+  --color-green-50: hsl(154 56% 96%);
+  --color-green-100: hsl(154 52% 92%);
+  --color-green-200: hsl(154 48% 84%);
+  --color-green-300: hsl(154 46% 75%);
+  --color-green-400: hsl(154 56% 63%);
+  --color-green-500: hsl(154 66% 48%);
+  --color-green-600: hsl(154 56% 39%);
+  --color-green-700: hsl(154 48% 31%);
+  --color-green-800: hsl(154 40% 24%);
+  --color-green-900: hsl(154 34% 18%);
+
+  --color-yellow-50: hsl(38 96% 96%);
+  --color-yellow-100: hsl(38 92% 90%);
+  --color-yellow-200: hsl(38 88% 82%);
+  --color-yellow-300: hsl(38 84% 72%);
+  --color-yellow-400: hsl(38 90% 61%);
+  --color-yellow-500: hsl(38 94% 50%);
+  --color-yellow-600: hsl(38 82% 41%);
+  --color-yellow-700: hsl(38 70% 33%);
+  --color-yellow-800: hsl(38 58% 26%);
+  --color-yellow-900: hsl(38 46% 20%);
+
+  /* Typography scale */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 60px;
+  --font-size-7xl: 72px;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.625;
+  --lh-loose: 1.8;
+
+  /* Space scale (non-linear by design) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 192px;
+  --space-12: 256px;
+  --space-13: 384px;
+  --space-14: 512px;
+  --space-15: 640px;
+  --space-16: 768px;
+
+  /* Size aliases */
+  --size-1: var(--space-1);
+  --size-2: var(--space-2);
+  --size-3: var(--space-3);
+  --size-4: var(--space-4);
+  --size-5: var(--space-5);
+  --size-6: var(--space-6);
+  --size-7: var(--space-7);
+  --size-8: var(--space-8);
+  --size-9: var(--space-9);
+  --size-10: var(--space-10);
+  --size-11: var(--space-11);
+  --size-12: var(--space-12);
+  --size-13: var(--space-13);
+  --size-14: var(--space-14);
+  --size-15: var(--space-15);
+  --size-16: var(--space-16);
+
+  /* Border radius */
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 6px;
+  --radius-4: 8px;
+  --radius-5: 12px;
+  --radius-6: 20px;
+  --radius-round: 9999px;
+
+  /* Border widths */
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-3: 3px;
+  --border-width-focus: 3px;
+
+  /* Opacity */
+  --opacity-disabled: 0.4;
+  --opacity-muted: 0.64;
+  --opacity-overlay: 0.8;
+
+  /* Shadows */
+  --shadow-1: 0 1px 2px hsl(220 30% 10% / 0.08);
+  --shadow-2: 0 4px 8px hsl(220 30% 10% / 0.1);
+  --shadow-3: 0 10px 20px hsl(220 30% 10% / 0.12);
+  --shadow-4: 0 16px 30px hsl(220 30% 10% / 0.14);
+  --shadow-5: 0 24px 48px hsl(220 30% 10% / 0.18);
+
+  /* Layering */
+  --z-index-base: 0;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-overlay: 1200;
+  --z-index-modal: 1300;
+  --z-index-toast: 1400;
+  --z-index-tooltip: 1500;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-slow: 360ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Layout */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --max-reading-width: 68ch;
+
+  /* Component sizing */
+  --control-height-sm: 32px;
+  --control-height-md: 40px;
+  --control-height-lg: 48px;
+
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+
+
+  /************************************************************************/
+  /* Semantic aliases */
+  /********************/
+  --color-bg-canvas: var(--color-primary-200);
+  --color-bg-surface: var(--color-gray-100);
+  --color-bg-elevated: var(--color-gray-50);
+
+  --color-border-default: var(--color-primary-300);
+  --color-border-strong: var(--color-primary-500);
+
+  --color-text-default: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-inverse: var(--color-gray-50);
+  --color-text-alt1: var(--color-primary-600);
+
+  --color-action-primary-bg: var(--color-primary-500);
+  --color-action-primary-bg-hover: var(--color-primary-600);
+  --color-action-primary-bg-active: var(--color-primary-700);
+  --color-action-primary-bg-soft: var(--color-primary-100);
+  --color-action-primary-text: var(--color-gray-50);
+  --color-action-primary-border: var(--color-primary-500);
+
+  --color-action-secondary-bg: var(--color-secondary-500);
+  --color-action-secondary-bg-hover: var(--color-secondary-600);
+  --color-action-secondary-bg-active: var(--color-secondary-700);
+  --color-action-secondary-bg-soft: var(--color-secondary-100);
+  --color-action-secondary-text: var(--color-gray-50);
+  --color-action-secondary-border: var(--color-secondary-500);
+
+  --color-link: var(--color-primary-600);
+  --color-link-hover: var(--color-primary-700);
+  --color-link-visited: var(--color-primary-800);
+
+  --color-status-success: var(--color-green-500);
+  --color-status-warning: var(--color-yellow-500);
+  --color-status-danger: var(--color-red-500);
+
+  --color-status-success-soft: var(--color-green-100);
+  --color-status-warning-soft: var(--color-yellow-100);
+  --color-status-danger-soft: var(--color-red-100);
+
+  --color-disabled-bg: var(--color-gray-200);
+  --color-disabled-border: var(--color-gray-300);
+  --color-disabled-text: var(--color-gray-500);
+
+  --color-focus-ring: hsl(220 84% 54% / 0.35);
+
+  /* Button tokens */
+  --color-btn-filled-bg: var(--color-primary-300);
+  --color-btn-filled-bg-hover: var(--color-primary-400);
+  --color-btn-filled-text: var(--color-primary-800);
+  --color-btn-filled-border: var(--color-primary-400);
+
+  --color-btn-bg-outline: var(--color-bg-surface);
+  --color-btn-outline-text: var(--color-primary-700);
+  --color-btn-outline-border: var(--color-primary-300);
+  --color-btn-outline-border-hover: var(--color-primary-500);
+  --color-btn-outline-bg-hover: var(--color-primary-200);
+
+  --color-btn-ghost-text: var(--color-gray-600);
+  --color-btn-ghost-text-hover: var(--color-gray-800);
+  --color-btn-ghost-bg-hover: var(--color-gray-100);
+}
+
+/*
+  ============================================================
+  BONNES PRATIQUES - DESIGN TOKENS CSS (Synthese etudiante)
+  ============================================================
+
+  1) ORGANISER LES TOKENS EN 3 COUCHES
+  - Primitives: valeurs brutes (color-primary-500, space-4, radius-3).
+  - Semantiques: role UI (color-text-default, color-border-default).
+  - Composants: besoins specifiques (control-height-md).
+  -> En pratique: les composants utilisent surtout les tokens semantiques.
+
+  2) GARDER UNE ECHELLE COHERENTE
+  - Couleurs: 50 a 900 (clair vers fonce).
+  - Espacements: une echelle unique (ici non lineaire, c'est OK si volontaire).
+  - Typo: noms lisibles (xs, sm, base, lg, xl, 2xl...).
+
+  3) PRIVILEGIER LE NOM DU ROLE, PAS LE NOM DE LA COULEUR
+  - Preferer color-text-muted plutot que color-gray-600 dans les composants.
+  - Avantage: plus simple a maintenir et a themer (dark mode, branding).
+
+  4) STANDARDISER LES ETATS D'INTERACTION
+  - Prevoir default, hover, active, focus-visible, disabled.
+  - Conserver un focus ring visible (accessibilite clavier).
+
+  5) ACCESSIBILITE (A11Y)
+  - Verifier le contraste texte/fond (objectif WCAG AA minimum).
+  - Eviter l'information uniquement par la couleur (ajouter icone/texte si besoin).
+  - Garder des tailles de texte lisibles (base >= 16px en general).
+
+  6) THEMING PROPRE
+  - Pour creer un theme (ex: dark), redefinir d'abord les tokens semantiques.
+  - Garder les primitives stables autant que possible.
+  - Exemple: [data-theme="dark"] { --color-text-default: ... }
+
+  7) EVITER LES "MAGIC NUMBERS"
+  - Ne pas ecrire des valeurs en dur dans les composants.
+  - Utiliser var(...) pour espace, couleurs, radius, ombres, typo, z-index.
+
+  8) Z-INDEX ET OMBRES
+  - Utiliser une echelle de couches (z-index-*) pour eviter les conflits.
+  - Utiliser une echelle d'ombres (shadow-*) pour une profondeur coherente.
+
+  9) RESPONSIVE
+  - Centraliser les breakpoints ici.
+  - Utiliser des conteneurs (container-*) et une largeur de lecture (max-reading-width)
+    pour un confort de lecture sur desktop/mobile.
+
+  10) STRATEGIE DE MAINTENANCE
+  - Quand tu renommes des tokens, fais une migration progressive.
+  - Option utile: conserver temporairement des aliases de compatibilite.
+  - Supprimer les anciens tokens une fois la migration terminee.
+
+  11) NOMMAGE RECOMMANDE
+  - lowercase + tirets uniquement.
+  - Prefixes explicites: color-, space-, size-, font-size-, z-index-.
+  - Noms courts mais clairs, sans abreviations ambiguës.
+
+  12) REFLEXE PROJET
+  - Cette feuille est ton contrat visuel global.
+  - Si une nouvelle valeur apparait souvent, transforme-la en token.
+*/
+
+/*
+  ============================================================
+  CHECKLIST RAPIDE - AVANT DE COMMENCER UN NOUVEAU PROJET
+  ============================================================
+
+  SYSTEME
+  [ ] J'ai defini mes primitives (colors, space, typography, radius, shadow).
+  [ ] J'ai defini mes tokens semantiques (text, bg, border, action, status).
+  [ ] Je n'utilise qu'une seule convention de nommage (kebab-case).
+
+  ACCESSIBILITE
+  [ ] Le contraste des textes principaux passe WCAG AA.
+  [ ] Le focus-visible est clairement visible au clavier.
+  [ ] Les etats disabled restent lisibles (pas seulement "grises").
+
+  COMPOSANTS
+  [ ] Les boutons/champs/cartes utilisent les tokens, pas de valeurs en dur.
+  [ ] Les etats hover/active/focus/disabled sont definis.
+  [ ] Les espacements internes suivent l'echelle space-*.
+
+  RESPONSIVE
+  [ ] Les breakpoints sont centralises (breakpoint-*).
+  [ ] La largeur de lecture reste confortable (max-reading-width).
+  [ ] Les tailles de controle sont testees mobile + desktop.
+
+  QUALITE
+  [ ] Je n'ai pas de magic numbers repetees dans les styles.
+  [ ] Je n'ai pas de doublons evidents dans les tokens.
+  [ ] Les nouveaux tokens ont un nom de role clair.
+
+  EVOLUTION
+  [ ] Je peux ajouter un theme dark en redefinissant surtout les semantiques.
+  [ ] J'ai note les decisions importantes (README ou notes).
+*/
