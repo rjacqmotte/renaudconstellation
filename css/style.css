@@ -284,6 +284,54 @@ header,
   BEM class naming: `.block`, `.block__element`, `.block--modifier`
 ============================================================ */
 
+/* --- Label de section discret --- */
+.section-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  padding-bottom: var(--space-1);
+  border-bottom: var(--border-width-1) solid var(--color-border-default);
+}
+
+/* --- Témoignages --- */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.testimonials_grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.testimonial_card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-4);
+  border-left: var(--border-width-3) solid var(--color-primary-300);
+}
+
+.testimonial_quote {
+  font-family: var(--font-family-header);
+  font-style: italic;
+  font-size: var(--font-size-base);
+  color: var(--color-text-default);
+  line-height: var(--lh-relaxed);
+}
+
+.testimonial_author {
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+}
+
 /* --- Hero --- */
 .hero {
   display: flex;
