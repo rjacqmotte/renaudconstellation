@@ -522,12 +522,6 @@ header,
   font-style: italic;
 }
 
-.about-me_body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
 .about-me_text {
   color: var(--color-text-default);
 }
