@@ -192,7 +192,22 @@
 
         const meta = document.createElement('div');
         meta.className = 'agenda-meta';
-        meta.textContent = `${formatDate(ev.dtstart)}${ev.location ? ' · ' + ev.location : ''}`;
+
+        const dateEl = document.createElement('time');
+        dateEl.className = 'agenda-date';
+        if (ev.dtstart && typeof ev.dtstart.toISOString === 'function') {
+          dateEl.setAttribute('datetime', ev.dtstart.toISOString());
+        }
+        dateEl.textContent = formatDate(ev.dtstart);
+
+        meta.appendChild(dateEl);
+
+        if (ev.location) {
+          const loc = document.createElement('div');
+          loc.className = 'agenda-location';
+          loc.textContent = ev.location;
+          meta.appendChild(loc);
+        }
 
         a.appendChild(title);
         a.appendChild(meta);
