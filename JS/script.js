@@ -201,8 +201,20 @@
         if (ev.description) {
           const desc = document.createElement('div');
           desc.className = 'agenda-desc';
-          // préserver les sauts de ligne simples
-          desc.innerHTML = ev.description.replace(/\n/g, '<br>');
+          // Unescape iCalendar-specific escapes (\\n, \\, \\, \;, \\,) and preserve newlines
+          let raw = ev.description;
+          raw = raw.replace(/\\n/g, '\n')
+                   .replace(/\\,/g, ',')
+                   .replace(/\\;/g, ';')
+                   .replace(/\\\\/g, '\\')
+                   .trim();
+          // Escaper le HTML pour éviter tout XSS puis remplacer les nouvelles lignes par des <br>
+          const escapeHtml = s => s.replace(/&/g, '&amp;')
+                                    .replace(/</g, '&lt;')
+                                    .replace(/>/g, '&gt;')
+                                    .replace(/"/g, '&quot;')
+                                    .replace(/'/g, '&#39;');
+          desc.innerHTML = escapeHtml(raw).replace(/\n/g, '<br>');
           li.appendChild(desc);
         }
 
