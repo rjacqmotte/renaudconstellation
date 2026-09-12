@@ -228,13 +228,43 @@
           loc.className = 'agenda-location';
           // normaliser les espaces et supprimer les doublons initiaux (ex. "1170 1170 ...")
           const normalizeLocation = s => {
-            let t = s.replace(/\s+/g, ' ').trim();
-            const parts = t.split(' ');
-            if(parts.length > 1 && parts[0] === parts[1]){
-              parts.splice(1,1);
-              t = parts.join(' ');
+            if (!s) return s;
+            // collapse whitespace and commas/semicolons
+            let cleaned = s.replace(/[\t\r\n]/g, ' ').replace(/[;,]/g, ' ').replace(/\s+/g, ' ').trim();
+
+            const tokens = cleaned.split(' ');
+            const n = tokens.length;
+
+            // 1) remove immediate repeated tokens (e.g. "1170 1170")
+            const dedupTokens = [];
+            for (let i = 0; i < tokens.length; i++) {
+              if (i > 0 && tokens[i].toLowerCase() === tokens[i-1].toLowerCase()) continue;
+              dedupTokens.push(tokens[i]);
             }
-            return t;
+
+            // 2) remove repeated adjacent phrase blocks at the start, e.g.
+            // "41 Avenue des Nymphes 41 Avenue des Nymphes 1170 ..."
+            let tkn = dedupTokens;
+            const m = tkn.length;
+            for (let L = Math.floor(m/2); L >= 1; L--) {
+              // compare first L tokens with next L tokens
+              const first = tkn.slice(0, L).map(x => x.toLowerCase()).join(' ');
+              const second = tkn.slice(L, L*2).map(x => x.toLowerCase()).join(' ');
+              if (first && first === second) {
+                // remove the second block
+                tkn = tkn.slice(0, L).concat(tkn.slice(L*2));
+                break;
+              }
+            }
+
+            // 3) final cleanup: remove duplicate adjacent tokens again (in case)
+            const finalTokens = [];
+            for (let i = 0; i < tkn.length; i++) {
+              if (i > 0 && tkn[i].toLowerCase() === tkn[i-1].toLowerCase()) continue;
+              finalTokens.push(tkn[i]);
+            }
+
+            return finalTokens.join(' ');
           };
           loc.textContent = normalizeLocation(ev.location);
           meta.appendChild(loc);
