@@ -193,19 +193,50 @@
         const meta = document.createElement('div');
         meta.className = 'agenda-meta';
 
+        // Affiche une plage horaire si DTEND est présent
+        function formatDateRange(start, end){
+          if(!start) return '';
+          // même jour -> "jeu. 15 oct., 09:30–13:00"
+          try{
+            if(end && start.toDateString && end.toDateString && start.toDateString() === end.toDateString()){
+              const datePart = start.toLocaleDateString('fr-FR', { weekday: 'short', day: '2-digit', month: 'short' });
+              const startTime = start.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit'});
+              const endTime = end.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit'});
+              return `${datePart}, ${startTime}–${endTime}`;
+            }
+            // sinon afficher date+heure de début et (si présent) date+heure de fin
+            const opts = { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
+            const s = start.toLocaleString('fr-FR', opts);
+            const e = end ? (' — ' + end.toLocaleString('fr-FR', opts)) : '';
+            return s + e;
+          }catch(err){
+            return '';
+          }
+        }
+
         const dateEl = document.createElement('time');
         dateEl.className = 'agenda-date';
         if (ev.dtstart && typeof ev.dtstart.toISOString === 'function') {
           dateEl.setAttribute('datetime', ev.dtstart.toISOString());
         }
-        dateEl.textContent = formatDate(ev.dtstart);
+        dateEl.textContent = formatDateRange(ev.dtstart, ev.dtend);
 
         meta.appendChild(dateEl);
 
         if (ev.location) {
           const loc = document.createElement('div');
           loc.className = 'agenda-location';
-          loc.textContent = ev.location;
+          // normaliser les espaces et supprimer les doublons initiaux (ex. "1170 1170 ...")
+          const normalizeLocation = s => {
+            let t = s.replace(/\s+/g, ' ').trim();
+            const parts = t.split(' ');
+            if(parts.length > 1 && parts[0] === parts[1]){
+              parts.splice(1,1);
+              t = parts.join(' ');
+            }
+            return t;
+          };
+          loc.textContent = normalizeLocation(ev.location);
           meta.appendChild(loc);
         }
 
