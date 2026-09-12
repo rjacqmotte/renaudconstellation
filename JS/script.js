@@ -130,12 +130,13 @@
     text = unfoldLines(text);
     const parts = text.split(/BEGIN:VEVENT/).slice(1);
     return parts.map(p => {
+      // accepte les propriétés avec paramètres, ex. DTSTART;TZID=Europe/Brussels:...
       const getSingle = key => {
-        const m = p.match(new RegExp('^' + key + ':(?:[ \t]*)([^\r\n]+)', 'm'));
+        const m = p.match(new RegExp('^' + key + '(?:;[^:]*)?:[ \t]*([^\r\n]+)', 'm'));
         return m ? m[1].trim() : null;
       };
       const getMulti = key => {
-        const m = p.match(new RegExp('^' + key + ':([\s\S]*?)(?:\r\n[A-Z]{1,}[A-Z0-9-]*:|$)', 'm'));
+        const m = p.match(new RegExp('^' + key + '(?:;[^:]*)?:([\s\S]*?)(?:\r\n[A-Z][A-Z0-9-]*:|$)', 'm'));
         return m ? m[1].trim() : null;
       };
       const summary = getSingle('SUMMARY') || getMulti('SUMMARY');
