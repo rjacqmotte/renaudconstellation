@@ -745,13 +745,17 @@
   color: var(--color-text-muted);
 }
 
-.agenda-desc {
-  margin-top: var(--space-3);
-  padding-top: var(--space-2);
-  border-top: var(--border-width-1) solid var(--color-border-default);
+.agenda-field-error {
+  margin: 0;
   font-size: var(--font-size-sm);
-  color: var(--color-text-default);
+  color: var(--color-text-muted);
   line-height: var(--lh-relaxed);
+}
+
+.agenda-field-error a {
+  display: inline;
+  color: var(--color-primary-600);
+  text-decoration: underline;
 }
 
 .agenda-actions {
@@ -786,10 +790,6 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
-/* petit ajustement pour les descriptions trop longues */
-.agenda-desc p { margin: 0; }
-
 
 /* ============================================================
   PAGE COMMENT ÇA SE PASSE

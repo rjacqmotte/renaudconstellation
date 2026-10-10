@@ -101,62 +101,27 @@
   const listEl = container.querySelector('.group-agenda_list');
   const fallback = container.querySelector('.group-agenda_fallback');
 
-  // déplie les lignes iCalendar qui commencent par un espace/tabs
-  function unfoldLines(text){
-    return text.replace(/\r\n[ \t]/g, '');
+  function formatDate(date){
+    return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
-  // parse quelques formats communs de date iCal
-  function parseICalDate(s){
-    if(!s) return null;
-    // UTC 20250912T150000Z
-    if(/^\d{8}T\d{6}Z$/.test(s)) return new Date(s);
-    // local 20250912T150000
-    if(/^\d{8}T\d{6}$/.test(s)){
-      const y=s.slice(0,4), mo=s.slice(4,6), d=s.slice(6,8), hh=s.slice(9,11)||'00', mm=s.slice(11,13)||'00', ss=s.slice(13,15)||'00';
-      return new Date(y, mo-1, d, hh, mm, ss);
-    }
-    // date-only 20250912
-    if(/^\d{8}$/.test(s)){
-      const y=s.slice(0,4), mo=s.slice(4,6), d=s.slice(6,8);
-      return new Date(y, mo-1, d);
-    }
-    const parsed = Date.parse(s);
-    return isNaN(parsed) ? null : new Date(parsed);
+  function formatTime(date){
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${date.getHours()}h${minutes === '00' ? '' : minutes}`;
   }
 
-  // parse minimaliste d'un fichier ICS en extrayant SUMMARY, DTSTART, DTEND, LOCATION, URL, DESCRIPTION
-  function parseICS(text){
-    text = unfoldLines(text);
-    const parts = text.split(/BEGIN:VEVENT/).slice(1);
-    return parts.map(p => {
-      // accepte les propriétés avec paramètres, ex. DTSTART;TZID=Europe/Brussels:...
-      const getSingle = key => {
-        const m = p.match(new RegExp('^' + key + '(?:;[^:]*)?:[ \t]*([^\r\n]+)', 'm'));
-        return m ? m[1].trim() : null;
-      };
-      const getMulti = key => {
-        const m = p.match(new RegExp('^' + key + '(?:;[^:]*)?:([\s\S]*?)(?:\r\n[A-Z][A-Z0-9-]*:|$)', 'm'));
-        return m ? m[1].trim() : null;
-      };
-      const summary = getSingle('SUMMARY') || getMulti('SUMMARY');
-      const dtstartRaw = getSingle('DTSTART') || getMulti('DTSTART');
-      const dtendRaw = getSingle('DTEND') || getMulti('DTEND');
-      return {
-        summary: summary,
-        dtstart: parseICalDate(dtstartRaw),
-        dtend: parseICalDate(dtendRaw),
-        location: getSingle('LOCATION') || getMulti('LOCATION'),
-        url: getSingle('URL') || getMulti('URL'),
-        description: getMulti('DESCRIPTION') || getSingle('DESCRIPTION') || null
-      };
-    });
-  }
+  function appendMissingField(parent, message, eventUrl){
+    const warning = document.createElement('p');
+    warning.className = 'agenda-field-error';
+    warning.append(document.createTextNode(`${message} `));
 
-  function formatDate(d){
-    if(!d) return '';
-    const opts = { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
-    return d.toLocaleString('fr-FR', opts);
+    const link = document.createElement('a');
+    link.href = eventUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = "Consulter l'événement sur Mobilizon.";
+    warning.appendChild(link);
+    parent.appendChild(warning);
   }
 
   async function load(){
@@ -164,7 +129,14 @@
       const res = await fetch(icsUrl);
       if(!res.ok) throw new Error('HTTP ' + res.status);
       const txt = await res.text();
-      const events = parseICS(txt).filter(e => e.dtstart && e.dtstart >= new Date()).sort((a,b) => a.dtstart - b.dtstart).slice(0,6);
+      const events = parseMobilizonICS(txt)
+        .filter(event => !event.dtstart || !event.dtstartHasTime || event.dtstart >= new Date())
+        .sort((a, b) => {
+          if (!a.dtstart) return 1;
+          if (!b.dtstart) return -1;
+          return a.dtstart - b.dtstart;
+        })
+        .slice(0, 6);
 
       if(events.length === 0){
         throw new Error('Aucun événement trouvé');
@@ -181,120 +153,55 @@
       events.forEach(ev => {
         const li = document.createElement('li');
         li.className = 'agenda-item';
+        const eventUrl = ev.url || 'https://mobilizon.be/@renaud_jacqmotte_constellations';
 
-        const a = document.createElement('a');
-        a.href = ev.url || 'https://mobilizon.be/@renaud_jacqmotte_constellations';
-        a.target = '_blank';
-        a.rel = 'noopener';
+        if (ev.summary) {
+          const titleLink = document.createElement('a');
+          titleLink.href = eventUrl;
+          titleLink.target = '_blank';
+          titleLink.rel = 'noopener';
 
-        const title = document.createElement('strong');
-        title.textContent = ev.summary || 'Événement';
+          const title = document.createElement('strong');
+          title.textContent = ev.summary;
+          titleLink.appendChild(title);
+          li.appendChild(titleLink);
+        } else {
+          appendMissingField(li, 'Le titre est impossible à afficher.', eventUrl);
+        }
 
         const meta = document.createElement('div');
         meta.className = 'agenda-meta';
-
-        // Affiche une plage horaire si DTEND est présent
-        function formatDateRange(start, end){
-          if(!start) return '';
-          // même jour -> "jeu. 15 oct., 09:30–13:00"
-          try{
-            if(end && start.toDateString && end.toDateString && start.toDateString() === end.toDateString()){
-              const datePart = start.toLocaleDateString('fr-FR', { weekday: 'short', day: '2-digit', month: 'short' });
-              const startTime = start.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit'});
-              const endTime = end.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit'});
-              return `${datePart}, ${startTime}–${endTime}`;
-            }
-            // sinon afficher date+heure de début et (si présent) date+heure de fin
-            const opts = { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' };
-            const s = start.toLocaleString('fr-FR', opts);
-            const e = end ? (' — ' + end.toLocaleString('fr-FR', opts)) : '';
-            return s + e;
-          }catch(err){
-            return '';
-          }
-        }
-
         const dateEl = document.createElement('time');
         dateEl.className = 'agenda-date';
-        if (ev.dtstart && typeof ev.dtstart.toISOString === 'function') {
-          dateEl.setAttribute('datetime', ev.dtstart.toISOString());
-        }
-        dateEl.textContent = formatDateRange(ev.dtstart, ev.dtend);
+        const dateParts = [];
 
-        meta.appendChild(dateEl);
+        if (ev.dtstart) {
+          dateEl.setAttribute('datetime', ev.dtstart.toISOString());
+          dateParts.push(formatDate(ev.dtstart));
+        }
+        if (ev.dtstartHasTime && ev.dtendHasTime) {
+          dateParts.push(`de ${formatTime(ev.dtstart)} à ${formatTime(ev.dtend)}`);
+        } else {
+          if (ev.dtstartHasTime) dateParts.push(`début à ${formatTime(ev.dtstart)}`);
+          if (ev.dtendHasTime) dateParts.push(`fin à ${formatTime(ev.dtend)}`);
+        }
+        dateEl.textContent = dateParts.join(', ');
+
+        if (dateParts.length) meta.appendChild(dateEl);
+        if (!ev.dtstart) appendMissingField(meta, 'La date est impossible à afficher.', eventUrl);
+        if (!ev.dtstartHasTime) appendMissingField(meta, "L'heure de début est impossible à afficher.", eventUrl);
+        if (!ev.dtendHasTime) appendMissingField(meta, "L'heure de fin est impossible à afficher.", eventUrl);
 
         if (ev.location) {
           const loc = document.createElement('div');
           loc.className = 'agenda-location';
-          // normaliser les espaces et supprimer les doublons initiaux (ex. "1170 1170 ...")
-          const normalizeLocation = s => {
-            if (!s) return s;
-            // collapse whitespace and commas/semicolons
-            let cleaned = s.replace(/[\t\r\n]/g, ' ').replace(/[;,]/g, ' ').replace(/\s+/g, ' ').trim();
-
-            const tokens = cleaned.split(' ');
-            const n = tokens.length;
-
-            // 1) remove immediate repeated tokens (e.g. "1170 1170")
-            const dedupTokens = [];
-            for (let i = 0; i < tokens.length; i++) {
-              if (i > 0 && tokens[i].toLowerCase() === tokens[i-1].toLowerCase()) continue;
-              dedupTokens.push(tokens[i]);
-            }
-
-            // 2) remove repeated adjacent phrase blocks at the start, e.g.
-            // "41 Avenue des Nymphes 41 Avenue des Nymphes 1170 ..."
-            let tkn = dedupTokens;
-            const m = tkn.length;
-            for (let L = Math.floor(m/2); L >= 1; L--) {
-              // compare first L tokens with next L tokens
-              const first = tkn.slice(0, L).map(x => x.toLowerCase()).join(' ');
-              const second = tkn.slice(L, L*2).map(x => x.toLowerCase()).join(' ');
-              if (first && first === second) {
-                // remove the second block
-                tkn = tkn.slice(0, L).concat(tkn.slice(L*2));
-                break;
-              }
-            }
-
-            // 3) final cleanup: remove duplicate adjacent tokens again (in case)
-            const finalTokens = [];
-            for (let i = 0; i < tkn.length; i++) {
-              if (i > 0 && tkn[i].toLowerCase() === tkn[i-1].toLowerCase()) continue;
-              finalTokens.push(tkn[i]);
-            }
-
-            return finalTokens.join(' ');
-          };
-          loc.textContent = normalizeLocation(ev.location);
+          loc.textContent = ev.location;
           meta.appendChild(loc);
+        } else {
+          appendMissingField(meta, 'Le lieu est impossible à afficher.', eventUrl);
         }
 
-        a.appendChild(title);
-        a.appendChild(meta);
-
-        // description / commentaires (si présents)
-        if (ev.description) {
-          const desc = document.createElement('div');
-          desc.className = 'agenda-desc';
-          // Unescape iCalendar-specific escapes (\\n, \\, \\, \;, \\,) and preserve newlines
-          let raw = ev.description;
-          raw = raw.replace(/\\n/g, '\n')
-                   .replace(/\\,/g, ',')
-                   .replace(/\\;/g, ';')
-                   .replace(/\\\\/g, '\\')
-                   .trim();
-          // Escaper le HTML pour éviter tout XSS puis remplacer les nouvelles lignes par des <br>
-          const escapeHtml = s => s.replace(/&/g, '&amp;')
-                                    .replace(/</g, '&lt;')
-                                    .replace(/>/g, '&gt;')
-                                    .replace(/"/g, '&quot;')
-                                    .replace(/'/g, '&#39;');
-          desc.innerHTML = escapeHtml(raw).replace(/\n/g, '<br>');
-          li.appendChild(desc);
-        }
-
-        li.insertBefore(a, li.firstChild);
+        li.appendChild(meta);
         ul.appendChild(li);
       });
 
