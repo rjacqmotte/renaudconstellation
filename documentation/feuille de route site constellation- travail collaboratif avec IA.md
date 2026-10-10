@@ -6,7 +6,7 @@
 
 le but est de faire un page de présentation et de vente pour mon activité de constellation familiale.
 
-un site existant de plusieurs page a été fait en collaboration avec l'ia. les dermier 3 ou 4 commit, l'ia a travaillé sur une api pour intégrer les évenement de ma page mobilizon. le parsing est délicat et le code devient complexe. nous en sommes là. point 1.
+un site existant de plusieurs page a été fait en collaboration avec l'ia. les dermier 3 ou 4 commit, l'ia a travaillé sur une api pour intégrer les évenement de ma page mobilizon. le parsing est délicat et le code devient complexe.nous en sommes là. point 1.
 
 ### 0.2 par défaut, chercher la simplicité
 
