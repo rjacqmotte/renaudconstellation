@@ -136,6 +136,14 @@ le plus simpe et peut être de juste écrire les dates à même le code et modif
 
 ### 1.3 mise en place du calendrier à la première page et à la page de groupe
 
+## 1,9 mise en page de la feuille index
+### 1,9.1 problèmes
+divers soucis de mise en page
+- avec l'ajout des date du calnedrier, ca commence à faire bcp d'encadré sur la page et la hierchie visuelle est confise. bcp d'information dans tout les sens. page confuse!
+- les titres avec une petites lignes orange on des soucis de margin-bottom, certain son collé au contenu du dessus, rectifier pour un visuel cohérent
+- relecture graphique et ux de toutes cette première page, elle servira de modèle pour rendre cohérente les autre.
+- peut être définir sur base de index html des type de cadre et de hierarchies clées qui pourront être réutilisée dans les autres pages (design system cohérent et minimaliste) 
+
 ## 2. mise en page de la feuille groupe
 
 ### 2.1 Hiérarchie
