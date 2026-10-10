@@ -93,6 +93,7 @@
 
 /* Mobilizon events loader */
 (function(){
+  // Ce script sert uniquement à la page qui contient cet agenda.
   const container = document.getElementById('mobilizon-events');
   if (!container) return;
 
@@ -101,6 +102,7 @@
   const listEl = container.querySelector('.group-agenda_list');
   const fallback = container.querySelector('.group-agenda_fallback');
 
+  // Le parseur fournit des dates JavaScript ; on les présente selon le format demandé dans la feuille de route.
   function formatDate(date){
     return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   }
@@ -111,6 +113,7 @@
   }
 
   function appendMissingField(parent, message, eventUrl){
+    // Garder la carte et permettre de retrouver les détails directement sur Mobilizon.
     const warning = document.createElement('p');
     warning.className = 'agenda-field-error';
     warning.append(document.createTextNode(`${message} `));
@@ -126,10 +129,12 @@
 
   async function load(){
     try{
+      // Le flux public reste la source des événements ; aucun descriptif n'est récupéré pour l'affichage.
       const res = await fetch(icsUrl);
       if(!res.ok) throw new Error('HTTP ' + res.status);
       const txt = await res.text();
       const events = parseMobilizonICS(txt)
+        // Un événement sans date reste visible pour afficher l'avertissement plutôt que de le cacher.
         .filter(event => !event.dtstart || !event.dtstartHasTime || event.dtstart >= new Date())
         .sort((a, b) => {
           if (!a.dtstart) return 1;
@@ -153,6 +158,7 @@
       events.forEach(ev => {
         const li = document.createElement('li');
         li.className = 'agenda-item';
+        // L'URL propre à l'événement est préférable ; le profil sert de lien de secours.
         const eventUrl = ev.url || 'https://mobilizon.be/@renaud_jacqmotte_constellations';
 
         if (ev.summary) {
@@ -220,7 +226,7 @@
       listEl.appendChild(actions);
 
     }catch(err){
-      // en cas d'erreur, afficher le fallback (lien vers Mobilizon)
+      // Si le flux est inaccessible ou vide, garder un lien utile vers le profil Mobilizon.
       console.warn('Mobilizon events load failed', err);
       if (loading) loading.hidden = true;
       if (listEl) listEl.hidden = true;

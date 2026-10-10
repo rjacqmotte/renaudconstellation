@@ -115,6 +115,9 @@ Le parseur a été isolé dans `JS/mobilizonParser.js` et ne lit que les champs 
 
 Validation : les cinq tests Node.js passent avec le fuseau de test `Europe/Brussels`. Le vrai flux Mobilizon renvoie deux événements correctement affichés dans le navigateur local. Un événement incomplet simulé dans le navigateur conserve sa carte et affiche les avertissements attendus, liés à sa page Mobilizon. Aucun descriptif n'est affiché. Les scripts passent `node --check`, et les diagnostics VS Code ne signalent pas d'erreur. Le contrôle navigateur est manuel ; le site de production n'a pas été modifié.
 
+##### 5. commentaires pour faciliter la maintenance
+Des commentaires en français ont été ajoutés aux étapes moins évidentes du parseur et de l'affichage : format des lignes ICS, fuseau horaire convenu, champs retenus, affichage des événements incomplets et comportement de secours. Ils expliquent les décisions importantes sans répéter ce que le code indique déjà. Les tests restent exécutables avec `TZ=Europe/Brussels node --test tests/mobilizonParser.test.js`.
+
 
 ### 1.2 la voie de la simplicité - juste un calendrier en dure direct en html
 

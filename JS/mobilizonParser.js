@@ -1,6 +1,8 @@
+// Garder cette liste courte : le site n'utilise pas le descriptif ni les autres champs ICS.
 const MOBILIZON_PROPERTIES = new Set(['DTSTART', 'DTEND', 'SUMMARY', 'LOCATION', 'URL']);
 
 function unfoldCalendarLines(text) {
+  // En ICS, une ligne qui commence par une espace ou une tabulation continue la précédente.
   return String(text).replace(/\r\n[ \t]|\n[ \t]|\r[ \t]/g, '');
 }
 
@@ -10,6 +12,7 @@ function parseCalendarDate(property) {
   const value = property.value;
   const dateOnly = value.match(/^(\d{4})(\d{2})(\d{2})$/);
   if (dateOnly) {
+    // Les dates sans Z sont lues dans le fuseau local, conformément au choix noté dans la feuille de route.
     const date = new Date(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3]));
     if (date.getFullYear() !== Number(dateOnly[1]) || date.getMonth() !== Number(dateOnly[2]) - 1 || date.getDate() !== Number(dateOnly[3])) {
       return { date: null, hasTime: false };
@@ -21,6 +24,7 @@ function parseCalendarDate(property) {
   if (!dateTime) return { date: null, hasTime: false };
 
   const [, year, month, day, hour, minute, second = '00', utc] = dateTime;
+  // Z signifie UTC ; sans Z, Mobilizon donne l'heure locale de l'événement (Bruxelles pour ce site).
   const date = utc
     ? new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}Z`)
     : new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second));
@@ -45,6 +49,7 @@ function parseCalendarEvent(lines) {
   const properties = {};
 
   for (const line of lines) {
+    // Les paramètres comme TZID sont avant le deux-points ; la valeur est après.
     const separator = line.indexOf(':');
     if (separator < 0) continue;
 
@@ -52,8 +57,7 @@ function parseCalendarEvent(lines) {
     if (!MOBILIZON_PROPERTIES.has(propertyName) || properties[propertyName]) continue;
 
     properties[propertyName] = {
-      value: line.slice(separator + 1).trim(),
-      parameters: line.slice(propertyName.length, separator)
+      value: line.slice(separator + 1).trim()
     };
   }
 
@@ -76,6 +80,7 @@ function parseMobilizonICS(text) {
   const events = [];
   let eventLines = null;
 
+  // Un événement commence à BEGIN:VEVENT et se termine à END:VEVENT.
   for (const line of lines) {
     const marker = line.trim().toUpperCase();
     if (marker === 'BEGIN:VEVENT') {
@@ -91,6 +96,7 @@ function parseMobilizonICS(text) {
   return events;
 }
 
+// CommonJS permet aux tests Node.js d'utiliser le même parseur que la page web.
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { parseMobilizonICS };
 }
