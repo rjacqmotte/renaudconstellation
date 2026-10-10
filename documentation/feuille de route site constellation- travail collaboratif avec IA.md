@@ -38,7 +38,7 @@ le tout est hebergé via github page et le nom de domaine est lié via infomania
 
 - nous terminons un point avant de faire le suivant.
 
-## 1. intégration ou non d'un calendrier mobilizon
+## 1. intégration ou non d'un calendrier mobilizon - fait!
 
 ### 1.1 différente possibilité d'intégrer les évenement mobilizon dans les sites
 
@@ -130,16 +130,20 @@ Des commentaires en français ont été ajoutés aux étapes moins évidentes du
 **À surveiller sans complexifier maintenant :** le parseur accepte les formats de date observés et ignore les autres propriétés ICS ; un changement de format Mobilizon peut donc transformer une valeur en champ manquant, qui sera signalé avec un lien. En cas d'évolution du flux, ajouter d'abord un exemple réel aux tests. Le titre et le lieu sont nettoyés des échappements ICS, mais les doublons ou particularités d'adresse restent volontairement tels que fournis par Mobilizon ; éviter de réintroduire un nettoyage générique complexe. Enfin, si la page doit accepter une autre source de flux, vérifier que les liens d'événement restent des liens web sûrs avant de les rendre cliquables.
 
 
-### 1.2 la voie de la simplicité - juste un calendrier en dure direct en html
+### 1.2 la voie de la simplicité - juste un calendrier en dure direct en html - fait!
 
-le plus simpe et peut être de juste écrire les dates à même le code et modifier via commt successif. => le choix final est le parseur basé sur le flux du calnedrier .ics
+le plus simpe et peut être de juste écrire les dates à même le code et modifier via commt successif. 
+=> le choix final est le parseur basé sur le flux du calnedrier .ics
 
-### 1.3 mise en place du calendrier à la première page et à la page de groupe
+### 1.3 mise en place du calendrier à la première page et à la page de groupe -fait!
+=> c'est fait
 
-## 1,9 mise en page de la feuille index
+## 1,9 mise en page et UX de la feuille index - en cours...
+### 1,9.0 mettre des faux témoignages
+rendre visible la section témoignage et mettre des faux témoignages pour les prendre en compte lors de la mise en page
 ### 1,9.1 problèmes
 divers soucis de mise en page
-- avec l'ajout des date du calnedrier, ca commence à faire bcp d'encadré sur la page et la hierchie visuelle est confise. bcp d'information dans tout les sens. page confuse!
+- avec l'ajout des date du calnedrier, ca commence à faire bcp d'encadré sur la page et la hierarchie visuelle est confuse. bcp d'informations dans tout les sens. page confuse et brouillone!
 - les titres avec une petites lignes orange on des soucis de margin-bottom, certain son collé au contenu du dessus, rectifier pour un visuel cohérent
 - relecture graphique et ux de toutes cette première page, elle servira de modèle pour rendre cohérente les autre.
 - peut être définir sur base de index html des type de cadre et de hierarchies clées qui pourront être réutilisée dans les autres pages (design system cohérent et minimaliste) 
