@@ -118,10 +118,21 @@ Validation : les cinq tests Node.js passent avec le fuseau de test `Europe/Bruss
 ##### 5. commentaires pour faciliter la maintenance
 Des commentaires en français ont été ajoutés aux étapes moins évidentes du parseur et de l'affichage : format des lignes ICS, fuseau horaire convenu, champs retenus, affichage des événements incomplets et comportement de secours. Ils expliquent les décisions importantes sans répéter ce que le code indique déjà. Les tests restent exécutables avec `TZ=Europe/Brussels node --test tests/mobilizonParser.test.js`.
 
+##### 6. relecture : critiques et pistes d'amélioration
+**Points solides :** le site reste statique, sans dépendance de bibliothèque ; le parseur ne conserve que les cinq propriétés nécessaires ; les descriptions ne sont pas affichées ; le texte provenant du flux est inséré comme texte et non comme HTML ; les erreurs réseau ou l'absence d'événement gardent un lien vers Mobilizon. Les tests couvrent les dates, les lignes repliées, les champs absents et les changements d'heure.
+
+**Fuseau horaire : limite connue à garder en tête.** Le parseur ne lit pas réellement la valeur `TZID` : les heures sans `Z` sont converties dans le fuseau horaire de l'ordinateur du visiteur. Cela correspond à l'hypothèse retenue au point 1.1.7, à savoir que visiteur et organisateur ont le même fuseau. En revanche, le point 1.1.6 parle d'un résultat correct quelle que soit l'heure locale du visiteur ; ces deux formulations ne concordent pas. Pour conserver le choix simple actuel, préciser au point 1.1.6 que le site suppose le fuseau Europe/Brussels. Si des visiteurs d'autres fuseaux doivent voir l'heure belge, il faudra traiter explicitement `TZID=Europe/Brussels` et ajouter des tests lancés dans plusieurs fuseaux.
+
+**Événements sans heure : petit cas à améliorer si nécessaire.** Un événement ICS avec une date valide mais sans heure est gardé dans la liste pour signaler le champ manquant. Le filtre actuel le garde même si sa date est passée. Les événements Mobilizon actuellement observés ont des heures ; si des événements « journée entière » ou incomplets sont publiés, il faudra comparer leur date à aujourd'hui avant de les garder.
+
+**Tests de l'affichage : couverture manuelle.** Les cinq tests automatisés vérifient le parseur, pas le tri, le filtrage ni le HTML des cartes. Le vrai flux et un événement incomplet ont été vérifiés manuellement dans le navigateur. C'est suffisant pour cette première version simple ; si l'affichage évolue ou si une régression apparaît, ajouter un test navigateur ciblé plutôt qu'un framework complet.
+
+**À surveiller sans complexifier maintenant :** le parseur accepte les formats de date observés et ignore les autres propriétés ICS ; un changement de format Mobilizon peut donc transformer une valeur en champ manquant, qui sera signalé avec un lien. En cas d'évolution du flux, ajouter d'abord un exemple réel aux tests. Le titre et le lieu sont nettoyés des échappements ICS, mais les doublons ou particularités d'adresse restent volontairement tels que fournis par Mobilizon ; éviter de réintroduire un nettoyage générique complexe. Enfin, si la page doit accepter une autre source de flux, vérifier que les liens d'événement restent des liens web sûrs avant de les rendre cliquables.
+
 
 ### 1.2 la voie de la simplicité - juste un calendrier en dure direct en html
 
-le plus simpe et peut être de juste écrire les dates à même le code et modifier via commt successif.
+le plus simpe et peut être de juste écrire les dates à même le code et modifier via commt successif. => le choix final est le parseur basé sur le flux du calnedrier .ics
 
 ### 1.3 mise en place du calendrier à la première page et à la page de groupe
 
