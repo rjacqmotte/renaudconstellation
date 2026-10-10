@@ -73,6 +73,7 @@
 
   <main class="l-main-container">
 
+    <!-- HERO -->
     <section class="hero">
       <div class="hero_image-container">
         <img class="hero_image" src="resources/media/photo_renaud-dans-le-salon.png"
@@ -86,6 +87,7 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section class="services">
       <p class="section-label">Ce que je propose</p>
       <ul class="services_gallery">
@@ -135,6 +137,7 @@
       </ul>
     </section>
 
+    <!-- INFORMATIONS PRATIQUES -->
     <section class="keys-info">
       <p class="section-label">En pratique</p>
       <ul class="keys-info_gallery">
@@ -204,6 +207,37 @@
       </ul>
     </section>
 
+
+    <!-- AGENDA: intégration Mobilizon -->
+    <section class="group-agenda">
+      <h2 class="group-agenda_title">Prochaines dates</h2>
+
+      <!-- Conteneur d'événements : data-ics pointe vers le feed ICS Mobilizon -->
+      <div id="mobilizon-events" class="group-agenda_events" data-ics="https://mobilizon.be/@renaud_jacqmotte_constellations/feed/ics">
+
+        <!-- État de chargement -->
+        <div class="group-agenda_loading" aria-live="polite">Chargement des événements…</div>
+
+        <!-- Liste rendue dynamiquement -->
+        <div class="group-agenda_list" hidden></div>
+
+        <!-- Fallback si aucun événement ou en cas d'erreur -->
+        <div class="group-agenda_fallback" hidden>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <p>Les prochaines dates seront publiées ici.<br>
+            <a href="https://mobilizon.be/@renaud_jacqmotte_constellations" target="_blank" rel="noopener">Voir mon profil Mobilizon</a>
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--
     <section class="testimonials">
       <p class="section-label">Ce qu'ils en disent</p>
       <div class="testimonials_grid">
@@ -224,7 +258,9 @@
 
       </div>
     </section>
+    -->
 
+    <!-- À PROPOS -->
     <section class="about-me">
       <div class="about-me_header">
         <div class="about-me_portrait-wrapper">
@@ -303,6 +339,7 @@
       </ul>
   </nav>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="site-footer_inner">
 
