@@ -2,6 +2,24 @@
 
 Ce document sert de base de travail pour améliorer la page d'accueil, puis guider la cohérence des autres pages. Il distingue les constats observables des propositions à discuter. Aucune proposition ci-dessous ne vaut décision de contenu sans validation.
 
+## Journal — 12 octobre 2026
+
+### Décisions retenues
+
+- Le hero annonce clairement les constellations familiales et d'entreprise à Bruxelles ; la phrase d'approche reste secondaire.
+- Le premier choix est familial ou entreprise. Les formats individuel/groupe se découvrent sur les pages dédiées ; les dates de groupe constituent un parcours séparé sur l'accueil.
+
+### Réalisé
+
+- Le hero a été harmonisé avec les pages intérieures, avec deux liens doux vers les offres. Ils ne s'affichent que lorsque le hero est en deux colonnes.
+- Le responsive garde le hero en une colonne jusqu'à 959 px, avec une image au ratio maîtrisé ; l'affichage en deux colonnes commence à 960 px.
+- Les choix validés et les changements réalisés ont été reportés dans ce document pour guider la suite du travail.
+
+### À valider
+
+- Déplacer le bloc « En pratique » vers les pages des offres, en gardant sur l'accueil la localisation et les dates de groupe.
+- Masquer les faux témoignages sur le site publié jusqu'à disposer de témoignages réels et autorisés.
+
 ## 1. Objectifs de la page
 
 La page doit permettre à une personne qui découvre l'activité de comprendre rapidement :
