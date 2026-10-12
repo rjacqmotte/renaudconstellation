@@ -99,11 +99,6 @@
   gap: var(--space-4);
 }
 
-.cf-intro_question {
-  font-size: var(--font-size-2xl);
-  color: var(--color-text-default);
-}
-
 .cf-intro_text {
   color: var(--color-text-default);
   line-height: var(--lh-relaxed);
@@ -114,11 +109,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-}
-
-.cf-situations_title {
-  font-size: var(--font-size-xl);
-  color: var(--color-text-default);
 }
 
 .cf-situations_list {
@@ -171,10 +161,6 @@
   border-left: var(--border-width-3) solid var(--color-primary-400);
 }
 
-.cf-how_title {
-  font-size: var(--font-size-xl);
-}
-
 .cf-how_text {
   color: var(--color-text-default);
   line-height: var(--lh-relaxed);
@@ -200,10 +186,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-}
-
-.cf-formats_title {
-  font-size: var(--font-size-xl);
 }
 
 .cf-formats_grid {
@@ -289,7 +271,6 @@
 }
 
 .cf-cta_title {
-  font-size: var(--font-size-2xl);
   color: var(--color-text-inverse);
 }
 
@@ -392,10 +373,6 @@
   gap: var(--space-5);
 }
 
-.indiv-how_title {
-  font-size: var(--font-size-xl);
-}
-
 .indiv-how_step {
   display: flex;
   gap: var(--space-4);
@@ -479,10 +456,6 @@
   gap: var(--space-4);
 }
 
-.indiv-pratique_title {
-  font-size: var(--font-size-xl);
-}
-
 .indiv-pratique_list {
   list-style: none;
   display: flex;
@@ -537,10 +510,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-}
-
-.group-roles_title {
-  font-size: var(--font-size-xl);
 }
 
 .group-roles_grid {
@@ -647,10 +616,6 @@
   gap: var(--space-2);
 }
 
-.group-home_title {
-  font-size: var(--font-size-lg);
-}
-
 .group-home_text {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
@@ -677,10 +642,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-}
-
-.group-agenda_title {
-  font-size: var(--font-size-xl);
 }
 
 .group-agenda_placeholder {
@@ -878,11 +839,6 @@
   flex-direction: column;
   gap: var(--space-4);
   flex: 1;
-}
-
-.how-section_title {
-  font-size: var(--font-size-xl);
-  color: var(--color-text-default);
 }
 
 .how-section_text {
