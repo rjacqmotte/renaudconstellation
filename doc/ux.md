@@ -26,7 +26,7 @@ Le parcours actuel présente le portrait et la promesse, les deux activités, de
 
 1. **La hiérarchie visuelle est concurrencée par l'accumulation de cadres.** Les offres, quatre informations pratiques, les témoignages et la présentation personnelle utilisent des fonds, bordures, ombres ou cartes. Les éléments n'ont donc pas tous le même poids fonctionnel, mais leur traitement se ressemble. Les cartes d'événements ajoutent encore des blocs à cette série.
 2. **Certaines informations sont répétées.** Les formats individuel et groupe apparaissent dans les offres ou leurs liens, puis à nouveau dans « En pratique ». La répétition peut être utile pour les prix et durées, mais la page ne rend pas toujours cette différence de rôle évidente. L'option « Chez vous » apporte une information distincte et ne doit pas être supprimée par simple dédoublonnage.
-3. **La promesse du premier écran est évocatrice, mais peu explicite.** Le titre principal ne nomme pas directement une séance ou un atelier. Le libellé au-dessus précise l'activité, mais le seul appel à l'action mène aux constellations familiales : les personnes intéressées par les entreprises, les séances individuelles ou les dates de groupe n'ont pas de choix direct à cet endroit.
+3. **Le parcours du premier écran est incomplet.** Le titre annonce les deux domaines, mais le seul appel à l'action mène aux constellations familiales. Une personne intéressée par les constellations d'entreprise n'a donc pas de lien direct depuis le hero. Les dates de groupe constituent un parcours distinct plus bas sur la page ; les formats individuel et groupe ne sont pas des choix à proposer dans le hero.
 4. **Le style des titres de section est inégal.** Les sections « Ce que je propose », « En pratique », « Ce qu'ils en disent » utilisent un petit libellé avec une ligne, tandis que l'agenda utilise un titre de niveau 2. Les petits libellés sont des paragraphes, pas des titres : ils ne structurent donc pas la navigation par titres pour les lecteurs d'écran et les personnes qui parcourent la page au clavier.
 5. **L'espacement sous les petits titres n'est pas garanti par leur structure actuelle.** `.section-label` dessine une bordure et un padding intérieur, mais pas de marge après ; les sections concernées n'établissent pas toutes un espacement explicite entre ce libellé et leur contenu. Cela explique les cas de contenu visuellement trop proche et justifie une règle commune.
 6. **Les témoignages visibles sont des textes fictifs de maquette.** Ils peuvent rester visibles dans la version de travail pour régler la mise en page. Le risque apparaît seulement s'ils sont publiés comme des paroles de clients : avant publication, cette section devra être masquée jusqu'à disposer de témoignages réels, autorisés et exacts.
@@ -38,8 +38,8 @@ Le parcours actuel présente le portrait et la promesse, les deux activités, de
 ### Priorité 1 — fiabilité et compréhension
 
 - Conserver les témoignages fictifs dans la version de travail comme repères de mise en page, puis masquer la section dans la version publiée jusqu'à disposer de citations réelles dont l'usage est autorisé.
-- Rendre le titre principal plus explicite sur l'activité et le public concerné, tout en gardant éventuellement une formule plus personnelle en sous-titre.
-- Faire du choix de l'accompagnement le parcours principal de la page : proposer des accès directs aux offres familiales, d'entreprise, individuelles et en groupe. Garder le contact visible comme possibilité secondaire, sans en faire le seul appel à l'action du hero.
+- Nommer clairement le service et sa localisation dans le titre principal : constellations familiales et d'entreprise à Bruxelles. La formule d'approche peut rester secondaire ou être retirée si elle détourne l'attention.
+- Faire du choix du domaine le parcours principal du hero : proposer deux accès distincts, vers les constellations familiales et les constellations d'entreprise. Les formats se découvrent ensuite sur les pages correspondantes ; les prochaines dates de groupe restent un parcours distinct sur l'accueil. Le contact reste accessible, mais secondaire.
 - Donner une vraie structure de titres aux grandes sections, avec un ordre cohérent : un H1 pour la page, des H2 pour les sections principales, puis des H3 si un sous-niveau est nécessaire.
 
 ### Priorité 2 — réduire la confusion visuelle
@@ -73,9 +73,9 @@ Chaque changement devrait répondre à un besoin identifiable et être évalué 
 
 ## 5. Décisions à prendre ensemble
 
-- Le parcours principal retenu est le choix de l'accompagnement (familial, entreprise, individuel ou groupe) ; la prise de contact reste une option secondaire et accessible.
-- Quel degré d'explicitation souhaite-t-on dans le titre principal, et quelle place conserver à la formule actuelle ?
-- Quelle information « En pratique » doit rester sur l'accueil, notamment pour l'option « Chez vous » ?
+- **Décidé :** le premier choix sur l'accueil est le domaine, familial ou entreprise. Les formats individuel/groupe ne sont pas proposés comme choix sur cette page.
+- **Décidé :** le titre principal nomme les constellations familiales et d'entreprise à Bruxelles. La formule d'approche est secondaire et peut être retirée si elle encombre le premier écran.
+- **À confirmer :** retirer le bloc générique « En pratique » et placer les détails propres à chaque offre sur sa page ; garder sur l'accueil la localisation générale et les dates de groupe.
 - La présentation de Renaud doit-elle précéder les dates ou les suivre ?
 - Quels moyens de contact souhaite-t-on réellement mettre en avant ?
 - Des témoignages authentiques et autorisés sont-ils disponibles ? En leur absence, quelle information vérifiable pourrait occuper cette place ?
@@ -109,6 +109,8 @@ Une nuance à garder : « familial » et « entreprise » décrivent le domaine 
 
 **Réponse de l'utilisateur :** oui, pas de choix de groupe/individuel sur la page d'accuei! je valide uniquement familiales/entreprise.
 
+**Décision retenue :** le hero de l'accueil propose uniquement les deux domaines, familial et entreprise. Les propositions antérieures d'accès individuel/groupe sur l'accueil sont remplacées par cette décision ; les formats se découvrent sur les pages dédiées.
+
 ### 6.3 compréhension immédiate - fait!
 
 **Question de l'utilisateur :** que veut dire « compréhension immédiate » dans le contexte de cette page ?
@@ -123,46 +125,15 @@ Sur la page actuelle, « Mettre en lumière ce qui le demande, se libérer de ce
 
 **Réponse de l'utilisateur :** je valide, le texte poétique est secondaire et pas néecessaire. on peut l'enlever si ca fait du bruit. constellations familiales et d'entreprises, Bruxelles est l'info principale.
 
+**Décision retenue :** l'information principale du hero est « Constellations familiales et d'entreprises, Bruxelles ». La formule poétique est secondaire et peut être retirée. Le hero doit ensuite donner accès aux deux domaines, sans introduire de choix individuel/groupe.
+
 ### 6.4 parcours utiles
 
-**Question de l'utilisateur :** que signifie « parcours utile » pour ce site ?
-
-**Réponse de l'IA :** un parcours est le chemin qu'une personne suit pour atteindre son objectif sur le site. Les visiteurs n'arrivent pas tous avec la même question ; un parcours utile leur évite de chercher dans des pages sans rapport ou de devoir contacter Renaud avant d'avoir trouvé les informations de base.
-
-Exemples adaptés au site :
-
-- Une personne qui cherche une séance individuelle repère cet accompagnement sur l'accueil, ouvre la page « Séance individuelle », puis trouve les modalités et le moyen de prendre contact.
-- Une personne qui veut participer à un atelier en groupe voit les prochaines dates, ouvre les détails de l'atelier sur Mobilizon et peut poursuivre vers les informations d'inscription.
-- Une personne qui cherche un accompagnement pour son entreprise choisit « Constellations d'entreprises », lit la page dédiée, puis contacte Renaud si son besoin correspond.
-- Une personne qui découvre les constellations mais ne sait pas encore quel format choisir trouve une explication du déroulement avant de décider de contacter Renaud.
-
-Concrètement, cela suggère de présenter tôt des liens qui nomment clairement leur destination, comme « Découvrir les séances individuelles », « Voir les dates des ateliers en groupe » ou « Comprendre les constellations d'entreprise », plutôt que de proposer partout le même « Plus d'infos ». Ce sont des exemples à ajuster au contenu réellement disponible sur chaque page. Le contact reste possible tout au long du parcours, mais n'oblige pas les visiteurs à interrompre leur recherche pour poser une question dont la réponse existe déjà sur le site.
-
-**Réponse de l'utilisateur :** merci, c'est plus clair. je penses que les parcours utiles sont les suivants:
-- j'ai besoin de familiales ou entreprise? =>
-    - découvrir les constellations familiales;
-    - découvrir les constellations d'entreprise;
-- besoin de connaitre la date des prochaines groupes? =>
-    - date et titre des évènements, lien vers la page d'un évènement particulier;
-- besoin d'avoir les info pratique? liste des info pratique sur la page
-- besoin d'eb savoir plus sur renaud? présentation brève de renaud =>
-    - lien vers la page à propos et contact.
-- besoin de me contacter? bouton de contact en smartphone et contact en footer et header.
-j'ai bien compris? que suggères tu comme parcours efficace en tant que UX designer?
-
-**Réponse de l'IA :** oui, vous avez bien compris. Vous avez repéré cinq intentions différentes : choisir le domaine, trouver une date de groupe, consulter les informations pratiques, en savoir plus sur vous et vous contacter. Un parcours utile est un chemin direct pour chacune de ces intentions ; il ne faut pas imposer le même chemin à tout le monde ni faire du contact un passage obligé.
-
-Je suggère cette organisation pour la page d'accueil :
-
-1. **Comprendre et choisir** — Le premier écran annonce « Constellations familiales et d'entreprise à Bruxelles », puis donne deux accès distincts : découvrir les constellations familiales et découvrir les constellations d'entreprise. Les choix de format apparaissent ensuite uniquement là où ils correspondent à une offre existante.
-2. **Trouver un atelier** — Une section « Prochaines dates de groupe » présente pour chaque événement au minimum son titre et sa date, avec un lien direct vers sa page Mobilizon. Cette section doit être facile à repérer depuis le début de la page, sans prendre le dessus sur le choix familial/entreprise.
-3. **Vérifier les informations pratiques** — Afficher clairement lieu, durée, prix et modalités. Comme ces éléments peuvent différer selon l'accompagnement, les associer au bon format ou à la bonne section plutôt que de les rassembler dans des cartes qui laisseraient croire que toutes les conditions sont identiques.
-4. **Découvrir Renaud** — Garder une courte présentation sur l'accueil, puis proposer un lien explicite vers la page « À propos ». Cette présentation soutient la confiance, mais ne doit pas repousser les offres et les dates loin sous la page.
-5. **Contacter** — Garder un moyen de contact facile à trouver dans l'en-tête et le pied de page, ainsi que dans l'interface mobile. C'est une porte disponible à tout moment, pas l'étape obligatoire après chaque lecture.
+Un moyen de contact reste facile à trouver dans l'en-tête, le pied de page et l'interface mobile. C'est une porte disponible à tout moment, pas l'étape obligatoire après chaque lecture.
 
 Les liens doivent annoncer leur destination : par exemple « Découvrir les constellations familiales », « Découvrir les constellations d'entreprise », « Voir les prochaines dates » et « En savoir plus sur Renaud ». Pour les ateliers, le lien d'un événement mène directement à ses détails sur Mobilizon ; pour les informations déjà présentes sur le site, éviter d'obliger la personne à quitter la page ou à vous écrire.
 
-En bref, je garderais l'ordre de priorité suivant : **choix familial ou entreprise**, puis **formats et dates pertinents**, ensuite **informations pratiques et présentation**, avec le **contact toujours accessible**. L'ordre exact des sections pourra être confirmé en regardant la page sur mobile et sur ordinateur ; le principe important est que les deux offres principales soient visibles avant les contenus secondaires.
+En bref, l'accueil met d'abord en avant le choix **familial ou entreprise**, puis donne un accès distinct aux dates de groupe. Les formats et leurs informations pratiques se trouvent sur les pages correspondantes. La présentation de Renaud et le contact restent faciles à trouver, sans devenir le parcours principal.
 
 **Réponse de l'utilisateur :** je pense maintenant que on pourrait enlever les infos pratiques et les mettre aus pages constellations familiales ou constellations d'entreprises. qu'en penses tu? cela serait plus claire? est ce vraiment une info importante juste ici?
 
@@ -172,16 +143,16 @@ Je ne retirerais toutefois pas tout repère pratique de l'accueil. Il faut que l
 
 Ainsi, l'accueil reste centré sur les deux choix principaux, les prochaines dates et une brève présentation, tandis que chaque page d'offre rassemble les informations nécessaires pour décider. Le critère est de ne pas obliger la personne à contacter Renaud pour connaître un prix ou une modalité qui peut être publiée. Si une information pratique change fortement le choix entre deux accompagnements, on peut en montrer un résumé sur l'accueil, sans recréer un bloc de plusieurs cartes.
 
-## 7. étapes des premières modifications pour en réponse à 6.1 à 6.4
+## 7. Première passe proposée (pas encore appliquée)
 
-Les étapes ci-dessous traduisent les décisions prises aux points 6.1 à 6.4. Elles décrivent l'ordre proposé pour la première passe sur la page d'accueil ; elles ne modifient pas encore le HTML ni le CSS.
+Les points ci-dessous synthétisent les décisions prises et les pistes encore à valider. Ils ne signifient pas que les modifications HTML/CSS ont été faites.
 
-1. **Clarifier le premier écran.** Remplacer le message principal par une formulation qui nomme directement le service et le lieu : « Constellations familiales et d'entreprise à Bruxelles ». La phrase poétique est secondaire ; la retirer si elle détourne l'attention de cette information. Faire du choix d'accompagnement l'action principale, pas de la prise de contact.
-2. **Présenter les deux domaines comme les deux choix principaux.** Donner deux accès visibles et distincts : constellations familiales et constellations d'entreprise. Ne pas proposer sur la page d'accueil un choix individuel/groupe ; ces formats se découvrent ensuite sur la page concernée, lorsqu'ils sont proposés. Les liens doivent annoncer clairement leur destination.
-3. **Retirer le bloc générique « En pratique ».** Déplacer les détails propres à chaque offre (prix, durée, modalités et lieu précis) vers sa page dédiée. Garder sur l'accueil la localisation générale nécessaire à la compréhension immédiate. Éviter que la personne doive contacter Renaud pour obtenir une information pratique qui peut être publiée.
-4. **Garder un accès direct aux prochaines dates de groupe.** Présenter le titre et la date des événements, avec un lien vers la page Mobilizon de chacun. Placer cette section assez tôt pour être trouvée facilement, mais après ou à côté des deux choix principaux afin que l'ordre de priorité reste lisible.
-5. **Rendre la présentation et le contact secondaires, mais faciles à trouver.** Conserver une brève présentation de Renaud avec un lien explicite vers la page « À propos ». Garder les accès de contact disponibles dans l'en-tête, le pied de page et l'interface mobile, sans en faire l'unique parcours proposé.
-6. **Conserver les témoignages fictifs uniquement pour la maquette.** Les garder le temps de régler la forme et la place de cette section. Comme le site est publié directement depuis le dépôt, les masquer avant tout push vers la version publique ; ne pas les présenter comme des témoignages réels.
-7. **Faire une relecture visuelle et de structure.** Sur mobile puis sur ordinateur, vérifier que les deux choix principaux sont faciles à repérer, que les dates et liens sont lisibles, et que le retrait des cartes « En pratique » allège bien la page. Vérifier aussi la hiérarchie des titres, l'espacement régulier entre chaque titre et son contenu, et l'absence de répétitions inutiles.
+1. **Clarifier le premier écran.** Faire du titre « Constellations familiales et d'entreprises à Bruxelles » l'information principale. Garder la phrase d'approche en soutien si elle ne concurrence pas le titre.
+2. **Donner les deux accès principaux.** Proposer deux liens explicites : « Découvrir les constellations familiales » et « Découvrir les constellations d'entreprise ». Ne pas proposer les formats individuel/groupe dans le hero.
+3. **Garder un accès direct aux dates de groupe.** Afficher le titre et la date de chaque événement, avec un lien direct vers sa page Mobilizon. Ce parcours vient après ou à côté des deux domaines, sans les concurrencer.
+4. **Revoir les informations pratiques.** Piste à valider : déplacer prix, durée et modalités vers les pages des offres, en gardant la localisation générale sur l'accueil. Vérifier que les informations déplacées sont bien présentes sur les pages correspondantes.
+5. **Garder la présentation et le contact accessibles.** Conserver une brève présentation de Renaud avec un lien vers « À propos ». Le contact reste disponible dans l'en-tête, le pied de page et l'interface mobile, sans devenir le parcours principal.
+6. **Protéger les témoignages de maquette.** Les garder pour travailler la mise en page, puis les masquer sur le site publié tant qu'il n'y a pas de témoignages réels, exacts et autorisés.
+7. **Relire sur mobile et ordinateur.** Vérifier la hiérarchie, la lisibilité des deux accès et des dates, l'espacement, l'accessibilité des liens et la cohérence des informations pratiques.
 
-Après cette première passe, comparer la page au parcours décrit ici avant d'étendre les mêmes règles aux autres pages. Les informations déplacées devront être présentes sur les pages familiales et entreprise correspondantes ; leur mise à jour fait partie du suivi de cette modification.
+Après validation de ces pistes, comparer la page aux parcours décrits ici avant d'étendre les mêmes règles aux autres pages.
