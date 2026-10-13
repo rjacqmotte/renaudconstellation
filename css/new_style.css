@@ -1,7 +1,4 @@
-/*
-  Proposition temporaire : systeme typographique de la page d'accueil.
-  A importer uniquement apres validation ; aucun style de couleur ou de layout.
-*/
+/* Design system de l'accueil : typographie et rythme, sans couleurs. */
 :root {
   --type-font-heading: var(--font-family-header);
   --type-font-body: var(--font-family-text);
@@ -25,13 +22,35 @@
   --type-leading-heading: var(--lh-snug);
   --type-leading-compact: var(--lh-normal);
   --type-leading-body: var(--lh-relaxed);
+  --type-leading-brand: 1;
+
+  --layout-page-gutter: var(--space-4);
+  --layout-section-gap: var(--space-8);
+  --layout-section-content-gap: var(--space-4);
+  --layout-gallery-gap: var(--space-4);
+  --layout-card-content-gap: var(--space-3);
+  --layout-text-stack-gap: var(--space-2);
+  --layout-info-text-gap: var(--space-1);
+  --layout-service-card-padding: var(--space-5);
+  --layout-info-card-padding-block: var(--space-4);
+  --layout-info-card-padding-inline: var(--space-3);
+  --layout-action-gap: var(--space-2);
+}
+
+.l-main-container {
+  gap: var(--layout-section-gap);
+  padding-inline: var(--layout-page-gutter);
+}
+
+.site-header_inner {
+  padding-inline: var(--layout-page-gutter);
 }
 
 .site-header_logo {
   font-family: var(--type-font-heading);
   font-size: var(--font-size-base);
   font-weight: var(--type-weight-regular);
-  line-height: var(--type-leading-compact);
+  line-height: var(--type-leading-brand);
 }
 
 .site-header_logo-sub {
@@ -64,9 +83,18 @@
   font-size: var(--type-size-page-title);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-heading);
+  margin-bottom: 0;
 }
 
-.section-title {
+.page-hero_text {
+  gap: var(--layout-card-content-gap);
+}
+
+.page-hero_location {
+  margin-bottom: 0;
+}
+
+h2.section-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-section-title);
   font-weight: var(--type-weight-regular);
@@ -107,9 +135,59 @@
   line-height: var(--type-leading-compact);
 }
 
+.hero_actions {
+  gap: var(--layout-action-gap);
+  margin-top: 0;
+}
+
+.services,
+.keys-info {
+  gap: var(--layout-section-content-gap);
+}
+
+.services > .section-title,
+.keys-info > .section-title {
+  margin-bottom: 0;
+}
+
+.services_gallery {
+  gap: var(--layout-gallery-gap);
+}
+
+.keys-info_gallery {
+  gap: var(--layout-gallery-gap);
+}
+
+.services_item {
+  gap: var(--layout-card-content-gap);
+  padding: var(--layout-service-card-padding);
+}
+
+.services_item_content {
+  gap: var(--layout-text-stack-gap);
+}
+
+.keys-info_card {
+  gap: var(--layout-card-content-gap);
+  padding: var(--layout-info-card-padding-block) var(--layout-info-card-padding-inline);
+}
+
+.keys-info_info-container {
+  gap: var(--layout-info-text-gap);
+}
+
 @media (min-width: 768px) {
   :root {
     --type-size-page-title: var(--type-size-page-title-wide);
     --type-size-navigation: var(--type-size-navigation-wide);
+    --layout-page-gutter: var(--space-8);
+    --layout-gallery-gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --layout-page-gutter: var(--space-9);
+    --layout-service-card-padding: var(--space-6);
   }
 }
