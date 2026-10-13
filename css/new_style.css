@@ -46,30 +46,28 @@
   padding-inline: var(--layout-page-gutter);
 }
 
-.site-header_logo {
+.type-brand {
   font-family: var(--type-font-heading);
   font-size: var(--font-size-base);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-brand);
 }
 
-.site-header_logo-sub {
+.type-caption {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-regular);
 }
 
-.mobile-menu_link {
+.type-navigation {
   font-family: var(--type-font-body);
   font-size: var(--type-size-navigation);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-compact);
 }
 
-.mobile-menu_separator,
-.page-hero_location,
-.services_item_type,
-.keys-info_item_label {
+.type-label,
+.agenda-location {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-label);
@@ -78,11 +76,14 @@
   text-transform: uppercase;
 }
 
-.page-hero_title {
+.type-page-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-page-title);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-heading);
+}
+
+.page-hero_title {
   margin-bottom: 0;
 }
 
@@ -90,18 +91,18 @@
   gap: var(--layout-card-content-gap);
 }
 
-.page-hero_location {
-  margin-bottom: 0;
-}
-
-h2.section-title {
+.section-title.type-section-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-section-title);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-heading);
 }
 
-.page-hero_tagline {
+.page-hero_location {
+  margin-bottom: 0;
+}
+
+.type-lead {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-lead);
   font-weight: var(--type-weight-regular);
@@ -109,26 +110,26 @@ h2.section-title {
   line-height: var(--type-leading-body);
 }
 
-.services_item_header,
-.keys-info_item_title {
+.type-item-title,
+.agenda-date {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-item-title);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-heading);
 }
 
-.services_item_description,
-.keys-info_item_detail {
+.type-body,
+.agenda-item strong,
+.agenda-time,
+.agenda-field-error {
   font-family: var(--type-font-body);
   font-size: var(--type-size-body);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-body);
 }
 
-.hero_cta,
-.services_item_nav,
-.keys-info_link,
-.mobile-menu_btn {
+.type-action,
+.agenda-btn {
   font-family: var(--type-font-body);
   font-size: var(--type-size-action);
   font-weight: var(--type-weight-action);
