@@ -2,6 +2,18 @@
 
 Ce document sert de base de travail pour améliorer la page d'accueil, puis guider la cohérence des autres pages. Il distingue les constats observables des propositions à discuter. Aucune proposition ci-dessous ne vaut décision de contenu sans validation.
 
+## Journal — 13 octobre 2026
+
+### Réalisé
+
+- Une feuille temporaire `css/new_style.css` propose un système typographique pour le header, le hero, les fiches Services et « En pratique ». Elle réutilise les variables de `css/variables.css` via des alias sémantiques et ne redéfinit pas les couleurs.
+- La feuille est chargée uniquement par `index.html` ; les autres pages ne sont pas concernées et la structure HTML n'a pas été modifiée.
+- Des alias d'espacement nomment les gouttières, les écarts entre sections et dans les galeries, ainsi que les espacements internes des cartes. Les deux galeries partagent le même écart ; les espacements responsive et les paddings propres aux cartes sont conservés autant que possible.
+- Les espaces entre les éléments du hero et entre les titres de section et leur contenu sont harmonisés. La mise en page flex de « Services » et « En pratique » reste définie dans `css/style.css` ; la feuille temporaire ne la redéfinit pas.
+- Aucun JavaScript n'a été modifié.
+
+Validation : diagnostics CSS/HTML sans erreur, `git diff --check` propre. Le contrôle navigateur à 390 px et 1280 px ne montre pas de débordement horizontal ; les galeries ont le même espacement aux deux tailles.
+
 ## Journal — 12 octobre 2026
 
 ### Décisions retenues
