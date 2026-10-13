@@ -161,6 +161,31 @@
         // L'URL propre à l'événement est préférable ; le profil sert de lien de secours.
         const eventUrl = ev.url || 'https://mobilizon.be/@renaud_jacqmotte_constellations';
 
+        const primary = document.createElement('div');
+        primary.className = 'agenda-primary';
+
+        const secondary = document.createElement('div');
+        secondary.className = 'agenda-secondary';
+
+        const dateEl = document.createElement('time');
+        dateEl.className = 'agenda-date';
+        if (ev.dtstart) {
+          dateEl.setAttribute('datetime', ev.dtstart.toISOString());
+          dateEl.textContent = formatDate(ev.dtstart);
+          primary.appendChild(dateEl);
+        } else {
+          appendMissingField(primary, 'La date est impossible à afficher.', eventUrl);
+        }
+
+        if (ev.location) {
+          const loc = document.createElement('div');
+          loc.className = 'agenda-location';
+          loc.textContent = ev.location;
+          primary.appendChild(loc);
+        } else {
+          appendMissingField(primary, 'Le lieu est impossible à afficher.', eventUrl);
+        }
+
         if (ev.summary) {
           const titleLink = document.createElement('a');
           titleLink.href = eventUrl;
@@ -170,44 +195,29 @@
           const title = document.createElement('strong');
           title.textContent = ev.summary;
           titleLink.appendChild(title);
-          li.appendChild(titleLink);
+          secondary.appendChild(titleLink);
         } else {
-          appendMissingField(li, 'Le titre est impossible à afficher.', eventUrl);
+          appendMissingField(secondary, 'Le titre est impossible à afficher.', eventUrl);
         }
 
-        const meta = document.createElement('div');
-        meta.className = 'agenda-meta';
-        const dateEl = document.createElement('time');
-        dateEl.className = 'agenda-date';
-        const dateParts = [];
-
-        if (ev.dtstart) {
-          dateEl.setAttribute('datetime', ev.dtstart.toISOString());
-          dateParts.push(formatDate(ev.dtstart));
-        }
+        const timeParts = [];
         if (ev.dtstartHasTime && ev.dtendHasTime) {
-          dateParts.push(`de ${formatTime(ev.dtstart)} à ${formatTime(ev.dtend)}`);
+          timeParts.push(`de ${formatTime(ev.dtstart)} à ${formatTime(ev.dtend)}`);
         } else {
-          if (ev.dtstartHasTime) dateParts.push(`début à ${formatTime(ev.dtstart)}`);
-          if (ev.dtendHasTime) dateParts.push(`fin à ${formatTime(ev.dtend)}`);
+          if (ev.dtstartHasTime) timeParts.push(`début à ${formatTime(ev.dtstart)}`);
+          if (ev.dtendHasTime) timeParts.push(`fin à ${formatTime(ev.dtend)}`);
         }
-        dateEl.textContent = dateParts.join(', ');
-
-        if (dateParts.length) meta.appendChild(dateEl);
-        if (!ev.dtstart) appendMissingField(meta, 'La date est impossible à afficher.', eventUrl);
-        if (!ev.dtstartHasTime) appendMissingField(meta, "L'heure de début est impossible à afficher.", eventUrl);
-        if (!ev.dtendHasTime) appendMissingField(meta, "L'heure de fin est impossible à afficher.", eventUrl);
-
-        if (ev.location) {
-          const loc = document.createElement('div');
-          loc.className = 'agenda-location';
-          loc.textContent = ev.location;
-          meta.appendChild(loc);
-        } else {
-          appendMissingField(meta, 'Le lieu est impossible à afficher.', eventUrl);
+        if (timeParts.length) {
+          const time = document.createElement('span');
+          time.className = 'agenda-time';
+          time.textContent = timeParts.join(', ');
+          secondary.appendChild(time);
         }
+        if (!ev.dtstartHasTime) appendMissingField(secondary, "L'heure de début est impossible à afficher.", eventUrl);
+        if (!ev.dtendHasTime) appendMissingField(secondary, "L'heure de fin est impossible à afficher.", eventUrl);
 
-        li.appendChild(meta);
+        li.appendChild(primary);
+        li.appendChild(secondary);
         ul.appendChild(li);
       });
 

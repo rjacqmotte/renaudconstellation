@@ -44,6 +44,7 @@ h2.section-title {
   line-height: var(--lh-snug);
   font-weight: var(--fw-regular);
   color: var(--color-text-default);
+  margin-bottom: var(--space-4);
 }
 
 .section-title.cf-cta_title {
