@@ -181,6 +181,11 @@ h2.type-section-title {
   text-underline-offset: 0.16em;
 }
 
+#mobilizon-events .agenda-secondary > a,
+#mobilizon-events .agenda-secondary > a:hover {
+  color: var(--color-text-muted);
+}
+
 .type-text-link:hover,
 #mobilizon-events .agenda-secondary > a:hover {
   text-decoration-thickness: var(--border-width-2);
