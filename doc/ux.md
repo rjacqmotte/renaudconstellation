@@ -44,3 +44,34 @@ La position de la présentation personnelle et la répartition des informations 
 - **Simplicité et cohérence** : HTML/CSS/JavaScript vanilla compréhensible, styles partagés entre pages, aucune dépendance ou complexité sans bénéfice concret.
 
 Cette base de travail ne remplace pas des tests auprès de visiteurs ni un audit complet d'accessibilité. Les propositions de contenu doivent être validées avant leur application.
+
+## 7. Organisation du CSS
+
+### Étapes retenues
+
+1. Rapatrier les styles de `style.css`, `pages.css` et `desktop.css` dans `new_style.css`, en préservant leur ordre de cascade et le rendu actuel.
+2. Classer les règles dans les catégories ci-dessous, puis résoudre les doublons sans modifier involontairement le rendu.
+3. Continuer à définir le design system, en s'appuyant sur les décisions UX validées dans ce document.
+4. En fin de projet, séparer éventuellement les styles en fichiers par catégorie si cela facilite leur maintenance.
+
+### Catégories retenues
+
+| Nº | Catégorie | Rôle |
+|---|---|---|
+| 0 | Variables | Valeurs partagées, en distinguant les primitives (échelles, palettes) et les variables sémantiques (rôles typographiques, couleurs d'usage, rythme). |
+| 1 | Base | Styles par défaut des éléments HTML : corps de page, titres, paragraphes, liens ; sans classe de composant. |
+| 2 | Structure / Layout | Ossature générale : conteneur principal, largeur du site, placement de l'en-tête et du pied de page. |
+| 3 | Composants / Modules | Ensembles autonomes et réutilisables : boutons, navigation, cartes, témoignages, agenda, hero partagé ; styles typographiques `.type-*`. |
+| 4 | États | États transversaux : ouvert, actif, masqué, chargement. Les états propres à un composant restent avec celui-ci. |
+| 5 | Pages | Compositions et exceptions réellement propres à une page, classées par page puis par section. |
+| 6 | Utilitaires | Classes à responsabilité unique et explicite, préfixées `.u-*` : couleur de texte, alignement, masquage accessible, etc. |
+
+### Repères de classement
+
+- Une règle flex ou grid n'appartient pas automatiquement au layout : la structure interne d'un composant reste avec celui-ci.
+- Un composant peut être réutilisable même s'il n'est présent que sur une page aujourd'hui.
+- Les variantes, les états propres à un composant (par exemple `.mobile-menu.is-open`), les `:hover` et les `:focus-visible` restent près de ses règles.
+- Le responsive n'est pas une catégorie : les media queries seront placées près des règles concernées, en conservant une approche mobile-first.
+- La catégorie Pages ne sert pas de rangement par défaut pour les règles encore non classées.
+
+> **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.

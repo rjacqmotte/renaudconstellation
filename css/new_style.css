@@ -1,7 +1,15 @@
-/* Design system de l'accueil : typographie, rythme et utilitaires. */
+/* Feuille de regroupement des styles et du design system du site.
+   Organisation documentée dans doc/ux.md, section 7.
+   Migration : rapatrier avant de trier, en préservant la cascade et le rendu.
+   Le responsive reste près des règles concernées, en mobile-first.
+   Aucun renommage de classe n'est imposé par ce classement. */
 
 /* ==========================================================
-  VARIABLES TYPOGRAPHIQUES
+  0. VARIABLES
+  ----------------------------------------------------------
+  Valeurs partagées : distinguer primitives (palettes, échelles)
+  et variables sémantiques (rôles, usages, rythme).
+  Les primitives sont actuellement définies dans variables.css.
 ========================================================== */
 :root {
   --type-font-heading: var(--font-family-header);
@@ -29,6 +37,39 @@
   --type-leading-brand: 1;
 
 }
+
+/* ============================================================
+  1. BASE
+  ------------------------------------------------------------
+  Styles par défaut des éléments HTML : body, titres, paragraphes,
+  liens, etc. Sans classe de composant ni convention BEM.
+============================================================ */
+
+
+
+/* ============================================================
+  2. STRUCTURE / LAYOUT
+  ------------------------------------------------------------
+  Ossature générale : conteneurs, largeur du site, placement
+  de l'en-tête et du pied de page. Préfixe prévu : .l-*.
+  Le flex/grid interne d'un composant reste dans la catégorie 3.
+============================================================ */
+
+
+
+
+
+/* ============================================================
+  3. COMPOSANTS / MODULES
+  ------------------------------------------------------------
+  Ensembles autonomes et réutilisables : boutons, navigation,
+  cartes, témoignages, agenda, hero partagé et styles .type-*.
+  Un composant peut n'être utilisé que sur une page aujourd'hui.
+  Garder ici ses variantes, états spécifiques, :hover,
+  :focus-visible et adaptations responsive.
+  Convention BEM visée : .block, .block__element, .block--modifier.
+============================================================ */
+
 
 /* ==========================================================
   TYPOGRAPHIE - SANS COULEURS
@@ -204,8 +245,55 @@ h2.type-section-title {
   }
 }
 
+/* ============================================================
+  4. ÉTATS
+  ------------------------------------------------------------
+  États transversaux : ouvert, actif, masqué, chargement, etc.
+  Les états propres à un composant restent avec lui en catégorie 3
+  (par exemple .mobile-menu.is-open), pas dans cette section.
+============================================================ */
+
+/* ============================================================
+  5. PAGES
+  ------------------------------------------------------------
+  Compositions et exceptions réellement propres à une page.
+  Classer par page, puis par section ; les composants partagés
+  restent en catégorie 3. Ce n'est pas une rubrique « divers ».
+============================================================ */
+
+
+
+
+/* ============================================================
+  6. UTILITAIRES
+  ------------------------------------------------------------
+  Classes à responsabilité unique et explicite : couleur de texte,
+  alignement, masquage accessible, etc.
+  Convention : .u-* (pas de BEM). Pas de composant complet ici.
+============================================================ */
+
+.u-text-default {
+  color: var(--color-text-default);
+}
+
+.u-text-muted {
+  color: var(--color-text-muted);
+}
+
+.u-text-primary {
+  color: var(--color-primary-600);
+}
+
+.u-text-primary-strong {
+  color: var(--color-primary-700);
+}
+
 /* ==========================================================
-  LE RESTE POUR L'INSTANT
+  LE RESTE POUR L'INSTANT - à ranger
+  ----------------------------------------------------------
+  Zone temporaire de migration, pas une catégorie supplémentaire.
+  Répartir ensuite ces règles entre 0 et 6 en préservant la cascade,
+  puis supprimer cette rubrique une fois le classement terminé.
 ========================================================== */
 
 :root {
@@ -332,19 +420,5 @@ h2.type-section-title {
 ========================================================== */
 
 /* COULEUR */
-.u-text-default {
-  color: var(--color-text-default);
-}
 
-.u-text-muted {
-  color: var(--color-text-muted);
-}
-
-.u-text-primary {
-  color: var(--color-primary-600);
-}
-
-.u-text-primary-strong {
-  color: var(--color-primary-700);
-}
 
