@@ -1,7 +1,7 @@
 /* Design system de l'accueil : typographie et rythme, sans couleurs. */
 
 /* ==========================================================
-  VARIABLES SEMANTIQUES
+  VARIABLES TYPOGRAPHIQUES
 ========================================================== */
 :root {
   --type-font-heading: var(--font-family-header);
@@ -28,33 +28,11 @@
   --type-leading-body: var(--lh-relaxed);
   --type-leading-brand: 1;
 
-  --layout-page-gutter: var(--space-4);
-  --layout-section-gap: var(--space-8);
-  --layout-section-content-gap: var(--space-4);
-  --layout-gallery-gap: var(--space-4);
-  --layout-agenda-item-gap: var(--space-7);
-  --layout-agenda-list-margin-block: var(--space-6);
-  --layout-card-content-gap: var(--space-3);
-  --layout-text-stack-gap: var(--space-2);
-  --layout-info-text-gap: var(--space-1);
-  --layout-service-card-padding: var(--space-5);
-  --layout-info-card-padding-block: var(--space-4);
-  --layout-info-card-padding-inline: var(--space-3);
-  --layout-action-gap: var(--space-2);
 }
 
 /* ==========================================================
   TYPOGRAPHIE - SANS COULEURS
 ========================================================== */ 
-
-.l-main-container {
-  gap: var(--layout-section-gap);
-  padding-inline: var(--layout-page-gutter);
-}
-
-.site-header_inner {
-  padding-inline: var(--layout-page-gutter);
-}
 
 .type-brand {
   font-family: var(--type-font-heading);
@@ -76,8 +54,7 @@
   line-height: var(--type-leading-compact);
 }
 
-.type-label,
-.agenda-location {
+.type-label {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-label);
@@ -93,23 +70,11 @@
   line-height: var(--type-leading-heading);
 }
 
-.page-hero_title {
-  margin-bottom: 0;
-}
-
-.page-hero_text {
-  gap: var(--layout-card-content-gap);
-}
-
-.section-title.type-section-title {
+h2.type-section-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-section-title);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-heading);
-}
-
-.page-hero_location {
-  margin-bottom: 0;
 }
 
 .type-lead {
@@ -120,35 +85,74 @@
   line-height: var(--type-leading-body);
 }
 
-.type-item-title,
-.agenda-date {
+.type-item-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-item-title);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-heading);
 }
 
-.type-body,
-.agenda-item strong,
-.agenda-time,
-.agenda-field-error {
+.type-body {
   font-family: var(--type-font-body);
   font-size: var(--type-size-body);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-body);
 }
 
-.type-action,
-.agenda-btn {
+.type-action {
   font-family: var(--type-font-body);
   font-size: var(--type-size-action);
   font-weight: var(--type-weight-action);
   line-height: var(--type-leading-compact);
 }
 
+@media (min-width: 768px) {
+  :root {
+    --type-size-page-title: var(--type-size-page-title-wide);
+    --type-size-navigation: var(--type-size-navigation-wide);
+  }
+}
+
+/* ==========================================================
+  LE RESTE POUR L'INSTANT
+========================================================== */
+
+:root {
+  --layout-page-gutter: var(--space-4);
+  --layout-section-gap: var(--space-8);
+  --layout-section-content-gap: var(--space-4);
+  --layout-gallery-gap: var(--space-4);
+  --layout-agenda-item-gap: var(--space-7);
+  --layout-agenda-list-margin-block: var(--space-6);
+  --layout-card-content-gap: var(--space-3);
+  --layout-text-stack-gap: var(--space-2);
+  --layout-info-text-gap: var(--space-1);
+  --layout-service-card-padding: var(--space-5);
+  --layout-info-card-padding-block: var(--space-4);
+  --layout-info-card-padding-inline: var(--space-3);
+  --layout-action-gap: var(--space-2);
+}
+
+.l-main-container {
+  gap: var(--layout-section-gap);
+  padding-inline: var(--layout-page-gutter);
+}
+
+.site-header_inner {
+  padding-inline: var(--layout-page-gutter);
+}
+
+.page-hero_title,
+.page-hero_location {
+  margin-bottom: 0;
+}
+
+.page-hero_text {
+  gap: var(--layout-card-content-gap);
+}
+
 .type-text-link,
 #mobilizon-events .agenda-secondary > a {
-  color: var(--color-text-muted);
   border-bottom: 0;
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -215,8 +219,6 @@
 
 @media (min-width: 768px) {
   :root {
-    --type-size-page-title: var(--type-size-page-title-wide);
-    --type-size-navigation: var(--type-size-navigation-wide);
     --layout-page-gutter: var(--space-8);
     --layout-gallery-gap: var(--space-5);
   }
@@ -228,3 +230,25 @@
     --layout-service-card-padding: var(--space-6);
   }
 }
+
+/* ==========================================================
+  CLASSE UTILITAIRE
+========================================================== */
+
+/* COULEUR */
+.u-text-default {
+  color: var(--color-text-default);
+}
+
+.u-text-muted {
+  color: var(--color-text-muted);
+}
+
+.u-text-primary {
+  color: var(--color-primary-600);
+}
+
+.u-text-primary-strong {
+  color: var(--color-primary-700);
+}
+

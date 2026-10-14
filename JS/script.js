@@ -115,13 +115,14 @@
   function appendMissingField(parent, message, eventUrl){
     // Garder la carte et permettre de retrouver les détails directement sur Mobilizon.
     const warning = document.createElement('p');
-    warning.className = 'agenda-field-error';
+    warning.className = 'agenda-field-error type-body u-text-muted';
     warning.append(document.createTextNode(`${message} `));
 
     const link = document.createElement('a');
     link.href = eventUrl;
     link.target = '_blank';
     link.rel = 'noopener';
+    link.className = 'u-text-primary';
     link.textContent = "Consulter l'événement sur Mobilizon.";
     warning.appendChild(link);
     parent.appendChild(warning);
@@ -168,7 +169,7 @@
         secondary.className = 'agenda-secondary';
 
         const dateEl = document.createElement('time');
-        dateEl.className = 'agenda-date';
+        dateEl.className = 'agenda-date type-item-title u-text-default';
         if (ev.dtstart) {
           dateEl.setAttribute('datetime', ev.dtstart.toISOString());
           dateEl.textContent = formatDate(ev.dtstart);
@@ -179,7 +180,7 @@
 
         if (ev.location) {
           const loc = document.createElement('div');
-          loc.className = 'agenda-location';
+          loc.className = 'agenda-location type-label u-text-primary-strong';
           loc.textContent = ev.location;
           primary.appendChild(loc);
         } else {
@@ -193,6 +194,7 @@
           titleLink.rel = 'noopener';
 
           const title = document.createElement('strong');
+          title.className = 'type-body u-text-muted';
           title.textContent = ev.summary;
           titleLink.appendChild(title);
           secondary.appendChild(titleLink);
@@ -209,7 +211,7 @@
         }
         if (timeParts.length) {
           const time = document.createElement('span');
-          time.className = 'agenda-time';
+          time.className = 'agenda-time type-body u-text-muted';
           time.textContent = timeParts.join(', ');
           secondary.appendChild(time);
         }
@@ -225,7 +227,7 @@
       const actions = document.createElement('div');
       actions.className = 'agenda-actions';
       const btn = document.createElement('a');
-      btn.className = 'agenda-btn';
+      btn.className = 'agenda-btn type-action u-text-primary';
       btn.href = 'https://mobilizon.be/@renaud_jacqmotte_constellations';
       btn.target = '_blank';
       btn.rel = 'noopener';

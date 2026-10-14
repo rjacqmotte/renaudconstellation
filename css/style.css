@@ -404,7 +404,6 @@ header,
   background-color: var(--color-action-primary-bg-soft);
   font-size: var(--font-size-sm);
   font-weight: var(--fw-semibold);
-  color: var(--color-primary-600);
   line-height: var(--lh-snug);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out),
@@ -451,10 +450,6 @@ header,
   box-shadow: var(--shadow-1);
 }
 
-.services_item_icon-wrapper {
-  color: var(--color-primary-600);
-}
-
 .services_item_icon-wrapper svg {
   width: var(--size-6);
   height: var(--size-6);
@@ -471,17 +466,14 @@ header,
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-primary-600);
 }
 
 .services_item_header {
   font-size: var(--font-size-xl);
   line-height: var(--lh-snug);
-  color: var(--color-text-default);
 }
 
 .services_item_description {
-  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   line-height: var(--lh-relaxed);
 }
@@ -490,7 +482,6 @@ header,
   align-self: flex-end;
   font-size: var(--font-size-sm);
   font-weight: var(--fw-semibold);
-  color: var(--color-primary-600);
   border-bottom-color: transparent;
   transition: color var(--duration-fast) var(--ease-out),
               border-bottom-color var(--duration-fast) var(--ease-out);
@@ -632,7 +623,6 @@ header,
 }
 
 .keys-info_icon {
-  color: var(--color-primary-600);
   width: var(--icon-lg);
   height: var(--icon-lg);
 }
@@ -649,26 +639,22 @@ header,
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-text-muted);
 }
 
 .keys-info_item_title {
   font-size: var(--font-size-base);
   font-weight: var(--fw-semibold);
   line-height: var(--lh-snug);
-  color: var(--color-text-default);
 }
 
 .keys-info_item_detail {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
   line-height: var(--lh-snug);
 }
 
 .keys-info_link {
   font-size: var(--font-size-xs);
   font-weight: var(--fw-semibold);
-  color: var(--color-primary-600);
   border-bottom-color: transparent;
   margin-top: auto;
   transition: color var(--duration-fast) var(--ease-out),
