@@ -75,3 +75,14 @@ Cette base de travail ne remplace pas des tests auprès de visiteurs ni un audit
 - La catégorie Pages ne sert pas de rangement par défaut pour les règles encore non classées.
 
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
+
+### Avancement au 14 octobre 2026
+
+- Rapatriement effectué dans `new_style.css`, dans l'ordre historique : `style.css`, `pages.css`, `desktop.css`, puis les ajustements de l'accueil.
+- Les sept pages chargent désormais `variables.css` et `new_style.css`. Les trois anciennes feuilles sont conservées temporairement comme références, mais ne sont plus chargées.
+- Les ajustements auparavant réservés à l'accueil restent limités à cette page grâce à la classe `page-home` sur son élément `html`. Le préfixe `:where(.page-home)` n'ajoute aucune spécificité aux sélecteurs existants.
+- Vérification de la conservation des déclarations et comparaison des styles calculés sur les sept pages à 390, 768 et 1440 px : aucun écart après stabilisation du chargement des événements.
+- Classement global effectué dans les catégories 0 à 6 : les blocs de provenance et la zone « à ranger » sont remplacés par des sous-sections par composant ou par page, avec leurs media queries à proximité.
+- Les états propres aux composants restent avec eux ; la catégorie 4 est réservée et vide pour le moment. Les variables primitives restent dans `variables.css`.
+- Les 371 règles sont conservées avec leurs sélecteurs, déclarations et conditions responsive inchangés. Les doublons et les surcharges sont volontairement conservés ; leur simplification fera l'objet d'une étape distincte.
+- Validation du classement : 70 comparaisons de styles calculés sur les sept pages à 390, 768, 960, 1024 et 1440 px, menu ouvert et fermé, sans écart. Le contenu de l'agenda est fixé dans le navigateur de test pour éviter les variations du chargement externe.
