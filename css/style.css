@@ -319,14 +319,6 @@ header,
   border-left: var(--border-width-3) solid var(--color-primary-300);
 }
 
-.testimonial_quote {
-  font-family: var(--font-family-header);
-  font-style: italic;
-  font-size: var(--font-size-base);
-  color: var(--color-text-default);
-  line-height: var(--lh-relaxed);
-}
-
 .testimonial_author {
   font-size: var(--font-size-sm);
   font-weight: var(--fw-medium);
