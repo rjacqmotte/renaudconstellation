@@ -227,7 +227,7 @@
       const actions = document.createElement('div');
       actions.className = 'agenda-actions';
       const btn = document.createElement('a');
-      btn.className = 'agenda-btn type-action u-text-primary';
+      btn.className = 'button button--transparent';
       btn.href = 'https://mobilizon.be/@renaud_jacqmotte_constellations';
       btn.target = '_blank';
       btn.rel = 'noopener';
