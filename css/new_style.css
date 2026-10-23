@@ -1295,6 +1295,11 @@ header,
   text-align: center;
 }
 
+/* L'attribut hidden doit primer sur le display:flex ci-dessus. */
+.group-agenda_fallback[hidden] {
+  display: none;
+}
+
 .group-agenda_fallback svg {
   width: var(--size-6);
   height: var(--size-6);
