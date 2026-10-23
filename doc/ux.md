@@ -161,6 +161,7 @@ Bloc réutilisable `.icon-list` (catégorie 3) : liste sobre dont chaque item es
 
 - **Usage** : `icon-list` sur le `ul`, `icon-list_item` sur chaque `li` contenant un `<svg>` suivi du texte.
 - Partagé par les sections « Tu te reconnais » (citations en `type-lead`) et « À savoir » (texte normal). Le texte garde son propre rôle selon le contexte.
+- **Variante `.icon-list--dots`** : remplace les icônes SVG par de simples puces rondes (via `::before`), pour les listes sans icône dédiée — par exemple les remerciements de la page À propos.
 
 ### Boutons sur fond foncé
 

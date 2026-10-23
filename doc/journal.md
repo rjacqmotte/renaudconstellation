@@ -1,5 +1,15 @@
 ## Journal — 23 octobre 2026
 
+### Page à propos harmonisée au design system
+
+#### Réalisé
+
+- **Hero harmonisé** : portrait circulaire conservé, méta « Constellateur familial et d'entreprises » (`type-meta`) placée au-dessus du gros titre « Renaud Jacqmotte » (`type-page-title`), selon le modèle des autres pages.
+- **Remerciements transformés** en `.icon-list` avec des **puces rondes** (nouvelle variante `.icon-list--dots`) : nom en gras, remarque en gris, lien orange, le tout empilé. Le style carte (fond, ombre, bordures, grille) est retiré.
+- Bloc contact et placeholders retirés par Renaud.
+
+Validation : diagnostics sans erreur, `git diff --check` propre. Contrôle visuel du hero et des remerciements.
+
 ### Migration des pages restantes
 
 #### Réalisé

@@ -306,6 +306,17 @@ header,
   margin-top: 2px;
 }
 
+/* Variante à puces rondes : pour les listes sans icône dédiée. */
+.icon-list--dots .icon-list_item::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-round);
+  background-color: var(--color-primary-500);
+  margin-top: 7px;
+}
+
 .site-header_logo {
   font-family: var(--font-family-header);
   font-size: var(--font-size-base);
@@ -2327,30 +2338,6 @@ h2.section-title {
   font-style: italic;
 }
 
-.aboutp-thanks_list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-radius: var(--radius-4);
-  overflow: hidden;
-  box-shadow: var(--shadow-1);
-}
-
-.aboutp-thanks_item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-4);
-  background-color: var(--color-bg-elevated);
-  border-bottom: var(--border-width-1) solid var(--color-border-default);
-}
-
-.aboutp-thanks_item:last-child {
-  border-bottom: none;
-}
-
 .aboutp-thanks_content {
   display: flex;
   flex-direction: column;
@@ -2359,20 +2346,18 @@ h2.section-title {
 
 .aboutp-thanks_name {
   font-weight: var(--fw-semibold);
-  font-size: var(--font-size-sm);
   color: var(--color-text-default);
 }
 
 .aboutp-thanks_role {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   line-height: var(--lh-relaxed);
 }
 
 .aboutp-thanks_link {
-  flex-shrink: 0;
-  font-size: var(--font-size-xs);
-  font-weight: var(--fw-medium);
+  font-size: var(--font-size-sm);
+  font-weight: var(--fw-semibold);
   color: var(--color-primary-600);
   border-bottom-color: transparent;
   transition: color var(--duration-fast) var(--ease-out),
@@ -2398,25 +2383,6 @@ h2.section-title {
 
   .about-page_title {
     font-size: var(--font-size-4xl);
-  }
-
-  .aboutp-thanks_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: var(--radius-4);
-  }
-
-  .aboutp-thanks_item {
-    border-bottom: var(--border-width-1) solid var(--color-border-default);
-    border-right: var(--border-width-1) solid var(--color-border-default);
-  }
-
-  .aboutp-thanks_item:nth-child(even) {
-    border-right: none;
-  }
-
-  .aboutp-thanks_item:nth-last-child(-n+2) {
-    border-bottom: none;
   }
 }
 
