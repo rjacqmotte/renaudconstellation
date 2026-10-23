@@ -62,6 +62,7 @@
   :root:where(.page-home) {
     --layout-page-gutter: var(--space-8);
     --layout-gallery-gap: var(--space-5);
+    --layout-section-gap: var(--space-9);
   }
 }
 
@@ -70,6 +71,7 @@
   :root:where(.page-home) {
     --layout-page-gutter: var(--space-9);
     --layout-service-card-padding: var(--space-6);
+    --layout-section-gap: var(--space-10);
   }
 }
 
@@ -157,7 +159,7 @@ a:hover {
   padding: var(--space-4) var(--space-4) var(--space-8);
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--layout-section-gap, var(--space-8));
 }
 
 @media (max-width: 767px) {
@@ -187,7 +189,6 @@ a:hover {
 }
 
 :where(.page-home) .l-main-container {
-  gap: var(--layout-section-gap);
   padding-inline: var(--layout-page-gutter);
 }
 
@@ -1758,22 +1759,19 @@ h2.section-title {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  margin-left: var(--space-4);
 }
 
 .cf-situations_item {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  padding: var(--space-4);
-  background-color: var(--color-bg-elevated);
-  border-radius: var(--radius-4);
-  box-shadow: var(--shadow-1);
 }
 
 .cf-situations_item svg {
   flex-shrink: 0;
-  width: var(--icon-lg);
-  height: var(--icon-lg);
+  width: var(--icon-md);
+  height: var(--icon-md);
   color: var(--color-primary-500);
   margin-top: 2px;
 }
@@ -1787,9 +1785,8 @@ h2.section-title {
 }
 
 .cf-situations_closing {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  font-style: italic;
+  color: var(--color-text-default);
+  margin-top: var(--space-5);
 }
 
 .cf-how {
@@ -1891,12 +1888,6 @@ h2.section-title {
 }
 
 @media (min-width: 768px) {
-
-  .cf-situations_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-  }
 
   .cf-formats_grid {
     gap: var(--space-6);
