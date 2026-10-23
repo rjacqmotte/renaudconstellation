@@ -264,6 +264,15 @@ header,
   Identité dans l'en-tête
 ============================================================ */
 
+/* --- Carte réutilisable : fond, ombre, rayon et padding unifiés --- */
+
+.card {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-5);
+}
+
 .site-header_logo {
   font-family: var(--font-family-header);
   font-size: var(--font-size-base);
@@ -933,11 +942,6 @@ header,
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: var(--space-5);
-  background-color: var(--color-bg-surface);
-  border-radius: var(--radius-4);
-  border-left: var(--border-width-2) solid var(--color-primary-200);
-  box-shadow: var(--shadow-1);
 }
 
 .services_item_icon-wrapper svg {
@@ -1122,10 +1126,6 @@ header,
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  background-color: var(--color-bg-surface);
-  border-radius: var(--radius-5);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-1);
 }
 
 .about-me_header {

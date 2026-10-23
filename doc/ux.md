@@ -63,7 +63,7 @@ Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md
 - **Lien dans le titre seul** : il annonce la fiche Mobilizon (détails et inscription), sans libellé supplémentaire ; son soulignement reste repérable. Le bouton transparent vers l'ensemble des événements demeure une action secondaire.
 - Aucun cadre ni bordure autour des événements ; l'espacement interne est resserré.
 
-### 5.5 Hiérarchie, rythme et confiance
+### 5.5 Hiérarchie, rythme et confiance - fait!
 
 - Distinguer message principal, sections et détails ; limiter les fonds, bordures et ombres qui donnent le même poids à tous les blocs.
 - Harmoniser les espaces entre sections, titres et contenus. Garder un H1 pour la page, des H2 pour les sections et des H3 pour les sous-niveaux utiles, avec les styles communs.
@@ -131,6 +131,23 @@ Référence pour la refonte des autres pages. Chaque rôle `type-*` a une signat
 
 - **Titre de carte** : H3 en `type-meta` (méta discret) suivi d'un `type-subtitle` (titre fort). Identique dans les cartes services et « À propos ».
 - **Polices** : titres en Georgia (serif), corps en sans-serif neutre `'Segoe UI', 'Helvetica Neue', Arial`. Définies par `--font-family-header` et `--font-family-text` dans `variables.css`.
+
+### Composant carte
+
+Bloc réutilisable `.card` (catégorie 3, Composants) qui porte le socle commun des cartes : fond, ombre, rayon et padding unifiés.
+
+```css
+.card {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-5);
+}
+```
+
+- **Usage** : la classe `.card` se combine avec la classe propre au composant (`.services_item`, `.about-me`…), qui ne garde que son contenu interne (flex, écarts, variantes).
+- **Rayon unifié** à `radius-4` (8 px) sur toutes les cartes ; la bordure orange gauche des services est retirée.
+- Les changements de fond, d'ombre ou de rayon des cartes se font désormais **à un seul endroit**.
 
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
 
