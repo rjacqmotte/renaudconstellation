@@ -1396,10 +1396,6 @@ header,
   color: var(--color-text-inverse);
 }
 
-.cf-cta {
-  margin-bottom: var(--space-8);
-}
-
 .cf-cta_inner {
   display: flex;
   flex-direction: column;
