@@ -402,7 +402,7 @@ header,
 
 .mobile-menu_list {
   list-style: none;
-  padding: var(--space-3) 0 var(--space-4);
+  padding: var(--space-4) 0;
   display: flex;
   flex-direction: column;
 }
@@ -418,7 +418,7 @@ header,
 
 .mobile-menu_link {
   display: block;
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-4) var(--space-5);
   font-size: var(--font-size-base);
   font-weight: var(--fw-medium);
   color: var(--color-text-default);
@@ -442,6 +442,13 @@ header,
   padding: var(--space-4) var(--space-5) var(--space-2);
 }
 
+.mobile-menu_contacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-block: var(--space-5);
+}
+
 .mobile-menu_btn {
   display: flex;
   align-items: center;
@@ -449,24 +456,39 @@ header,
   gap: var(--space-2);
   width: 100%;
   padding: var(--space-3) var(--space-5);
-  background-color: var(--color-primary-500);
-  color: var(--color-gray-50);
+  background-color: transparent;
+  color: var(--color-primary-600);
+  border: var(--border-width-1) solid var(--color-border-default);
   border-radius: var(--radius-round);
   font-weight: var(--fw-semibold);
   font-size: var(--font-size-sm);
   border-bottom: none;
-  transition: background-color var(--duration-fast) var(--ease-out);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
 .mobile-menu_btn:hover {
-  background-color: var(--color-primary-600);
-  color: var(--color-gray-50);
-  border-bottom: none;
+  background-color: var(--color-bg-surface);
+  color: var(--color-primary-700);
+  border-color: var(--color-primary-300);
 }
 
 .mobile-menu_btn svg {
   width: var(--icon-md);
   height: var(--icon-md);
+}
+
+/* Bouton vers un site externe (Mobilizon) : sans bord, pour le distinguer des contacts. */
+.mobile-menu_btn--external {
+  border-color: transparent;
+  color: var(--color-text-muted);
+}
+
+.mobile-menu_btn--external:hover {
+  background-color: var(--color-bg-surface);
+  color: var(--color-primary-700);
+  border-color: transparent;
 }
 
 .nav-overlay {
@@ -502,12 +524,12 @@ header,
     border: none;
     box-shadow: none;
     transition: none;
-    /* Contraindre le menu à la largeur du contenu, aligné à droite */
+    /* Contraindre le menu à la largeur du contenu, contenu centré */
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 var(--space-8);
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .mobile-menu.is-open,
@@ -541,15 +563,34 @@ header,
     background-color: var(--color-bg-surface);
   }
 
+  /* En desktop, le menu horizontal montre les liens et le bouton téléphone ; les autres contacts et Mobilizon sont masqués. */
   .mobile-menu_cta {
     padding: 0;
     margin-left: var(--space-2);
+  }
+
+  .mobile-menu_contacts,
+  .mobile-menu_btn--external {
+    display: none;
   }
 
   .mobile-menu_btn {
     width: auto;
     padding: var(--space-2) var(--space-4);
     font-size: var(--font-size-xs);
+  }
+
+  /* Le téléphone reste un bouton plein et marquant en desktop. */
+  .mobile-menu_btn--phone {
+    background-color: var(--color-primary-500);
+    color: var(--color-gray-50);
+    border-color: transparent;
+  }
+
+  .mobile-menu_btn--phone:hover {
+    background-color: var(--color-primary-600);
+    color: var(--color-gray-50);
+    border-color: transparent;
   }
 
   .nav-overlay {
