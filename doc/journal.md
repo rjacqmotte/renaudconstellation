@@ -1,5 +1,15 @@
 ## Journal — 23 octobre 2026
 
+### Migration des pages restantes
+
+#### Réalisé
+
+- **Les trois pages restantes migrent vers le design system** : `constellations-entreprises`, `comment-ca-se-passe` et `a-propos` reçoivent `class="page-home"` sur leur `<html>` pour activer les rôles `type-*`.
+- **Rôles appliqués** : hero (H1 `type-page-title`, localisation `type-meta`, quote `type-lead`), titres de section `type-section-title`, textes `type-body`. Les boutons CTA d'entreprises pointent sur les classes du design system.
+- **Migration de base** : cohérente, mais ces pages n'ont pas été peaufinées en détail comme constellations-familiales. Elles gagneront d'une relecture individuelle (comment-ca-se-passe a une sidebar par ancres et des sections numérotées propres à elle).
+
+Validation : diagnostics sans erreur sur tout le site, `git diff --check` propre. Les cinq pages portent désormais `page-home`.
+
 ### Menu mobile remanié
 
 #### Décisions retenues
