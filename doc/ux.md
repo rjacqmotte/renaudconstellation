@@ -149,6 +149,22 @@ Bloc réutilisable `.card` (catégorie 3, Composants) qui porte le socle commun 
 - **Rayon unifié** à `radius-4` (8 px) sur toutes les cartes ; la bordure orange gauche des services est retirée.
 - Les changements de fond, d'ombre ou de rayon des cartes se font désormais **à un seul endroit**.
 
+### Pattern de section
+
+Toutes les sections de contenu partagent la même ossature : colonne verticale avec un écart entre le titre et le contenu. Ce socle est défini **une seule fois en Base** :
+
+```css
+.l-main-container > section:not(.page-hero) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-section-content-gap, var(--space-4));
+}
+```
+
+- **Ne pas répéter** `display: flex; flex-direction: column; gap` sur chaque section : c'est hérité de cette règle.
+- Le hero est exclu (`.page-hero`) car il a son propre pattern (deux colonnes sur grand écran).
+- L'écart titre/contenu reste pilotable via la variable sémantique `--layout-section-content-gap`.
+
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
 
 

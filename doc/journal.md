@@ -1,5 +1,13 @@
 ## Journal — 23 octobre 2026
 
+### Composants et structure (5.5, suite)
+
+#### Réalisé
+
+- **Composant `.card`** créé (catégorie 3) : fond, ombre, rayon unifié à 8 px et padding en un seul endroit. Appliqué aux services et « À propos » ; la bordure orange gauche des services est retirée.
+- **Fallback d'agenda compact** : le CSS définissait `.group-agenda_placeholder` mais le HTML utilise `.group-agenda_fallback`, sans style — le SVG s'étirait en pleine largeur (bloc de 885 px de haut). Le style est créé pour la bonne classe : icône 32 px, texte sobre centré, hauteur réduite à 138 px. La classe morte `.group-agenda_placeholder` est supprimée.
+- **Pattern de section factorisé** : règle en Base `.l-main-container > section:not(.page-hero)` applique `display: flex; flex-direction: column; gap` (écart titre/contenu via `--layout-section-content-gap`). Le hero est exclu (son propre pattern en deux colonnes). Les déclarations redondantes de `.services`, `.keys-info` et `.testimonials` sont retirées. Vérifié : sections en colonne 16 px, hero intact en grid (desktop) et colonne (mobile).
+
 ### Rôles typographiques (5.5)
 
 #### Décisions retenues
