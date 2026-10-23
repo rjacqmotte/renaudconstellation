@@ -36,11 +36,12 @@ La position de la présentation personnelle reste à décider.
 
 Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md). Les mesures ci-dessous proviennent de cette relecture, avant la réorganisation du CSS ; elles ne constituent pas une nouvelle vérification de l'état actuel. Les recommandations de remettre des informations pratiques sur l'accueil ou de réafficher les CTA du hero sur petit écran ne sont pas retenues, conformément aux décisions ci-dessus.
 
-### 5.1 Navigation et accessibilité
+### 5.1 Navigation et accessibilité - fait!
 
-- **Débordement observé à 768 et 1024 px** : le contenu du menu atteignait environ 1108 px, avec des liens hors écran. Vérifier puis adapter le seuil du menu horizontal à la largeur réellement nécessaire ; garder le hamburger tant que le menu ne tient pas.
-- **Menu desktop annoncé comme caché** : `aria-hidden="true"` restait présent au chargement alors que les liens étaient visibles. Vérifier la cohérence de cet état au chargement et lors des changements de largeur.
-- Contrôler le menu au clavier, ouvert et fermé, ainsi que les liens et la barre de contact mobile.
+- **Seuil du menu horizontal relevé à 1100 px** : le menu n'apparaît en horizontal que là où il tient (~1109 px de contenu) ; le hamburger prend le relais en dessous. Plus de débordement à 768 et 1024 px.
+- **Menu aligné sur le contenu** sur grand écran : contraint à `max-width: 1024px`, centré, face au logo dans le même cadre que le contenu.
+- **`aria-hidden` cohérent au chargement** : initialisé selon la taille d'écran (`false` sur desktop, `true` en tiroir fermé) ; le seuil JS `isDesktop()` est aligné à 1100 px.
+- **Contrôle clavier** vérifié : ouverture/fermeture, Échap, trap focus et focus sur le premier lien fonctionnent ; `aria-expanded`/`aria-hidden` suivent correctement.
 
 ### 5.2 Contraste et lisibilité - fait!
 

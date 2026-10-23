@@ -13,10 +13,14 @@
     }
   });
 
-  // --- Desktop : rien à faire pour le toggle ---
+  // --- Desktop : le menu horizontal apparaît à partir de 1100 px (là où il tient) ---
   function isDesktop() {
-    return window.innerWidth >= 768;
+    return window.innerWidth >= 1100;
   }
+
+  // --- Au chargement : aria-hidden cohérent avec la visibilité réelle ---
+  // Sur desktop le menu horizontal est visible ; en tiroir mobile il est caché tant que fermé.
+  menu.setAttribute('aria-hidden', isDesktop() ? 'false' : 'true');
 
   // --- Ouvre / ferme ---
   function openMenu() {

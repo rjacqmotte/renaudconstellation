@@ -1,14 +1,17 @@
 ## Journal — 23 octobre 2026
 
-### Navigation : débordement et alignement du menu (5.1, partiel)
+### Navigation et accessibilité (5.1)
 
 #### Réalisé
 
 - **Seuil du menu horizontal relevé de 768 px à 1100 px** : le contenu du menu mesure ~1109 px (menu 873 + logo 204 + gouttières), il débordait donc entre 768 et 1100 px. Le menu horizontal n'apparaît désormais qu'à partir de 1100 px, où il tient ; en dessous, le hamburger prend le relais. Vérifié à 1024, 1100 et 1200 px : plus de débordement.
 - **Menu aligné sur le contenu sur grand écran** : le `<nav>` est un frère de `.site-header_inner`, il n'héritait pas de la contrainte de largeur et s'étalait sur tout l'écran. En desktop, il est désormais contraint à `max-width: 1024px`, centré et aligné à droite, face au logo dans le même cadre que le contenu. Le tiroir mobile est intact.
-- Reste à traiter : l'`aria-hidden` incohérent au chargement et le contrôle clavier du menu et de la bandeau de contact. Un menu hamburger soigné pour les écrans larges est envisagé dans un deuxième temps.
+- **`aria-hidden` cohérent au chargement** : il était présent (`true`) alors que les liens étaient visibles sur desktop. Il est désormais initialisé selon la taille d'écran : `false` sur desktop, `true` en tiroir mobile fermé.
+- **Seuil JS aligné** : `isDesktop()` passe de 768 à 1100 px, cohérent avec le seuil CSS.
+- **Contrôle clavier** vérifié : ouverture/fermeture, Échap, trap focus et focus sur le premier lien fonctionnent avec le bon seuil ; les états `aria-expanded`/`aria-hidden` suivent correctement.
+- Un menu hamburger soigné pour les écrans larges reste envisagé dans un deuxième temps.
 
-Validation : diagnostics CSS sans erreur, `git diff --check` propre. Contrôle visuel à 390, 1024, 1100, 1200 et 1920 px.
+Validation : diagnostics CSS/JavaScript sans erreur, `git diff --check` propre. Contrôles à 390, 1024, 1100, 1200, 1280 et 1920 px, menu ouvert et fermé.
 
 ### Page constellations-familiales : migration et peaufinage
 
