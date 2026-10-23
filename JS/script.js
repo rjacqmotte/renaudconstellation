@@ -162,44 +162,36 @@
         // L'URL propre à l'événement est préférable ; le profil sert de lien de secours.
         const eventUrl = ev.url || 'https://mobilizon.be/@renaud_jacqmotte_constellations';
 
-        const primary = document.createElement('div');
-        primary.className = 'agenda-primary';
+        const colWhen = document.createElement('div');
+        colWhen.className = 'agenda-col';
 
-        const secondary = document.createElement('div');
-        secondary.className = 'agenda-secondary';
+        const colWhat = document.createElement('div');
+        colWhat.className = 'agenda-col';
 
         const dateEl = document.createElement('time');
         dateEl.className = 'agenda-date type-item-title u-text-default';
         if (ev.dtstart) {
           dateEl.setAttribute('datetime', ev.dtstart.toISOString());
           dateEl.textContent = formatDate(ev.dtstart);
-          primary.appendChild(dateEl);
+          colWhen.appendChild(dateEl);
         } else {
-          appendMissingField(primary, 'La date est impossible à afficher.', eventUrl);
-        }
-
-        if (ev.location) {
-          const loc = document.createElement('div');
-          loc.className = 'agenda-location type-label u-text-primary-strong';
-          loc.textContent = ev.location;
-          primary.appendChild(loc);
-        } else {
-          appendMissingField(primary, 'Le lieu est impossible à afficher.', eventUrl);
+          appendMissingField(colWhen, 'La date est impossible à afficher.', eventUrl);
         }
 
         if (ev.summary) {
           const titleLink = document.createElement('a');
+          titleLink.className = 'agenda-title';
           titleLink.href = eventUrl;
           titleLink.target = '_blank';
           titleLink.rel = 'noopener';
 
           const title = document.createElement('strong');
-          title.className = 'type-body u-text-muted';
+          title.className = 'type-label u-text-primary-strong';
           title.textContent = ev.summary;
           titleLink.appendChild(title);
-          secondary.appendChild(titleLink);
+          colWhat.appendChild(titleLink);
         } else {
-          appendMissingField(secondary, 'Le titre est impossible à afficher.', eventUrl);
+          appendMissingField(colWhat, 'Le titre est impossible à afficher.', eventUrl);
         }
 
         const timeParts = [];
@@ -213,13 +205,22 @@
           const time = document.createElement('span');
           time.className = 'agenda-time type-body u-text-muted';
           time.textContent = timeParts.join(', ');
-          secondary.appendChild(time);
+          colWhen.appendChild(time);
         }
-        if (!ev.dtstartHasTime) appendMissingField(secondary, "L'heure de début est impossible à afficher.", eventUrl);
-        if (!ev.dtendHasTime) appendMissingField(secondary, "L'heure de fin est impossible à afficher.", eventUrl);
+        if (!ev.dtstartHasTime) appendMissingField(colWhen, "L'heure de début est impossible à afficher.", eventUrl);
+        if (!ev.dtendHasTime) appendMissingField(colWhen, "L'heure de fin est impossible à afficher.", eventUrl);
 
-        li.appendChild(primary);
-        li.appendChild(secondary);
+        if (ev.location) {
+          const loc = document.createElement('div');
+          loc.className = 'agenda-location type-body u-text-muted';
+          loc.textContent = ev.location;
+          colWhat.appendChild(loc);
+        } else {
+          appendMissingField(colWhat, 'Le lieu est impossible à afficher.', eventUrl);
+        }
+
+        li.appendChild(colWhen);
+        li.appendChild(colWhat);
         ul.appendChild(li);
       });
 

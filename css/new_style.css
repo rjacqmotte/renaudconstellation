@@ -1322,7 +1322,10 @@ header,
 
 .agenda-item {
   display: grid;
-  gap: var(--space-2);
+  grid-template-columns: max-content 1fr;
+  column-gap: var(--space-4);
+  row-gap: var(--space-1);
+  align-items: baseline;
 }
 
 .agenda-item a {
@@ -1333,13 +1336,9 @@ header,
   display: block;
 }
 
-.agenda-primary,
-.agenda-secondary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: var(--space-4);
-  row-gap: var(--space-1);
+.agenda-col {
+  display: grid;
+  gap: var(--space-1);
 }
 
 .agenda-field-error {
@@ -1630,7 +1629,7 @@ h2.section-title {
 }
 
 :where(.page-home) .type-text-link,
-:where(.page-home) #mobilizon-events .agenda-secondary > a {
+:where(.page-home) #mobilizon-events .agenda-title {
   border-bottom: 0;
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -1638,18 +1637,18 @@ h2.section-title {
   text-underline-offset: 0.16em;
 }
 
-:where(.page-home) #mobilizon-events .agenda-secondary > a,
-:where(.page-home) #mobilizon-events .agenda-secondary > a:hover {
-  color: var(--color-text-muted);
+:where(.page-home) #mobilizon-events .agenda-title,
+:where(.page-home) #mobilizon-events .agenda-title:hover {
+  color: var(--color-primary-700);
 }
 
 :where(.page-home) .type-text-link:hover,
-:where(.page-home) #mobilizon-events .agenda-secondary > a:hover {
+:where(.page-home) #mobilizon-events .agenda-title:hover {
   text-decoration-thickness: var(--border-width-2);
 }
 
 :where(.page-home) .type-text-link:focus-visible,
-:where(.page-home) #mobilizon-events .agenda-secondary > a:focus-visible {
+:where(.page-home) #mobilizon-events .agenda-title:focus-visible {
   outline: var(--border-width-focus) solid currentColor;
   outline-offset: 2px;
 }

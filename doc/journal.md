@@ -1,3 +1,21 @@
+## Journal — 23 octobre 2026
+
+### Décisions retenues
+
+- **Adresse complète conservée** sur le site : elle reste visible sans devoir aller sur Mobilizon. Pas d'extraction partielle du lieu depuis le flux ICS, le parseur n'est pas modifié.
+- **Hiérarchie de l'événement** : le titre de l'atelier est désormais l'information marquante, l'adresse devient discrète.
+- **Lien dans le titre seul** : la destination « détails et inscription sur Mobilizon » reste annoncée par le titre, sans libellé supplémentaire.
+
+### Réalisé
+
+- Inversion des rôles titre / adresse dans `JS/script.js`. Le titre reçoit le style `type-label` (majuscules, gras) et la couleur primaire forte ; l'adresse reçoit `type-body` en gris atténué.
+- Le lien du titre (`agenda-title`) garde son soulignement fin au repos, plus marqué au survol, désormais assorti à sa couleur primaire ; le focus clavier reste visible.
+- Structure de chaque événement passée en grille à deux colonnes : date et horaire alignés à gauche, titre et adresse alignés à droite. Colonne de gauche à `max-content`, droite à `1fr`, alignement par ligne de base. Remplace les anciennes lignes flex `agenda-primary`/`agenda-secondary`.
+- Aucun cadre ni bordure ajouté aux événements ; espacement interne resserré, les 48 px entre événements sont conservés.
+- Aucune touche au parseur ICS ni au contenu. L'agenda se comporte pareil sur l'accueil et la page Groupes.
+
+Validation : diagnostics CSS/JavaScript sans erreur, cinq tests du parseur réussis, `git diff --check` propre. Contrôle visuel à 390, 768 et 1024 px : la grille tient sans débordement. Le flux Mobilizon est bloqué par CORS en local ; la vérification s'est faite avec un contenu de test fixe.
+
 ## Journal — 14 octobre 2026
 
 ### Avancement au 14 octobre 2026

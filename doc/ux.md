@@ -56,9 +56,10 @@ Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md
 
 ### 5.4 Agenda et accès à l'inscription
 
-- Renforcer l'ordre de lecture : date et titre de l'atelier d'abord, horaire et lieu ensuite. La longue adresse en majuscules ne doit pas concurrencer les informations principales.
-- Préférer un lieu visuellement discret ; si un lieu court est retenu, éviter de recréer un nettoyage complexe du flux ICS. Le détail complet reste accessible sur la fiche Mobilizon.
-- Rendre explicite la destination du lien d'événement : détails et inscription sur Mobilizon. Le bouton transparent vers l'ensemble des événements reste une action secondaire.
+- **Hiérarchie validée** : le titre de l'atelier est l'information marquante (style gras en majuscules, couleur primaire forte), l'adresse est discrète (texte simple gris). Chaque événement est une grille à deux colonnes : date et horaire alignés à gauche, titre et adresse alignés à droite.
+- **Adresse complète conservée** sur le site, sans extraction partielle du flux ICS ; le parseur n'est pas modifié. Le lieu reste discret par son style, pas par un raccourcissement.
+- **Lien dans le titre seul** : il annonce la fiche Mobilizon (détails et inscription), sans libellé supplémentaire ; son soulignement reste repérable. Le bouton transparent vers l'ensemble des événements demeure une action secondaire.
+- Aucun cadre ni bordure autour des événements ; l'espacement interne est resserré.
 
 ### 5.5 Hiérarchie, rythme et confiance
 
