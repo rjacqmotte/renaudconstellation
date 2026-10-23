@@ -1,5 +1,23 @@
 ## Journal — 23 octobre 2026
 
+### Menu mobile remanié
+
+#### Décisions retenues
+
+- **Séparateurs retirés** (« Constellations », « Plus ») : la liste est courte, ils ne servaient plus.
+- **Trois boutons de contact empilés** (Mail, Téléphone, WhatsApp) au lieu du seul bouton téléphone.
+- **Lien « Prochaines dates (mobilizon.be) »** ajouté, avec une icône flèche sortante pour signaler qu'on quitte le site.
+- **Boutons alignés sur le design system** : même forme, padding, rayon et couleurs que `.button--transparent` ; Mobilizon distingué sans bord. Le téléphone garde un style plein en desktop.
+
+#### Réalisé
+
+- **Panneau latéral droit** : le menu mobile ne descend plus du haut en plein écran ; il glisse depuis la droite sur ~360 px, pleine hauteur, avec le voile derrière. Plus net sur tablette, où le hamburger reste longtemps visible.
+- **Espacement aéré** : plus de marge au-dessus et en dessous des liens de pages.
+- **Desktop** : le menu horizontal ne montre que les liens et le bouton téléphone ; les contacts empilés et Mobilizon sont masqués. Le menu est centré sur le contenu.
+- Le JavaScript n'a pas changé : il ne fait que basculer la classe `is-open`. Toute la transformation est dans le bloc CSS `.mobile-menu`.
+
+Validation : diagnostics CSS/HTML sans erreur, `git diff --check` propre. Contrôle visuel mobile et desktop.
+
 ### Navigation et accessibilité (5.1)
 
 #### Réalisé

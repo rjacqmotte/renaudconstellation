@@ -186,6 +186,15 @@ Toutes les sections de contenu partagent la même ossature : colonne verticale a
 - Le hero est exclu (`.page-hero`) car il a son propre pattern (deux colonnes sur grand écran).
 - L'écart titre/contenu reste pilotable via la variable sémantique `--layout-section-content-gap`.
 
+### Menu mobile : panneau latéral
+
+Le menu mobile est un **panneau qui glisse depuis la droite** (et non plus une nappe plein écran). Sa structure, pour t'y retrouver en cas de pépin :
+
+- **HTML** : un `<nav class="mobile-menu">` contient la liste des liens, puis un bloc `.mobile-menu_cta` avec le téléphone, les contacts empilés (`.mobile-menu_contacts`) et le lien Mobilizon (`.mobile-menu_btn--external`).
+- **CSS** : tout est dans le bloc `.mobile-menu` (catégorie 3). Le panneau est `position: fixed` à droite, largeur ~360 px, et glisse via `transform: translateX(...)` entre les états fermé et `.is-open`.
+- **JS** : ne fait que basculer la classe `is-open` (plus Échap et trap focus). Aucun changement à y faire pour ajuster l'apparence.
+- **Pour ajuster** la largeur, l'animation ou les espacements : modifier uniquement le bloc `.mobile-menu` / `.mobile-menu.is-open` dans le CSS. Rien d'autre ne dépend de ces valeurs.
+
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
 
 
