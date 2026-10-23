@@ -930,7 +930,7 @@ header,
   color: var(--color-link);
   border-bottom-color: var(--color-link);
 }
-
+/* --- PAGE ACCUEIL --- */
 /* --- Offres et informations pratiques --- */
 
 .services_gallery {
@@ -1486,6 +1486,9 @@ header,
   }
 }
 
+/* --- PAGE CONSTELLATIONS FAMILIALES --- */
+
+
 /* --- Boutons du design system : accueil --- */
 
 :where(.page-home) .button {
@@ -1789,12 +1792,11 @@ h2.section-title {
   margin-top: var(--space-5);
 }
 
-.cf-how {
+.cf-how_card {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
-
 .cf-how_text {
   color: var(--color-text-default);
   line-height: var(--lh-relaxed);
