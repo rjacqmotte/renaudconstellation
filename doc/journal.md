@@ -1,12 +1,37 @@
 ## Journal — 23 octobre 2026
 
-### Décisions retenues
+### Agenda (5.4)
+
+#### Contraste et lisibilité (5.2)
+
+#### Décisions retenues
+
+- **Texte discret assombri** : `--color-text-muted` passe de `gray-600` à `gray-700`. Une seule variable, tout le texte atténué de la page est corrigé.
+- **Fond « À propos » harmonisé** : `.about-me` passe de `--color-bg-elevated` (`gray-50`, presque blanc) à `--color-bg-surface` (`gray-100`), le même fond que les autres cartes. La variable partagée `bg-elevated` n'est pas touchée (utilisée ailleurs).
+- Les couleurs restent stockées dans `variables.css` : primitives en haut, alias sémantiques en bas. Aucune nouvelle couleur ajoutée, on ne réassigne que des rôles.
+
+#### Réalisé
+
+- Une ligne dans `css/variables.css` (`--color-text-muted`), une ligne dans `css/new_style.css` (fond de `.about-me`).
+- Contrastes mesurés au navigateur avant / après :
+
+| Élément | Avant | Après |
+|---|---|---|
+| Titres de section, tagline hero, auteur témoignage | 3,07 | 4,85 |
+| Descriptions de services, texte muted | 3,55 | 5,60 |
+| Texte « À propos » | 4,14 | 5,60 |
+
+- Tous dépassent désormais l'objectif 4,5:1. La quote du hero (`page-hero_tagline`) bénéficie du même assombrissement.
+
+Validation : diagnostics CSS sans erreur, `git diff --check` propre. Attention : le navigateur de test garde `variables.css` en cache, un rechargement forcé est nécessaire pour voir le changement.
+
+### Agenda (5.4)
 
 - **Adresse complète conservée** sur le site : elle reste visible sans devoir aller sur Mobilizon. Pas d'extraction partielle du lieu depuis le flux ICS, le parseur n'est pas modifié.
 - **Hiérarchie de l'événement** : le titre de l'atelier est désormais l'information marquante, l'adresse devient discrète.
 - **Lien dans le titre seul** : la destination « détails et inscription sur Mobilizon » reste annoncée par le titre, sans libellé supplémentaire.
 
-### Réalisé
+#### Réalisé
 
 - Inversion des rôles titre / adresse dans `JS/script.js`. Le titre reçoit le style `type-label` (majuscules, gras) et la couleur primaire forte ; l'adresse reçoit `type-body` en gris atténué.
 - Le lien du titre (`agenda-title`) garde son soulignement fin au repos, plus marqué au survol, désormais assorti à sa couleur primaire ; le focus clavier reste visible.

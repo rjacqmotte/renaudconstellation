@@ -42,9 +42,11 @@ Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md
 - **Menu desktop annoncé comme caché** : `aria-hidden="true"` restait présent au chargement alors que les liens étaient visibles. Vérifier la cohérence de cet état au chargement et lors des changements de largeur.
 - Contrôler le menu au clavier, ouvert et fermé, ainsi que les liens et la barre de contact mobile.
 
-### 5.2 Contraste et lisibilité
+### 5.2 Contraste et lisibilité - fait!
 
-- **Contrastes mesurés** : environ 3,55:1 pour les descriptions de services et 3,07:1 pour les titres de section. Viser au moins 4,5:1 pour ces textes de taille normale, en assombrissant les couleurs de texte plutôt qu'en changeant toute l'ambiance.
+- **Texte discret assombri** : `--color-text-muted` passe de `gray-600` à `gray-700`. Les titres de section, tagline hero, descriptions de services, lieu et auteur de témoignage passent de 3,07-3,55:1 à 4,85-5,60:1, au-dessus de l'objectif 4,5:1. Une seule variable, tout le texte atténué est corrigé.
+- **Fond « À propos » harmonisé** : `.about-me` adopte `--color-bg-surface` (`gray-100`), comme les autres cartes, au lieu de `gray-50` qui attirait trop l'œil.
+- **Stockage des couleurs** : dans `variables.css`, primitives en haut et alias sémantiques en bas ; on réassigne des rôles sans ajouter de nouvelle teinte.
 - Les descriptions à 14 px pourraient passer à 16 px : proposition à tester selon la densité et la lisibilité, pas une décision acquise.
 
 ### 5.3 Compréhension des offres
@@ -54,7 +56,7 @@ Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md
 - Revoir la portée de « Soigner les blessures émotionnelles », qui exprime une promesse forte ; envisager une formulation centrée sur l'accompagnement ou l'exploration, à valider.
 - Garder les deux liens d'offres faciles à repérer après le hero sur petit écran, sans réintroduire les CTA masqués ni les choix individuel/groupe.
 
-### 5.4 Agenda et accès à l'inscription
+### 5.4 Agenda et accès à l'inscription - fait!
 
 - **Hiérarchie validée** : le titre de l'atelier est l'information marquante (style gras en majuscules, couleur primaire forte), l'adresse est discrète (texte simple gris). Chaque événement est une grille à deux colonnes : date et horaire alignés à gauche, titre et adresse alignés à droite.
 - **Adresse complète conservée** sur le site, sans extraction partielle du flux ICS ; le parseur n'est pas modifié. Le lieu reste discret par son style, pas par un raccourcissement.
