@@ -282,6 +282,30 @@ header,
   padding: var(--space-5);
 }
 
+/* --- Liste sobre avec icônes en puces --- */
+
+.icon-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-left: var(--space-4);
+}
+
+.icon-list_item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.icon-list_item svg {
+  flex-shrink: 0;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--color-primary-500);
+  margin-top: 2px;
+}
+
 .site-header_logo {
   font-family: var(--font-family-header);
   font-size: var(--font-size-base);
@@ -1738,28 +1762,6 @@ h2.section-title {
   line-height: var(--lh-relaxed);
 }
 
-.cf-situations_list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  margin-left: var(--space-4);
-}
-
-.cf-situations_item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-}
-
-.cf-situations_item svg {
-  flex-shrink: 0;
-  width: var(--icon-md);
-  height: var(--icon-md);
-  color: var(--color-primary-500);
-  margin-top: 2px;
-}
-
 .cf-situations_item p {
   font-family: var(--font-family-header);
   font-style: italic;
@@ -1879,30 +1881,6 @@ h2.section-title {
 
 /* --- Séance individuelle --- */
 
-.indiv-intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.indiv-intro_tarif {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-2);
-}
-
-.indiv-intro_tarif-price {
-  font-family: var(--font-family-header);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--fw-regular);
-  color: var(--color-primary-600);
-}
-
-.indiv-intro_tarif-detail {
-  font-size: var(--font-size-base);
-  color: var(--color-text-muted);
-}
-
 .indiv-intro_text {
   color: var(--color-text-default);
   line-height: var(--lh-relaxed);
@@ -1988,34 +1966,6 @@ h2.section-title {
 .indiv-how_integration a:hover {
   color: var(--color-primary-700);
   border-bottom-color: var(--color-primary-700);
-}
-
-.good-to-know {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.good-to-know_list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  margin-left: var(--space-4);
-}
-
-.good-to-know_item {
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
-}
-
-.good-to-know_item svg {
-  flex-shrink: 0;
-  width: var(--icon-md);
-  height: var(--icon-md);
-  color: var(--color-primary-500);
-  margin-top: 2px;
 }
 
 .good-to-know_item p {
