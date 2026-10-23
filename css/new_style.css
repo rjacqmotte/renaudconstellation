@@ -1373,6 +1373,17 @@ header,
   margin-block: var(--layout-agenda-list-margin-block);
 }
 
+/* --- Newsletter --- */
+.newsletter_inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.newsletter_button {
+  align-self: center;
+}
+
 /* --- Appel à contact partagé entre les pages --- */
 
 .section-title.cf-cta_title {
