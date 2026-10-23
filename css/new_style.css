@@ -2190,11 +2190,6 @@ h2.section-title {
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
-  padding: var(--space-5);
-  background-color: var(--color-bg-surface);
-  border-radius: var(--radius-5);
-  border: var(--border-width-1) solid var(--color-border-default);
-  box-shadow: var(--shadow-1);
 }
 
 .group-home_icon {
@@ -2221,8 +2216,7 @@ h2.section-title {
 }
 
 .group-home_text {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--color-text-default);
   line-height: var(--lh-relaxed);
 }
 
