@@ -112,6 +112,26 @@ Cette base de travail ne remplace pas des tests auprès de visiteurs ni un audit
 - Le responsive n'est pas une catégorie : les media queries seront placées près des règles concernées, en conservant une approche mobile-first.
 - La catégorie Pages ne sert pas de rangement par défaut pour les règles encore non classées.
 
+### Système de rôles typographiques
+
+Référence pour la refonte des autres pages. Chaque rôle `type-*` a une signature unique ; les classes utilitaires `u-text-*` fixent la couleur. La couleur **orange est réservée aux seules actions cliquables** ; tout le reste est foncé ou gris.
+
+| Rôle | Classe | Signature | Usage |
+|---|---|---|---|
+| Titre de page | `type-page-title` | serif 3xl regular foncé | H1 |
+| Titre de section | `type-section-title` | serif xl regular **gris** | H2 de section |
+| Sous-titre | `type-subtitle` | serif xl medium foncé | H3 fort, titre de carte, « Bonjour... » |
+| Titre d'item | `type-item-title` | serif lg medium foncé | date d'agenda |
+| Méta discret | `type-meta` | sans xs semibold MAJ **gris** | méta, label, catégorie, séparateur |
+| Accroche italique | `type-lead` | serif lg italic **gris** | tagline hero, citations |
+| Corps | `type-body` | sans 16 regular foncé | descriptions, paragraphes |
+| Action | `type-action` | sans sm semibold **orange** | liens « → », CTA |
+
+**Patterns retenus :**
+
+- **Titre de carte** : H3 en `type-meta` (méta discret) suivi d'un `type-subtitle` (titre fort). Identique dans les cartes services et « À propos ».
+- **Polices** : titres en Georgia (serif), corps en sans-serif neutre `'Segoe UI', 'Helvetica Neue', Arial`. Définies par `--font-family-header` et `--font-family-text` dans `variables.css`.
+
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
 
 

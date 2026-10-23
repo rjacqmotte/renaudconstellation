@@ -186,7 +186,7 @@
           titleLink.rel = 'noopener';
 
           const title = document.createElement('strong');
-          title.className = 'type-label u-text-primary-strong';
+          title.className = 'type-meta u-text-primary-strong';
           title.textContent = ev.summary;
           titleLink.appendChild(title);
           colWhat.appendChild(titleLink);

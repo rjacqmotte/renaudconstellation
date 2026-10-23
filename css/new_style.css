@@ -15,8 +15,9 @@
   --type-size-page-title: var(--font-size-3xl);
   --type-size-page-title-wide: var(--font-size-4xl);
   --type-size-section-title: var(--font-size-xl);
+  --type-size-subtitle: var(--font-size-xl);
   --type-size-item-title: var(--font-size-lg);
-  --type-size-body: var(--font-size-sm);
+  --type-size-body: var(--font-size-base);
   --type-size-lead: var(--font-size-lg);
   --type-size-label: var(--font-size-xs);
   --type-size-action: var(--font-size-sm);
@@ -947,7 +948,7 @@ header,
 .services_item_content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .services_item_type {
@@ -955,6 +956,7 @@ header,
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  margin-bottom: var(--space-1);
 }
 
 .services_item_header {
@@ -1153,13 +1155,12 @@ header,
 .about-me_intro {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .about-me_tagline {
-  font-size: var(--font-size-sm);
+  font-style: normal;
   color: var(--color-text-muted);
-  font-style: italic;
 }
 
 .about-me_text {
@@ -1280,6 +1281,7 @@ header,
   font-size: var(--type-size-lead);
   font-style: italic;
   line-height: var(--type-leading-body);
+  color: var(--color-text-muted);
 }
 
 :where(.page-home) .testimonial_author {
@@ -1575,7 +1577,7 @@ h2.section-title {
   line-height: var(--type-leading-compact);
 }
 
-:where(.page-home) .type-label {
+:where(.page-home) .type-meta {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-label);
@@ -1599,12 +1601,20 @@ h2.section-title {
   color: var(--color-text-muted);
 }
 
+:where(.page-home) .type-subtitle {
+  font-family: var(--type-font-heading);
+  font-size: var(--type-size-subtitle);
+  font-weight: var(--type-weight-medium);
+  line-height: var(--type-leading-heading);
+}
+
 :where(.page-home) .type-lead {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-lead);
   font-weight: var(--type-weight-regular);
   font-style: italic;
   line-height: var(--type-leading-body);
+  color: var(--color-text-muted);
 }
 
 :where(.page-home) .type-item-title {

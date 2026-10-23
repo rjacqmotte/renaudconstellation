@@ -1,8 +1,29 @@
 ## Journal — 23 octobre 2026
 
-### Agenda (5.4)
+### Rôles typographiques (5.5)
 
-#### Contraste et lisibilité (5.2)
+#### Décisions retenues
+
+- **Système de rôles `type-*`** défini : chaque rôle a une signature unique réutilisée partout. L'orange est réservé aux seules actions cliquables ; `type-meta` (ex-`type-label`) reste gris et discret.
+- **`type-label` renommé `type-meta`** : le nom décrit le rôle (méta discrète), pas la balise. Valable aussi dans le menu mobile.
+- **Nouveau rôle `type-subtitle`** : titre secondaire (H3 fort) distinct de `type-meta` (méta discret) et de `type-lead` (accroche italique).
+- **Italique unifié** : `type-lead` (serif italic gris) pour la tagline hero et les citations ; la tagline « À propos » devient un corps gris simple, sans italique détourné.
+- **Corps à 16 px foncé** : les descriptions passent de 14 px gris à 16 px foncé.
+- **Police du corps** : sans-serif neutre `'Segoe UI', 'Helvetica Neue', Arial`, qui tranche nettement avec les titres Georgia. Titres Georgia inchangés.
+- **Pattern titre/sous-titre** : H3 en `type-meta` (méta discret) suivi d'un `type-subtitle` (titre fort), identique dans les cartes services et « À propos ».
+
+#### Réalisé
+
+- Variable `--type-size-subtitle` et classe `type-subtitle` ajoutées dans `css/new_style.css`.
+- `type-label` renommé `type-meta` dans le CSS, le HTML (6 occurrences) et `JS/script.js`.
+- Réassignations : titres de cartes et « Bonjour, je m'appelle Renaud » en `type-subtitle` ; type de service en `type-meta` gris (orange retiré) ; citations et tagline hero en `type-lead` ; descriptions en 16 px foncé.
+- `--font-family-text` passé à la pile sans-serif neutre dans `css/variables.css`.
+- Espacements titre/sous-titre augmentés (cartes services 8→12 px, intro « À propos » 4→8 px).
+- Suppression de « Watermael-Boitsfort » du hero (utilisait encore l'ancien label).
+
+Validation : diagnostics CSS/HTML/JavaScript sans erreur, cinq tests du parseur réussis, `git diff --check` propre. Contrôle visuel : hiérarchie nette et cohérente entre sections.
+
+### Contraste et lisibilité (5.2)
 
 #### Décisions retenues
 
@@ -27,13 +48,15 @@ Validation : diagnostics CSS sans erreur, `git diff --check` propre. Attention :
 
 ### Agenda (5.4)
 
+#### Décisions retenues
+
 - **Adresse complète conservée** sur le site : elle reste visible sans devoir aller sur Mobilizon. Pas d'extraction partielle du lieu depuis le flux ICS, le parseur n'est pas modifié.
 - **Hiérarchie de l'événement** : le titre de l'atelier est désormais l'information marquante, l'adresse devient discrète.
 - **Lien dans le titre seul** : la destination « détails et inscription sur Mobilizon » reste annoncée par le titre, sans libellé supplémentaire.
 
 #### Réalisé
 
-- Inversion des rôles titre / adresse dans `JS/script.js`. Le titre reçoit le style `type-label` (majuscules, gras) et la couleur primaire forte ; l'adresse reçoit `type-body` en gris atténué.
+- Inversion des rôles titre / adresse dans `JS/script.js`. Le titre reçoit le style gras en majuscules et la couleur primaire forte ; l'adresse reçoit le corps en gris atténué.
 - Le lien du titre (`agenda-title`) garde son soulignement fin au repos, plus marqué au survol, désormais assorti à sa couleur primaire ; le focus clavier reste visible.
 - Structure de chaque événement passée en grille à deux colonnes : date et horaire alignés à gauche, titre et adresse alignés à droite. Colonne de gauche à `max-content`, droite à `1fr`, alignement par ligne de base. Remplace les anciennes lignes flex `agenda-primary`/`agenda-secondary`.
 - Aucun cadre ni bordure ajouté aux événements ; espacement interne resserré, les 48 px entre événements sont conservés.
