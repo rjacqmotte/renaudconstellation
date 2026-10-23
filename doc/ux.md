@@ -149,6 +149,26 @@ Bloc réutilisable `.card` (catégorie 3, Composants) qui porte le socle commun 
 - **Rayon unifié** à `radius-4` (8 px) sur toutes les cartes ; la bordure orange gauche des services est retirée.
 - Les changements de fond, d'ombre ou de rayon des cartes se font désormais **à un seul endroit**.
 
+### Composant liste à icônes
+
+Bloc réutilisable `.icon-list` (catégorie 3) : liste sobre dont chaque item est précédé d'une icône en guise de puce.
+
+```css
+.icon-list { /* liste verticale, léger retrait à gauche */ }
+.icon-list_item { /* icône + texte alignés, icône 20 px orange */ }
+```
+
+- **Usage** : `icon-list` sur le `ul`, `icon-list_item` sur chaque `li` contenant un `<svg>` suivi du texte.
+- Partagé par les sections « Tu te reconnais » (citations en `type-lead`) et « À savoir » (texte normal). Le texte garde son propre rôle selon le contexte.
+
+### Boutons sur fond foncé
+
+Les boutons du design system ont des variantes pour les fonds foncés via la classe de contexte `.on-dark` sur le conteneur.
+
+- `.on-dark .button--primary` : fond orange plein, texte clair.
+- `.on-dark .button--transparent` : transparent, bordure et texte clairs.
+- Même forme et police que les boutons standards ; seules les couleurs changent. Utilisé par le CTA à fond foncé.
+
 ### Pattern de section
 
 Toutes les sections de contenu partagent la même ossature : colonne verticale avec un écart entre le titre et le contenu. Ce socle est défini **une seule fois en Base** :

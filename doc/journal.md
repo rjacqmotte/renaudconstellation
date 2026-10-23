@@ -1,5 +1,19 @@
 ## Journal — 23 octobre 2026
 
+### Page constellations-familiales : migration et peaufinage
+
+#### Réalisé
+
+- **`mobilizonParser.js` chargé** dans le `<head>` : il manquait, l'agenda était cassé (le loading restait bloqué). C'était la cause racine.
+- **Sections migrées** : rôles `type-*` appliqués, `.card` sur les blocs concernés, pattern de section hérité de la Base, gap des sections rendu responsive (64 → 96 → 128 px selon la largeur).
+- **Listes sobre** : « Tu te reconnais » et « À savoir » transformées en listes sans cartes, icônes 20 px en guise de puces. Nouveau composant partagé `.icon-list`.
+- **Groupe à domicile** : titre sorti du cadre, `.card` appliqué, texte et lien alignés sur le design system.
+- **CTA** : titre sorti du cadre foncé, boutons du design system avec variantes `.on-dark`, texte clair (contraste 10,65), boutons centrés.
+- **Nettoyage** : règles de conteneur redondantes vidées (`.indiv-intro`, `.good-to-know`), styles morts retirés (`.indiv-intro_tarif*`), classes renommées (`indiv-pratique` → `good-to-know`).
+- **Relecture UI-UX** desktop et mobile : hiérarchie claire, aucun débordement, contrastes suffisants. Restent du chantier en cours : placeholder d'image du hero vide, bouton Newsletter non fonctionnel, ordre des sections à valider.
+
+Validation : diagnostics CSS/HTML sans erreur, `git diff --check` propre. 86 suppressions contre 36 ajouts : le design system a permis de retirer beaucoup de code dupliqué.
+
 ### Migration des pages : constellations-familiales
 
 #### Décisions retenues
