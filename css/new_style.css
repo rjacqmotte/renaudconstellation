@@ -1070,6 +1070,7 @@ header,
 .keys-info_item_detail {
   font-size: var(--font-size-sm);
   line-height: var(--lh-snug);
+  padding: var(--space-1) 0;
 }
 
 .keys-info_link {
