@@ -1748,21 +1748,9 @@ h2.section-title {
 
 /* --- Constellations familiales --- */
 
-.cf-intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
 .cf-intro_text {
   color: var(--color-text-default);
   line-height: var(--lh-relaxed);
-}
-
-.cf-situations {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
 }
 
 .cf-situations_list {
@@ -1795,7 +1783,7 @@ h2.section-title {
   font-style: italic;
   font-size: var(--font-size-base);
   line-height: var(--lh-relaxed);
-  color: var(--color-text-default);
+  color: var(--color-text-muted);
 }
 
 .cf-situations_closing {
@@ -1808,10 +1796,6 @@ h2.section-title {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: var(--space-5);
-  background-color: var(--color-bg-surface);
-  border-radius: var(--radius-4);
-  border-left: var(--border-width-3) solid var(--color-primary-400);
 }
 
 .cf-how_text {

@@ -1,5 +1,21 @@
 ## Journal — 23 octobre 2026
 
+### Migration des pages : constellations-familiales
+
+#### Décisions retenues
+
+- **Méthode d'extension du scope** : la page rejoint le design system via `class="page-home"` sur son `<html>`, qui active les rôles `:where(.page-home)`. La page passe en mode chantier : erreurs et casse momentanées acceptées.
+- **Section formules laissée en l'état** : elle sera refaite plus tard ; ses casses (titres 16 px, fond gray-50) ne sont pas corrigées.
+
+#### Réalisé
+
+- Rôles appliqués : H1 `type-page-title`, quote hero `type-lead`, titres de section `type-section-title`, corps `type-body`, méta `type-meta`.
+- Citations des situations alignées sur l'italic gris (cohérent avec `type-lead`).
+- Bloc « Comment ça se passe » adopté `.card` (fond, ombre, rayon unifiés), bordure orange retirée.
+- Flex redondants des sections retirés (hérités de la règle Base).
+
+Validation : diagnostics CSS/HTML sans erreur, `git diff --check` propre. Casse restante concentrée dans la section formules, volontairement reportée.
+
 ### Composants et structure (5.5, suite)
 
 #### Réalisé
