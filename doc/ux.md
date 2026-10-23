@@ -9,7 +9,8 @@ Une personne qui découvre le site doit comprendre rapidement **quelle activité
 ## 2. Décisions validées
 
 - **Information principale** : « Constellations familiales et d'entreprises à Bruxelles ». La phrase poétique est secondaire et peut être retirée si elle ajoute du bruit.
-- **Premier choix** : familial ou entreprise, avec deux accès distincts dès le premier écran. Ne pas proposer individuel/groupe comme choix sur l'accueil ; les formats se découvrent sur les pages dédiées, selon les offres réellement disponibles.
+- **Premier choix** : familial ou entreprise. Sur grand écran, le hero propose deux accès distincts ; sur les supports plus petits, ses CTA sont volontairement masqués pour alléger la page, car les deux offres et leurs liens apparaissent juste après. Ce masquage n'est pas un défaut à corriger.
+- **Informations pratiques** : les formats, prix, durées et modalités sont rattachés aux pages Constellations familiales et Constellations d'entreprises. Ne pas réintroduire de bloc « En pratique » sur l'accueil ; y conserver la localisation générale et l'agenda de groupe.
 - **Témoignages** : garder les textes fictifs pour travailler la maquette, puis les masquer sur le site publié tant qu'il n'y a pas de citations réelles, exactes et autorisées.
 
 ## 3. Parcours de référence
@@ -19,21 +20,55 @@ Une personne qui découvre le site doit comprendre rapidement **quelle activité
 - Une brève présentation de Renaud et un lien vers « À propos » permettent de mieux connaître l'accompagnant.
 - Le contact reste facile à trouver dans la navigation, l'interface mobile et le pied de page, sans devenir un passage obligatoire pour obtenir des informations publiables.
 
-La position de la présentation personnelle et la répartition des informations pratiques restent à décider.
+**Évolution envisagée, pas encore décidée** : les pages Individuel et Groupes pourraient disparaître au profit des deux pages de domaines. Leurs informations utiles, notamment l'option « Chez vous », devront alors être conservées et leurs liens réorientés. Ne pas supprimer ces pages dans le cadre du peaufinage de l'accueil.
+
+La position de la présentation personnelle reste à décider.
 
 ## 4. Questions encore ouvertes
 
-- **Informations pratiques** : confirmer le retrait du bloc générique « En pratique » et le déplacement des prix, durées et modalités vers les pages des offres. Garder la localisation générale et les dates sur l'accueil. Vérifier que chaque information reste accessible, y compris la possibilité « Chez vous », qui n'est pas un simple doublon.
+- **Textes des offres** : comment expliquer brièvement l'accompagnement avec des mots concrets, sans alourdir l'accueil ni promettre un résultat ? Les formulations proposées devront être validées.
+- **Agenda** : quel libellé rend le passage vers les détails et l'inscription Mobilizon le plus clair ?
 - **Présentation de Renaud** : avant ou après les dates ?
 - **Contact** : quels canaux privilégier parmi téléphone, courriel, Signal et WhatsApp ?
 - **Témoignages réels** : des citations autorisées sont-elles disponibles ? Sinon, masquer la section à la publication ; un éventuel contenu de remplacement reste à discuter.
 
-## 5. Priorités de mise en page
+## 5. Points prioritaires pour peaufiner l'accueil
 
-1. **Clarifier la hiérarchie** : distinguer message principal, sections et détails. Réserver les cartes aux contenus qui bénéficient d'une séparation ou d'une comparaison ; alléger les sections éditoriales.
-2. **Harmoniser les titres et les espaces** : un H1 pour la page, des H2 pour les sections et des H3 pour les sous-niveaux utiles. Réutiliser les styles communs et garder des distances cohérentes entre sections, titres et contenus.
-3. **Éviter les répétitions inutiles** : chaque bloc doit avoir un rôle clair. Ne conserver un résumé pratique sur l'accueil que s'il aide réellement à choisir, sans recréer une série de cartes.
-4. **Relire sur mobile et ordinateur** : vérifier la visibilité des deux accès, la lecture des dates et des titres longs, les liens et les moyens de contact avant d'étendre les conventions aux autres pages.
+Synthèse croisée avec [l'analyse UI-UX du 14 octobre](analyse%20ux-ui-14oct.md). Les mesures ci-dessous proviennent de cette relecture, avant la réorganisation du CSS ; elles ne constituent pas une nouvelle vérification de l'état actuel. Les recommandations de remettre des informations pratiques sur l'accueil ou de réafficher les CTA du hero sur petit écran ne sont pas retenues, conformément aux décisions ci-dessus.
+
+### 5.1 Navigation et accessibilité
+
+- **Débordement observé à 768 et 1024 px** : le contenu du menu atteignait environ 1108 px, avec des liens hors écran. Vérifier puis adapter le seuil du menu horizontal à la largeur réellement nécessaire ; garder le hamburger tant que le menu ne tient pas.
+- **Menu desktop annoncé comme caché** : `aria-hidden="true"` restait présent au chargement alors que les liens étaient visibles. Vérifier la cohérence de cet état au chargement et lors des changements de largeur.
+- Contrôler le menu au clavier, ouvert et fermé, ainsi que les liens et la barre de contact mobile.
+
+### 5.2 Contraste et lisibilité
+
+- **Contrastes mesurés** : environ 3,55:1 pour les descriptions de services et 3,07:1 pour les titres de section. Viser au moins 4,5:1 pour ces textes de taille normale, en assombrissant les couleurs de texte plutôt qu'en changeant toute l'ambiance.
+- Les descriptions à 14 px pourraient passer à 16 px : proposition à tester selon la densité et la lisibilité, pas une décision acquise.
+
+### 5.3 Compréhension des offres
+
+- Rendre les descriptions plus concrètes pour une personne qui ne connaît pas les constellations ; éviter de s'appuyer uniquement sur « dynamiques cachées » ou « tensions systémiques ».
+- Raccourcir et équilibrer les titres des deux offres : celui des entreprises était nettement plus long.
+- Revoir la portée de « Soigner les blessures émotionnelles », qui exprime une promesse forte ; envisager une formulation centrée sur l'accompagnement ou l'exploration, à valider.
+- Garder les deux liens d'offres faciles à repérer après le hero sur petit écran, sans réintroduire les CTA masqués ni les choix individuel/groupe.
+
+### 5.4 Agenda et accès à l'inscription
+
+- Renforcer l'ordre de lecture : date et titre de l'atelier d'abord, horaire et lieu ensuite. La longue adresse en majuscules ne doit pas concurrencer les informations principales.
+- Préférer un lieu visuellement discret ; si un lieu court est retenu, éviter de recréer un nettoyage complexe du flux ICS. Le détail complet reste accessible sur la fiche Mobilizon.
+- Rendre explicite la destination du lien d'événement : détails et inscription sur Mobilizon. Le bouton transparent vers l'ensemble des événements reste une action secondaire.
+
+### 5.5 Hiérarchie, rythme et confiance
+
+- Distinguer message principal, sections et détails ; limiter les fonds, bordures et ombres qui donnent le même poids à tous les blocs.
+- Harmoniser les espaces entre sections, titres et contenus. Garder un H1 pour la page, des H2 pour les sections et des H3 pour les sous-niveaux utiles, avec les styles communs.
+- Conserver la simplicité des citations et tester des longueurs raisonnables sur mobile, sans ajouter de cartes décoratives.
+- Évaluer la place de la présentation de Renaud et le poids de son fond presque blanc, qui attirait fortement l'œil. Son déplacement reste une proposition, pas une décision.
+- Préserver les points d'appui : photo réelle, typographie à empattements, boutons transparents et barre de contact mobile. Pas de refonte générale nécessaire.
+
+**Ordre de travail proposé** : navigation et accessibilité, contraste, textes et agenda, puis ajustements de rythme. Valider chaque point avant de l'appliquer et avant d'étendre les conventions aux autres pages.
 
 ## 6. Critères de validation
 
@@ -76,13 +111,4 @@ Cette base de travail ne remplace pas des tests auprès de visiteurs ni un audit
 
 > **Remarque de migration :** l'ordre CSS actuel fait partie du comportement. Le rapatriement précède le tri ; le déplacement des règles et de leurs media queries doit préserver la cascade. Le bloc temporaire « à ranger » disparaîtra une fois le classement terminé. Cette organisation ne valide aucune nouvelle décision de contenu ou de design.
 
-### Avancement au 14 octobre 2026
 
-- Rapatriement effectué dans `new_style.css`, dans l'ordre historique : `style.css`, `pages.css`, `desktop.css`, puis les ajustements de l'accueil.
-- Les sept pages chargent désormais `variables.css` et `new_style.css`. Les trois anciennes feuilles ont été supprimées après vérification de l'absence de références dans le site.
-- Les ajustements auparavant réservés à l'accueil restent limités à cette page grâce à la classe `page-home` sur son élément `html`. Le préfixe `:where(.page-home)` n'ajoute aucune spécificité aux sélecteurs existants.
-- Vérification de la conservation des déclarations et comparaison des styles calculés sur les sept pages à 390, 768 et 1440 px : aucun écart après stabilisation du chargement des événements.
-- Classement global effectué dans les catégories 0 à 6 : les blocs de provenance et la zone « à ranger » sont remplacés par des sous-sections par composant ou par page, avec leurs media queries à proximité.
-- Les états propres aux composants restent avec eux ; la catégorie 4 est réservée et vide pour le moment. Les variables primitives restent dans `variables.css`.
-- Les 371 règles sont conservées avec leurs sélecteurs, déclarations et conditions responsive inchangés. Les doublons et les surcharges sont volontairement conservés ; leur simplification fera l'objet d'une étape distincte.
-- Validation du classement : 70 comparaisons de styles calculés sur les sept pages à 390, 768, 960, 1024 et 1440 px, menu ouvert et fermé, sans écart. Le contenu de l'agenda est fixé dans le navigateur de test pour éviter les variations du chargement externe.
