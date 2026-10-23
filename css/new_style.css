@@ -2009,6 +2009,42 @@ h2.section-title {
   border-bottom-color: var(--color-primary-700);
 }
 
+.group-pratique {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.group-pratique_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-left: var(--space-4);
+}
+
+.group-pratique_item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.group-pratique_item svg {
+  flex-shrink: 0;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--color-primary-500);
+  margin-top: 2px;
+}
+
+.group-pratique_item p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-default);
+  line-height: var(--lh-relaxed);
+}
+
+/* --- Version historique utilisée par individuel.html et groupes.html (non migrées) --- */
+
 .indiv-pratique {
   display: flex;
   flex-direction: column;
