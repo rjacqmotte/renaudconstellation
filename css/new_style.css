@@ -71,7 +71,7 @@
   :root:where(.page-home) {
     --layout-page-gutter: var(--space-9);
     --layout-service-card-padding: var(--space-6);
-    --layout-section-gap: var(--space-10);
+    --layout-section-gap: var(--space-9);
   }
 }
 
