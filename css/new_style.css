@@ -1407,8 +1407,7 @@ header,
   padding: var(--space-6) var(--space-5);
   background-color: var(--color-gray-900);
   border-radius: var(--radius-5);
-  text-align: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .cf-cta_title {
@@ -1416,10 +1415,8 @@ header,
 }
 
 .cf-cta_text {
-  color: var(--color-gray-400);
-  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
   line-height: var(--lh-relaxed);
-  max-width: 36ch;
 }
 
 .cf-cta_actions {
@@ -1427,50 +1424,13 @@ header,
   flex-direction: column;
   gap: var(--space-3);
   width: 100%;
-}
-
-.cf-cta_btn {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-3);
-  font-weight: var(--fw-semibold);
-  font-size: var(--font-size-sm);
-  border-bottom: none;
-  transition: background-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out);
 }
 
-.cf-cta_btn svg {
+.cf-cta_actions svg {
   width: var(--icon-md);
   height: var(--icon-md);
   flex-shrink: 0;
-}
-
-.cf-cta_btn--primary {
-  background-color: var(--color-primary-500);
-  color: var(--color-gray-50);
-}
-
-.cf-cta_btn--primary:hover {
-  background-color: var(--color-primary-600);
-  color: var(--color-gray-50);
-  border-bottom: none;
-}
-
-.cf-cta_btn--secondary {
-  background-color: transparent;
-  color: var(--color-gray-300);
-  border: var(--border-width-1) solid var(--color-gray-700);
-  border-bottom: var(--border-width-1) solid var(--color-gray-700);
-}
-
-.cf-cta_btn--secondary:hover {
-  background-color: var(--color-gray-800);
-  color: var(--color-gray-100);
-  border-bottom: var(--border-width-1) solid var(--color-gray-700);
 }
 
 @media (min-width: 768px) {
@@ -1478,11 +1438,6 @@ header,
   .cf-cta_actions {
     flex-direction: row;
     justify-content: center;
-    width: auto;
-  }
-
-  .cf-cta_btn {
-    min-width: 200px;
   }
 }
 
@@ -1495,6 +1450,7 @@ header,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-2);
   max-width: 100%;
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
@@ -1556,6 +1512,35 @@ header,
 :where(.page-home) .button:focus-visible {
   outline: var(--border-width-focus) solid var(--color-primary-500);
   outline-offset: 2px;
+}
+
+/* Variantes sur fond foncé : même forme et police, couleurs adaptées. */
+:where(.page-home) .on-dark .button--primary {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-gray-50);
+}
+
+:where(.page-home) .on-dark .button--primary:hover {
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: var(--color-gray-50);
+}
+
+:where(.page-home) .on-dark .button--transparent {
+  background-color: transparent;
+  border-color: var(--color-gray-700);
+  color: var(--color-gray-300);
+}
+
+:where(.page-home) .on-dark .button--transparent:hover {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-700);
+  color: var(--color-gray-100);
+}
+
+:where(.page-home) .on-dark .button:focus-visible {
+  outline-color: var(--color-primary-400);
 }
 
 /* --- Typographie et liens de texte ---
