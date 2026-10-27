@@ -524,7 +524,7 @@ header,
   opacity: 1;
 }
 
-@media (min-width: 2100px) {
+@media (min-width: 1100px) {
 
   .nav-toggle {
     display: none;
@@ -542,6 +542,7 @@ header,
     box-shadow: none;
     transition: none;
     /* Contraindre le menu à la largeur du contenu, contenu centré */
+    width: auto;
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 var(--space-8);

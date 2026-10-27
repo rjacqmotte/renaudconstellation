@@ -15,7 +15,7 @@
 
   // --- Desktop : le menu horizontal apparaît à partir de 1100 px (là où il tient) ---
   function isDesktop() {
-    return window.innerWidth >= 2100;
+    return window.innerWidth >= 1100;
   }
 
   // --- Au chargement : aria-hidden cohérent avec la visibilité réelle ---
