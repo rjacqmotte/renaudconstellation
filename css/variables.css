@@ -252,6 +252,8 @@
 
   --color-focus-ring: hsl(220 84% 54% / 0.35);
 
+  --color-dots-list: var(--color-primary-600);
+
   /* Button tokens */
   --color-btn-filled-bg: var(--color-primary-300);
   --color-btn-filled-bg-hover: var(--color-primary-400);

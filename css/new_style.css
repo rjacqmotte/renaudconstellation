@@ -119,7 +119,6 @@ h2 {
 h3 {
   font-size: var(--font-size-xl);
   line-height: var(--lh-normal);
-  font-weight: var(--fw-bold);
 }
 
 p,
@@ -131,12 +130,12 @@ label {
 a {
   font-family: var(--font-family-text);
   color: var(--color-link);
-  border-bottom: solid 2px var(--color-link);
+  border-bottom: solid 0px var(--color-link);
   transition: border-color 0.3s ease-out;
 }
 
 a:hover {
-  border-bottom: solid var(--border-width-2) var(--color-link-hover);
+  /*border-bottom: solid var(--border-width-2) var(--color-link-hover);*/
 }
 
 /* Sections de contenu : colonne verticale, écart entre titre et contenu.
@@ -302,7 +301,7 @@ header,
   flex-shrink: 0;
   width: var(--icon-md);
   height: var(--icon-md);
-  color: var(--color-primary-500);
+  color: var(--color-dots-list);
   margin-top: 2px;
 }
 
@@ -313,7 +312,7 @@ header,
   width: 8px;
   height: 8px;
   border-radius: var(--radius-round);
-  background-color: var(--color-primary-500);
+  background-color: var(--color-dots-list);
   margin-top: 7px;
 }
 
@@ -1532,7 +1531,7 @@ header,
 
 /* --- Boutons du design system : accueil --- */
 
-:where(.page-home) .button {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1553,31 +1552,31 @@ header,
               border-color var(--duration-fast) var(--ease-out);
 }
 
-:where(.page-home) .button--primary {
+.button--primary {
   background-color: var(--color-action-primary-bg-soft);
   border-color: var(--color-border-default);
   color: var(--color-primary-600);
 }
 
-:where(.page-home) .button--primary:hover {
+.button--primary:hover {
   background-color: var(--color-primary-200);
   border-color: var(--color-primary-400);
   color: var(--color-primary-700);
 }
 
-:where(.page-home) .button--transparent {
+.button--transparent {
   background-color: transparent;
   border-color: var(--color-border-default);
   color: var(--color-primary-600);
 }
 
-:where(.page-home) .button--transparent:hover {
+.button--transparent:hover {
   background-color: var(--color-primary-200);
   border-color: var(--color-primary-400);
   color: var(--color-primary-700);
 }
 
-:where(.page-home) .button--text {
+.button--text {
   min-height: 0;
   padding: 0;
   border: 0;
@@ -1590,42 +1589,42 @@ header,
               border-bottom-color var(--duration-fast) var(--ease-out);
 }
 
-:where(.page-home) .button--text:hover {
+.button--text:hover {
   color: var(--color-primary-700);
   border-bottom-color: var(--color-primary-700);
 }
 
-:where(.page-home) .button:focus-visible {
+.button:focus-visible {
   outline: var(--border-width-focus) solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
 /* Variantes sur fond foncé : même forme et police, couleurs adaptées. */
-:where(.page-home) .on-dark .button--primary {
+.on-dark .button--primary {
   background-color: var(--color-primary-500);
   border-color: var(--color-primary-500);
   color: var(--color-gray-50);
 }
 
-:where(.page-home) .on-dark .button--primary:hover {
+.on-dark .button--primary:hover {
   background-color: var(--color-primary-600);
   border-color: var(--color-primary-600);
   color: var(--color-gray-50);
 }
 
-:where(.page-home) .on-dark .button--transparent {
+.on-dark .button--transparent {
   background-color: transparent;
   border-color: var(--color-gray-700);
   color: var(--color-gray-300);
 }
 
-:where(.page-home) .on-dark .button--transparent:hover {
+.on-dark .button--transparent:hover {
   background-color: var(--color-gray-800);
   border-color: var(--color-gray-700);
   color: var(--color-gray-100);
 }
 
-:where(.page-home) .on-dark .button:focus-visible {
+.on-dark .button:focus-visible {
   outline-color: var(--color-primary-400);
 }
 
@@ -1641,27 +1640,27 @@ h2.section-title {
   margin-bottom: var(--space-4);
 }
 
-:where(.page-home) .type-brand {
+.type-brand {
   font-family: var(--type-font-heading);
   font-size: var(--font-size-base);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-brand);
 }
 
-:where(.page-home) .type-caption {
+.type-caption {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-regular);
 }
 
-:where(.page-home) .type-navigation {
+.type-navigation {
   font-family: var(--type-font-body);
   font-size: var(--type-size-navigation);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-compact);
 }
 
-:where(.page-home) .type-meta {
+.type-meta {
   font-family: var(--type-font-body);
   font-size: var(--type-size-label);
   font-weight: var(--type-weight-label);
@@ -1670,14 +1669,14 @@ h2.section-title {
   text-transform: uppercase;
 }
 
-:where(.page-home) .type-page-title {
+.type-page-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-page-title);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-heading);
 }
 
-:where(.page-home) h2.type-section-title {
+h2.type-section-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-section-title);
   font-weight: var(--type-weight-regular);
@@ -1685,14 +1684,14 @@ h2.section-title {
   color: var(--color-text-muted);
 }
 
-:where(.page-home) .type-subtitle {
+.type-subtitle {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-subtitle);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-heading);
 }
 
-:where(.page-home) .type-lead {
+.type-lead {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-lead);
   font-weight: var(--type-weight-regular);
@@ -1701,29 +1700,29 @@ h2.section-title {
   color: var(--color-text-muted);
 }
 
-:where(.page-home) .type-item-title {
+.type-item-title {
   font-family: var(--type-font-heading);
   font-size: var(--type-size-item-title);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-leading-heading);
 }
 
-:where(.page-home) .type-body {
+.type-body {
   font-family: var(--type-font-body);
   font-size: var(--type-size-body);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-leading-body);
 }
 
-:where(.page-home) .type-action {
+.type-action {
   font-family: var(--type-font-body);
   font-size: var(--type-size-action);
   font-weight: var(--type-weight-action);
   line-height: var(--type-leading-compact);
 }
 
-:where(.page-home) .type-text-link,
-:where(.page-home) #mobilizon-events .agenda-title {
+.type-text-link,
+#mobilizon-events .agenda-title {
   border-bottom: 0;
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -1731,18 +1730,18 @@ h2.section-title {
   text-underline-offset: 0.16em;
 }
 
-:where(.page-home) #mobilizon-events .agenda-title,
-:where(.page-home) #mobilizon-events .agenda-title:hover {
+#mobilizon-events .agenda-title,
+#mobilizon-events .agenda-title:hover {
   color: var(--color-primary-700);
 }
 
-:where(.page-home) .type-text-link:hover,
-:where(.page-home) #mobilizon-events .agenda-title:hover {
+.type-text-link:hover,
+#mobilizon-events .agenda-title:hover {
   text-decoration-thickness: var(--border-width-2);
 }
 
-:where(.page-home) .type-text-link:focus-visible,
-:where(.page-home) #mobilizon-events .agenda-title:focus-visible {
+.type-text-link:focus-visible,
+#mobilizon-events .agenda-title:focus-visible {
   outline: var(--border-width-focus) solid currentColor;
   outline-offset: 2px;
 }
@@ -2259,37 +2258,6 @@ h2.section-title {
 
 /* --- À propos --- */
 
-.about-page {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  padding-bottom: var(--space-8);
-}
-
-.about-page_header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-}
-
-.about-page_portrait-wrapper {
-  width: 120px;
-  height: 120px;
-}
-
-.about-page_title {
-  font-size: var(--font-size-3xl);
-}
-
-.about-page_body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.about-page_section-title {
-  margin-top: var(--space-2);
-}
 
 .aboutp-intro {
   display: flex;
@@ -2297,27 +2265,6 @@ h2.section-title {
   gap: var(--space-4);
 }
 
-.aboutp-closing {
-  font-style: italic;
-  color: var(--color-text-muted);
-}
-
-.aboutp-mock {
-  color: var(--color-primary-600);
-  font-style: italic;
-  opacity: var(--opacity-muted);
-}
-
-.aboutp-link {
-  font-size: inherit;
-  color: var(--color-primary-600);
-  border-bottom-color: transparent;
-}
-
-.aboutp-link:hover {
-  color: var(--color-primary-700);
-  border-bottom-color: var(--color-primary-700);
-}
 
 .about-page_header-text {
   display: flex;
@@ -2332,11 +2279,11 @@ h2.section-title {
   padding-bottom: var(--space-8);
 }
 
-.aboutp-thanks_intro {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: var(--lh-relaxed);
-  font-style: italic;
+.aboutp-thanks-list {
+  display: flex;
+  flex-direction: column;
+  gap:var(--space-5);
+  margin-top: var(--space-5);
 }
 
 .aboutp-thanks_content {
@@ -2345,30 +2292,6 @@ h2.section-title {
   gap: var(--space-1);
 }
 
-.aboutp-thanks_name {
-  font-weight: var(--fw-semibold);
-  color: var(--color-text-default);
-}
-
-.aboutp-thanks_role {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: var(--lh-relaxed);
-}
-
-.aboutp-thanks_link {
-  font-size: var(--font-size-sm);
-  font-weight: var(--fw-semibold);
-  color: var(--color-primary-600);
-  border-bottom-color: transparent;
-  transition: color var(--duration-fast) var(--ease-out),
-              border-bottom-color var(--duration-fast) var(--ease-out);
-}
-
-.aboutp-thanks_link:hover {
-  color: var(--color-primary-700);
-  border-bottom-color: var(--color-primary-700);
-}
 
 @media (min-width: 768px) {
 
