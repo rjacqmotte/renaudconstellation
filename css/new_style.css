@@ -1826,57 +1826,6 @@ h2.type-section-title {
   font-style: italic;
 }
 
-/* --- Ateliers en groupe --- */
-
-.group-home_inner {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
-}
-
-.group-home_icon {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-round);
-  background-color: var(--color-action-primary-bg-soft);
-  color: var(--color-primary-600);
-}
-
-.group-home_icon svg {
-  width: var(--icon-lg);
-  height: var(--icon-lg);
-}
-
-.group-home_content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.group-home_text {
-  color: var(--color-text-default);
-  line-height: var(--lh-relaxed);
-}
-
-.group-home_link {
-  font-size: var(--font-size-sm);
-  font-weight: var(--fw-semibold);
-  color: var(--color-primary-600);
-  border-bottom-color: transparent;
-  align-self: flex-start;
-  transition: color var(--duration-fast) var(--ease-out),
-              border-bottom-color var(--duration-fast) var(--ease-out);
-}
-
-.group-home_link:hover {
-  color: var(--color-primary-700);
-  border-bottom-color: var(--color-primary-700);
-}
-
 /* --- Comment ça se passe : sections et composition avec sidebar --- */
 
 .how-hero_intro {
