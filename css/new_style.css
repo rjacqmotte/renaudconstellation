@@ -1826,19 +1826,6 @@ h2.type-section-title {
   font-style: italic;
 }
 
-/* --- Séance individuelle --- */
-
-.indiv-intro_text {
-  color: var(--color-text-default);
-  line-height: var(--lh-relaxed);
-}
-
-.good-to-know_item p {
-  font-size: var(--font-size-base);
-  color: var(--color-text-default);
-  line-height: var(--lh-relaxed);
-}
-
 /* --- Ateliers en groupe --- */
 
 .group-home_inner {
